@@ -1,1 +1,451 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zurich AI Safety</title>
+<meta name="description" content="Zurich AI Safety is a group of students, researchers and professionals working on the long-term safety of artificial intelligence.">
+<meta property="og:title" content="Zurich AI Safety">
+<meta property="og:description" content="A group of students, researchers and professionals working on the long-term safety of artificial intelligence.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zurich.aisafety.ch/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/"><span class="brand__mark"></span>Zurich AI Safety</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M2 4h12M2 8h12M2 12h12"/>
+      </svg>
+      <span class="nav-toggle__label">Menu</span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/events/">Events</a>
+      <a href="/ai-futures/">AI Futures</a>
+      <a href="/agisf/">Fundamentals Programme</a>
+      <a href="/discussion-group/">Discussion Group</a>
+      <a href="/ml-bootcamp/">ML bootcamp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= Hero ================= -->
+  <section class="hero">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <h1 class="display">Let&rsquo;s make sure AI development happens safely.</h1>
+          <div class="actions">
+            <a class="btn btn--primary" href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener">
+              Join the community <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="btn btn--ghost" href="#programmes">See what we run</a>
+          </div>
+        </div>
+        <figure class="hero__figure">
+          <img src="/assets/img/hero-illustration.jpg" alt="Collage illustration of an anatomical drawing of a human head and brain, overlaid with the word SOLVE" width="1000" height="800">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Intro ================= -->
+  <section class="band band--white">
+    <div class="wrap">
+      <p class="lede">
+        We are a group of students, researchers, and professionals interested in, and working on
+        the long-term safety of artificial intelligence. Our goal is to help ensure that future
+        powerful AI systems are safe. For those who are new to AI Safety, we provide an AI Safety
+        Fundamentals course. Furthermore, we run a seminar where we read and discuss recent
+        research papers, we sometimes collaborate on research projects and more!
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= Get involved ================= -->
+  <section class="band band--sand" id="programmes">
+    <div class="wrap">
+      <div class="split">
+        <div class="split__aside">
+          <p class="eyebrow">01</p>
+          <h2>Get involved!</h2>
+        </div>
+
+        <div>
+          <p class="prose" style="margin-bottom:2rem">
+            Join our <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener">WhatsApp Community</a>
+            to stay informed about future events and programs.
+          </p>
+
+          <div class="accordion">
+            <details class="acc" open>
+              <summary>
+                <span class="acc__num">01</span>
+                <span class="acc__title">AI Futures Discussions</span>
+                <span class="acc__icon" aria-hidden="true"></span>
+              </summary>
+              <div class="acc__body">
+                <p>Discussions about AI, how it will shape the future and how we can guide it&rsquo;s impact.</p>
+                <a class="link-arrow" href="/ai-futures/">Learn More</a>
+              </div>
+            </details>
+
+            <details class="acc">
+              <summary>
+                <span class="acc__num">02</span>
+                <span class="acc__title">AI Safety Fundamentals Course</span>
+                <span class="acc__icon" aria-hidden="true"></span>
+              </summary>
+              <div class="acc__body">
+                <p>A 6-week course that introduces its participants to the technical foundations of
+                AI safety research. By the end, you will have an overview of the most important
+                techniques that researchers are developing to make AI safe.</p>
+                <a class="link-arrow" href="/agisf/">Learn More</a>
+              </div>
+            </details>
+
+            <details class="acc">
+              <summary>
+                <span class="acc__num">03</span>
+                <span class="acc__title">Paper Reading Group</span>
+                <span class="acc__icon" aria-hidden="true"></span>
+              </summary>
+              <div class="acc__body">
+                <p>The reading group meets regularly to discuss topics in AI safety, with a general
+                focus on recent research and the technical aspects and implications of such topics.</p>
+                <a class="link-arrow" href="/discussion-group/">Learn more</a>
+              </div>
+            </details>
+
+            <details class="acc">
+              <summary>
+                <span class="acc__num">04</span>
+                <span class="acc__title">Research</span>
+                <span class="acc__icon" aria-hidden="true"></span>
+              </summary>
+              <div class="acc__body">
+                <p>Interested to work on AI safety topics? In our community you can meet like-minded
+                people, discuss ideas or recent research, and maybe even work together and
+                participate in a hackathon or a group research project! In the past, some of these
+                projects have led to publications at top ML conferences (see below).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Upcoming events ================= -->
+  <section class="band band--white">
+    <div class="wrap">
+      <div class="split">
+        <div class="split__aside">
+          <p class="eyebrow">02</p>
+          <h2>Upcoming Events</h2>
+        </div>
+        <div class="calendar">
+          <iframe src="https://lu.ma/embed/calendar/cal-jsHCkgSvHjHTPe9/events"
+                  title="Zurich AI Safety events calendar"
+                  allowfullscreen loading="lazy"
+                  aria-hidden="false"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Papers ================= -->
+  <section class="band band--deep">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="wrap">
+      <div style="margin-bottom:clamp(2rem,4vw,3rem)">
+        <p class="eyebrow">03</p>
+        <h2 class="display">Some cool projects from our members</h2>
+      </div>
+
+      <div class="papers">
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/abs/2603.09517" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-subliminal-learning.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/abs/2603.09517" target="_blank" rel="noopener">You Didn&rsquo;t Have to Say It like That: Subliminal Learning from Faithful Paraphrases</a>
+            </h3>
+            <p class="paper__authors">Isaia Gisler, Zhonghao He, Tianyi Qiu</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>When language models are trained on synthetic data, they (student model) can
+                covertly acquire behavioral traits from the data-generating model (teacher model).
+                Subliminal learning refers to the transmission of traits from a teacher to a student
+                model via training on data unrelated to those traits. Prior work demonstrated this in
+                the training domains of number sequences, code, and math Chain-of-Thought traces
+                including transmission of misaligned behaviors. We investigate whether transmission
+                occurs through natural language paraphrases with fixed semantic content, and whether
+                content explicitly contradicting the teacher's preference can block it. We find that
+                training on paraphrases from a teacher system-prompted to love a particular animal
+                increases a student's preference for that animal by up to 19 percentage points. This
+                occurs when paraphrased content is semantically unrelated to the animal, or even when
+                it explicitly expresses dislike. The transmission succeeds despite aggressive
+                filtering to ensure paraphrase fidelity. This raises concerns for pipelines where
+                models generate their own training data: content-based inspection cannot detect such
+                transmission, and even preference-contradicting content fails to prevent it.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/abs/2602.12316" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-gt-harmbench.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/abs/2602.12316" target="_blank" rel="noopener">GT-HarmBench: Benchmarking AI Safety Risks Through the Lens of Game Theory</a>
+            </h3>
+            <p class="paper__authors">Pepijn Cobben, Xuanqiang Angelo Huang, Thao Amelia Pham, Isabel Dahlgren, Terry Jingchen Zhang, Zhijing Jin</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>Frontier AI systems are increasingly capable and deployed in high-stakes
+                multi-agent environments. However, existing AI safety benchmarks largely evaluate
+                single agents, leaving multi-agent risks such as coordination failure and conflict
+                poorly understood. We introduce GT-HarmBench, a benchmark of 2,009 high-stakes
+                scenarios spanning game-theoretic structures such as the Prisoner's Dilemma, Stag
+                Hunt and Chicken. Scenarios are drawn from realistic AI risk contexts in the MIT AI
+                Risk Repository. Across 15 frontier models, agents choose socially beneficial actions
+                in only 62% of cases, frequently leading to harmful outcomes. We measure sensitivity
+                to game-theoretic prompt framing and ordering, and analyze reasoning patterns driving
+                failures. We further show that game-theoretic interventions improve socially
+                beneficial outcomes by up to 18%. Our results highlight substantial reliability gaps
+                and provide a broad standardized testbed for studying alignment in multi-agent
+                environments. The benchmark and code are available at
+                <a href="https://github.com/causalNLP/gt-harmbench" target="_blank" rel="noopener">this https URL</a>.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/pdf/2306.09983.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-consistency-checks.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/pdf/2306.09983.pdf" target="_blank" rel="noopener">Evaluating Superhuman Models with Consistency Checks</a>
+            </h3>
+            <p class="paper__authors">Lukas Fluri, Daniel Paleka, Florian Tram&egrave;r</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>If machine learning models were to achieve superhuman abilities at various
+                reasoning or decision-making tasks, how would we go about evaluating such models,
+                given that humans would necessarily be poor proxies for ground truth? In this paper,
+                we propose a framework for evaluating superhuman models via consistency checks. Our
+                premise is that while the correctness of superhuman decisions may be impossible to
+                evaluate, we can still surface mistakes if the model&rsquo;s decisions fail to satisfy
+                certain logical, human-interpretable rules. We instantiate our framework on three
+                tasks where correctness of decisions is hard to evaluate due to either superhuman
+                model abilities, or to otherwise missing ground truth: evaluating chess positions,
+                forecasting future events, and making legal judgments. We show that regardless of a
+                model&rsquo;s (possibly superhuman) performance on these tasks, we can discover logical
+                inconsistencies in decision making. For example: a chess engine assigning opposing
+                valuations to semantically identical boards; GPT-4 forecasting that sports records
+                will evolve non-monotonically over time; or an AI judge assigning bail to a defendant
+                only after we add a felony to their criminal record</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/pdf/2305.19223.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-agency-foundations.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/pdf/2305.19223.pdf" target="_blank" rel="noopener">Intent-aligned AI systems deplete human agency: the need for agency foundations research in AI safety</a>
+            </h3>
+            <p class="paper__authors">Catalin Mitelut, Ben Smith, Peter Vamplew</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>The rapid advancement of artificial intelligence (AI) systems suggests that
+                artificial general intelligence (AGI) systems may soon arrive. Many researchers are
+                concerned that AIs and AGIs will harm humans via intentional misuse (AI-misuse) or
+                through accidents (AI-accidents). In respect of AI-accidents, there is an increasing
+                effort focused on developing algorithms and paradigms that ensure AI systems are
+                aligned to what humans intend, e.g. AI systems that yield actions or recommendations
+                that humans might judge as consistent with their intentions and goals. Here we argue
+                that alignment to human intent is insufficient for safe AI systems and that
+                preservation of long-term agency of humans may be a more robust standard, and one
+                that needs to be separated explicitly and a priori during optimization. We argue that
+                AI systems can reshape human intention and discuss the lack of biological and
+                psychological mechanisms that protect humans from loss of agency. We provide the
+                first formal definition of agency-preserving AI-human interactions which focuses on
+                forward-looking agency evaluations and argue that AI systems &mdash; not humans &mdash; must be
+                increasingly tasked with making these evaluations. We show how agency loss can occur
+                in simple environments containing embedded agents that use temporal-difference
+                learning to make action recommendations. Finally, we propose a new area of research
+                called "agency foundations" and pose four initial topics designed to improve our
+                understanding of agency in AI-human interactions: benevolent game theory, algorithmic
+                foundations of human rights, mechanistic interpretability of agency representation in
+                neural-networks and reinforcement learning from internal states.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/pdf/2210.04610.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-red-teaming.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/pdf/2210.04610.pdf" target="_blank" rel="noopener">Red-Teaming the Stable Diffusion Safety Filter</a>
+            </h3>
+            <p class="paper__authors">Javier Rando, Daniel Paleka, David Lindner, Lennart Heim, Florian Tram&egrave;r</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>Stable Diffusion is a recent open-source image generation model comparable to
+                proprietary models such as DALL&middot;E, Imagen, or Parti. Stable Diffusion comes with a
+                safety filter that aims to prevent generating explicit images. Unfortunately, the
+                filter is obfuscated and poorly documented. This makes it hard for users to prevent
+                misuse in their applications, and to understand the filter&rsquo;s limitations and improve
+                it. We first show that it is easy to generate disturbing content that bypasses the
+                safety filter. We then reverse-engineer the filter and find that while it aims to
+                prevent sexual content, it ignores violence, gore, and other similarly disturbing
+                content. Based on our analysis, we argue safety measures in future model releases
+                should strive to be fully open and properly documented to stimulate security
+                contributions from the community.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/pdf/2204.14146v2.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-language-feedback.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/pdf/2204.14146v2.pdf" target="_blank" rel="noopener">Training Language Models with Natural Language Feedback</a>
+            </h3>
+            <p class="paper__authors">J&eacute;r&eacute;my Scheurer, Jon Ander Campos, Jun Shern Chan, Angelica Chen, Kyunghyun Cho, Ethan Perez</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>Pretrained language models often do not perform tasks in ways that are in line
+                with our preferences, e.g., generating offensive text or factually incorrect
+                summaries. Recent work approaches the above issue by learning from a simple form of
+                human evaluation: comparisons between pairs of model-generated task outputs.
+                Comparison feedback conveys limited information about human preferences per human
+                evaluation. Here, we propose to learn from natural language feedback, which conveys
+                more information per human evaluation. We learn from language feedback on model
+                outputs using a three-step learning algorithm. First, we condition the language model
+                on the initial output and feedback to generate many refinements. Second, we choose
+                the refinement with the highest similarity to the feedback. Third, we finetune a
+                language model to maximize the likelihood of the chosen refinement given the input.
+                In synthetic experiments, we first evaluate whether language models accurately
+                incorporate feedback to produce refinements, finding that only large language models
+                (175B parameters) do so. Using only 100 samples of human-written feedback, our
+                learning algorithm finetunes a GPT-3 model to roughly human-level summarization
+                ability.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/pdf/2206.06761.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-dino.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/pdf/2206.06761.pdf" target="_blank" rel="noopener">Exploring Adversarial Attacks and Defenses in Vision Transformers trained with DINO</a>
+            </h3>
+            <p class="paper__authors">Javier Rando, Nasib Naimi, Thomas Baumann, Max Mathys</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>This work conducts the first analysis on the robustness against adversarial
+                attacks on self-supervised Vision Transformers trained using DINO. First, we evaluate
+                whether features learned through self-supervision are more robust to adversarial
+                attacks than those emerging from supervised learning. Then, we present properties
+                arising for attacks in the latent space. Finally, we evaluate whether three
+                well-known defense strategies can increase adversarial robustness in downstream tasks
+                by only fine-tuning the classification head to provide robustness even in view of
+                limited compute resources. These defense strategies are: Adversarial Training,
+                Ensemble Adversarial Training and Ensemble of Specialized Networks.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="paper">
+          <a class="paper__thumb" href="https://arxiv.org/pdf/2101.12509.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="/assets/img/paper-impact-regularizers.png" alt="" loading="lazy">
+          </a>
+          <div class="paper__body">
+            <h3 class="paper__title">
+              <a href="https://arxiv.org/pdf/2101.12509.pdf" target="_blank" rel="noopener">Challenges for Using Impact Regularizers to Avoid Negative Side Effects</a>
+            </h3>
+            <p class="paper__authors">David Lindner, Kyle Matoba, Alexander Meulemans</p>
+            <details class="acc">
+              <summary><span class="acc__title">Abstract</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>Designing reward functions for reinforcement learning is difficult: besides
+                specifying which behavior is rewarded for a task, the reward also has to discourage
+                undesired outcomes. Misspecified reward functions can lead to unintended negative
+                side effects, and overall unsafe behavior. To overcome this problem, recent work
+                proposed to augment the specified reward function with an impact regularizer that
+                discourages behavior that has a big impact on the environment. Although initial
+                results with impact regularizers seem promising in mitigating some types of side
+                effects, important challenges remain. In this paper, we examine the main current
+                challenges of impact regularizers and relate them to fundamental design decisions. We
+                discuss in detail which challenges recent approaches address and which remain
+                unsolved. Finally, we explore promising directions to overcome the unsolved
+                challenges in preventing negative side effects with impact regularizers.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p>&copy; Website designed by Zurich AI Safety, 2025</p>
+    <nav aria-label="Footer">
+      <a href="/events/">Events</a>
+      <a href="/ai-futures/">AI Futures</a>
+      <a href="/agisf/">Fundamentals Programme</a>
+      <a href="/discussion-group/">Discussion Group</a>
+      <a href="/ml-bootcamp/">ML bootcamp</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
