@@ -1,10 +1,14 @@
 # zurich.aisafety.ch
 
-Rebuild of the Zurich AI Safety website, moving off Squarespace. Plain HTML, CSS and a few
-lines of JavaScript — no build step, no dependencies, no framework.
+Rebuild of the Zurich AI Safety website, moving off Squarespace. Plain HTML, CSS and a little
+JavaScript — no build step, no dependencies, no framework.
 
-**Status:** design prototype. Content is a verbatim port of the live Squarespace site; the
-design is new. **Not live yet — the Squarespace site at zurich.aisafety.ch is untouched.**
+**Status:** design prototype. **Not live — the Squarespace site at zurich.aisafety.ch is
+untouched.**
+
+The pages are a conversion of the Claude Design canvas export in `temporary/ZAIS - Website`.
+Content and layout come from the artboards verbatim; see
+[docs/brand-system.md](docs/brand-system.md) for exactly what the conversion changed.
 
 ---
 
@@ -14,7 +18,7 @@ You need a local web server. Asset paths are root-relative (`/assets/...`), so o
 directly with `file://` resolves them against your drive root and **nothing will load** — no
 CSS, no images. This is the single most common thing to get stuck on.
 
-Any static server works. From the repo root:
+From the repo root:
 
 ```bash
 python -m http.server 4321
@@ -22,7 +26,7 @@ python -m http.server 4321
 
 Then open <http://localhost:4321>. Leave that terminal open — closing it stops the server.
 
-No Python? Any of these do the same job:
+No Python? Either of these does the same job:
 
 ```bash
 npx serve -l 4321
@@ -33,7 +37,7 @@ php -S localhost:4321
 ```
 
 If you use Claude Code or a similar agent, `.claude/launch.json` is committed, so the agent can
-start the server itself rather than shelling out.
+start the server itself.
 
 ### After editing CSS, hard-refresh
 
@@ -42,184 +46,143 @@ Browsers cache `site.css` aggressively and you will chase phantom bugs otherwise
 
 ---
 
-## Layout
+## Pages
+
+| Route | Artboard |
+|---|---|
+| `/` | ZAIS Home Page |
+| `/about/` | ZAIS About |
+| `/get-involved/` | ZAIS Get Involved |
+| `/research/` | ZAIS Research |
+| `/swiss-ai-safety-days/` | ZAIS Swiss AI Safety Days |
+| `/events/` | ZAIS Luma Calendar |
+| `/ai-safety-fundamentals/` | ZAIS AI Safety Fundamentals |
+| `/ml-bootcamp/` | ZAIS ML Bootcamp |
+| `/paper-reading-group/` | ZAIS Paper Reading Group |
+| `/ai-futures/` | ZAIS AI Futures Discussions |
 
 ```
-index.html              Home
-events/index.html       /events
-ai-futures/index.html   /ai-futures
-agisf/index.html        /agisf
-discussion-group/       /discussion-group
-ml-bootcamp/            /ml-bootcamp
+assets/css/site.css     Base, dropdowns, disclosure, breakpoints, reduced motion
+assets/css/hover.css    Generated from the artboards' style-hover attributes
+assets/js/site.js       The two carousels
+assets/js/hero-shader.js  WebGL hero gradient, ported from the export
+assets/img/             21 images copied out of the export
 
-assets/css/site.css     The whole design system — tokens first, then components
-assets/js/site.js       Sticky-header state + mobile nav toggle. That is all it does.
-assets/img/             Hero illustration, 8 paper thumbnails, favicon
-
-docs/original-site-inventory.md   What the Squarespace site contained, captured 2026-08-24
-docs/brand-system.md              Brand guidelines as implemented, incl. extracted gradients
+docs/brand-system.md            The design system as built, and what the conversion changed
+docs/original-site-inventory.md What the old Squarespace site contained (historical record)
+temporary/ZAIS - Website/       The Claude Design export. Git-ignored; not served.
 ```
-
-Pages live in directories so the URLs stay clean (`/events/`, not `/events.html`) on any host.
-
----
-
-## The design system
-
-Everything lives in CSS custom properties at the top of `assets/css/site.css`. Colour and type
-come from the ZAIS Brand Guidelines (2026) — see [docs/brand-system.md](docs/brand-system.md)
-for the full mapping, including the gradient stops extracted from the PDF artwork.
-
-**Type:** Inter only, per Fonts p.2. Hierarchy is weight, not family — Light 300 for display,
-Regular 400 for body, Semi Bold 600 for UI, Bold 700 for emphasis.
-
-**Colour:** warm sand `#F1EFE8` pages and white cards, deep navy `#010D2C` bands, brand red
-`#DE2C00` as the accent on every surface.
-
-**Gradients:** `--grad-main` (`#2F80B1 → #102E60 → #DE2C00 → #FF5C33 → #CFC5B4`) appears as a
-3px hairline at every light/dark seam, in the header mark, and in the favicon. Dark bands carry
-an "aurora" — five soft radial blobs on `mix-blend-mode: hard-light`, drifting on 34–64s loops,
-all disabled under `prefers-reduced-motion`.
-
-**Page rhythm:** a stack of full-bleed bands, one idea each, alternating tone. Every page opens
-on a dark hero so the header can sit transparent over it and gain a blurred navy background on
-scroll.
-
-There is no dark mode. The guidelines define one palette, and the light/dark band rhythm
-already carries the visual variety.
 
 ---
 
 ## Contributing
 
-### The rules that matter
+**1. The markup is machine-generated and keeps its inline styles.** That is deliberate — it is
+what makes the pages pixel-identical to the artboards. Don't "tidy" the inline styles into
+classes without agreeing it first; you will lose the guarantee that the site matches the
+design.
 
-**1. Don't add a build step.** No npm, no bundler, no framework. Anyone on the team should be
-able to open a file, edit it, and refresh. If you think a build step is genuinely needed,
-raise it before writing code — it changes who can maintain this.
+**2. Don't add a build step.** No npm, no bundler, no framework.
 
-**2. The header and footer are duplicated across all six pages.** That is the price of no
-build step. Change the nav in one file, change it in all six. Grep to be sure:
+**3. Header and footer are duplicated across all ten pages.** Change the nav in one, change it
+in all ten. Grep to be sure:
 
 ```bash
-grep -rn "ML bootcamp" --include=*.html .
+grep -rln "Open Meetups" --include=index.html .
 ```
 
-**3. Never hardcode a colour, size or font.** Use the tokens. If you find yourself typing a
-hex code outside the token blocks at the top of `site.css`, stop — either a token exists or
-the design needs a new one.
+**4. Colour and type live in the markup, not in tokens.** The export ships a `tokens/` folder,
+but its values disagree with the artboards — see the warning at the top of
+[docs/brand-system.md](docs/brand-system.md). Take values from the rendered pages.
 
-**4. Light and dark surfaces share one set of component rules.** Dark bands (`.band--deep`,
-`.hero`, `.page-hero`, `.site-footer`) re-declare the semantic tokens — `--ink`, `--surface`,
-`--accent`, `--rule` — and every component picks the change up automatically.
+**5. Nav dropdowns are pure CSS** (`:hover` / `:focus-within`). Don't reintroduce JS for them;
+the CSS version is keyboard-accessible and the canvas version was not.
 
-Do **not** write `.band--deep .my-thing { color: ... }` overrides. If you add a component that
-must stay light inside a dark band, re-declare the light tokens on the component itself, the
-way `.paper` does.
+**6. Hover rules need `!important`.** Inline styles beat class rules, so `hover.css` cannot
+work without it. Add new hover states there, in the same form.
 
-**5. Content is a verbatim port.** Every sentence matches the old Squarespace site on purpose,
-so the two can be compared without confounds. Don't quietly reword. Content fixes are a
-separate pass — known stale copy is marked `TODO (content pass)`.
-
-**6. Accessibility bar.** One `<h1>` per page. Alt text on every image. A `<label>` for every
-input. WCAG AA contrast, with one documented exception (below). Any animation must be inside a
-`prefers-reduced-motion` guard.
-
-**7. Root-relative asset paths** (`/assets/...`), never relative (`../assets/...`).
-
-### The one accessibility exception
-
-Small text set in brand red `#DE2C00` measures **4.08–4.09:1** on the navy and sand
-backgrounds — just under the 4.5:1 AA threshold. It passes at 4.70:1 on white. This affects
-eyebrows, section numbers and inline links, and it is a deliberate brand decision, not an
-oversight. It is the only exception on the site.
-
-If strict AA becomes a requirement, swap `--accent` to `#A81900` on light and `#FF5C33` on
-dark — both documented brand shades, a two-line change. See
-[docs/brand-system.md](docs/brand-system.md).
+**7. Any animation goes inside a `prefers-reduced-motion` guard.**
 
 ### Checking your change
 
-Serve the site, open the console, and paste this. It audits every page for contrast failures
-and horizontal overflow, and it is the same check used while building:
+Serve the site, open the console, and paste this. It checks every page for horizontal
+overflow and broken links or images:
 
 ```js
 (async () => {
-  const pages = ['/','/events/','/ai-futures/','/agisf/','/discussion-group/','/ml-bootcamp/'];
-  const lum = c => { const m=c.match(/[\d.]+/g).map(Number); const [r,g,b]=m.slice(0,3)
-    .map(v=>{v/=255; return v<=.03928? v/12.92 : ((v+.055)/1.055)**2.4;}); return .2126*r+.7152*g+.0722*b; };
-  const ratio = (a,b) => { const [x,y]=[lum(a),lum(b)].sort((m,n)=>n-m); return +((x+.05)/(y+.05)).toFixed(2); };
+  const pages = ['/','/about/','/get-involved/','/research/','/swiss-ai-safety-days/','/events/',
+                 '/ai-safety-fundamentals/','/ml-bootcamp/','/paper-reading-group/','/ai-futures/'];
   const f = document.createElement('iframe');
-  f.style.cssText='position:fixed;inset:0;width:1400px;height:900px;opacity:0;pointer-events:none;z-index:-9';
+  f.style.cssText='position:fixed;inset:0;height:900px;opacity:0;pointer-events:none;z-index:-9;border:0';
   document.body.appendChild(f);
-  for (const p of pages) {
-    await new Promise(r => { f.onload = r; f.src = p + '?v=' + Date.now(); });
-    const d = f.contentDocument, w = f.contentWindow;
-    await d.fonts.ready; await new Promise(r=>setTimeout(r,200));
-    const bg = el => { let e=el; while (e && e!==d.documentElement) {
-      if (e.matches('.paper')) return 'rgb(255,255,255)';
-      if (e.matches('.hero,.page-hero,.band--deep,.site-footer,.site-header')) return 'rgb(1,13,44)';
-      const b=w.getComputedStyle(e).backgroundColor;
-      if (b && !/rgba\(0, 0, 0, 0\)/.test(b) && !/rgba\([^)]+,\s*0?\.\d+\)/.test(b)) return b;
-      e=e.parentElement; } return 'rgb(241,239,232)'; };
-    const bad = [];
-    d.querySelectorAll('p,a,li,h1,h2,h3,h4,span,label,summary,button').forEach(e => {
-      if (!e.textContent.trim() || e.closest('.aurora') || e.classList.contains('skip-link')) return;
-      if (e.children.length && ![...e.childNodes].some(n=>n.nodeType===3 && n.textContent.trim())) return;
-      const cs = w.getComputedStyle(e);
-      if (cs.display==='none' || cs.visibility==='hidden') return;
-      const px = parseFloat(cs.fontSize), wt = +cs.fontWeight;
-      const need = (px>=24 || (px>=18.66 && wt>=700)) ? 3 : 4.5;
-      const b = e.closest('.btn') && !/rgba\(0, 0, 0, 0\)/.test(w.getComputedStyle(e.closest('.btn')).backgroundColor)
-              ? w.getComputedStyle(e.closest('.btn')).backgroundColor : bg(e);
-      const r = ratio(cs.color, b);
-      if (r < need) bad.push(`${r}<${need} ${cs.color} "${e.textContent.trim().slice(0,28)}"`);
-    });
-    const over = [...d.querySelectorAll('body *')].filter(e => {
-      const r=e.getBoundingClientRect(), cs=w.getComputedStyle(e);
-      return r.width>0 && r.right>d.documentElement.clientWidth+1
-             && cs.position!=='absolute' && cs.position!=='fixed'; }).length;
-    console.log(p, '| overflow:', over, '| contrast issues:', [...new Set(bad)]);
+  const urls = new Set();
+  for (const w of [1440, 768, 375]) {
+    f.style.width = w + 'px';
+    for (const p of pages) {
+      await new Promise(r => { f.onload = r; f.src = p + '?v=' + Date.now(); });
+      const d = f.contentDocument, win = f.contentWindow;
+      await d.fonts.ready; await new Promise(r => setTimeout(r, 120));
+      const sw = d.documentElement.scrollWidth, cw = d.documentElement.clientWidth;
+      if (sw > cw + 1) console.warn(`OVERFLOW ${p} @${w}px  ${sw} > ${cw}`);
+      if (w === 1440) {
+        d.querySelectorAll('a[href^="/"]').forEach(a => urls.add(a.getAttribute('href')));
+        d.querySelectorAll('img[src]').forEach(i => urls.add(i.getAttribute('src')));
+        [...d.querySelectorAll('*')].forEach(e => {
+          const m = win.getComputedStyle(e).backgroundImage.match(/url\("([^"]+)"\)/);
+          if (m && !m[1].startsWith('data:')) urls.add(new URL(m[1]).pathname);
+        });
+      }
+    }
   }
   f.remove();
+  const bad = (await Promise.all([...urls].map(async u =>
+    ({u, s: (await fetch(u, {cache:'no-store'})).status})))).filter(r => r.s !== 200);
+  console.log(bad.length ? bad : `all ${urls.size} links and assets OK`);
 })();
 ```
 
-Expected result: `overflow: 0` on every page, and the only contrast issues reported are
-`rgb(222, 44, 0)` at 4.08/4.09 — the documented brand-red exception. **Anything else is a
-regression you introduced.**
-
-Also check by hand: 375px wide (mobile nav opens and closes), and that the accordions still
-work with the keyboard.
+Expected: no `OVERFLOW` warnings, and `all N links and assets OK`.
 
 ---
 
 ## Notes for coding agents
 
-- Read [docs/brand-system.md](docs/brand-system.md) before touching colour or type. The
-  gradient values there were extracted from the source PDFs and are not guessable.
-- Read [docs/original-site-inventory.md](docs/original-site-inventory.md) before touching
-  copy. It records what the Squarespace original said, which is the spec.
-- Rules 1–7 above are not stylistic preferences. Rule 4 in particular is load-bearing: adding
-  `.band--deep .foo` overrides will break cards that sit inside dark bands.
+- Read [docs/brand-system.md](docs/brand-system.md) first. It records which parts of the export
+  contradict each other and which one wins.
+- The artboards in `temporary/ZAIS - Website/*.dc.html` are the spec. If you change a page,
+  you are diverging from the design — say so explicitly rather than doing it silently.
 - There is no test suite. The console snippet above is the regression check — run it and paste
   the result rather than asserting the change is fine.
-- The site must work with JavaScript disabled apart from the mobile nav. Accordions are native
-  `<details>`; keep them that way.
+- The site works with JavaScript disabled apart from the two carousels and the hero animation.
+  Keep it that way.
 
 ---
 
 ## Before this can go live
 
-1. **The four contact forms do not submit anywhere.** They are marked `action="#"` with a
-   `TODO` comment. Squarespace was handling these; we need Formspree, Netlify Forms, a Google
-   Form, or a `mailto:` fallback.
-2. **Check the hero illustration's licence.** It is a stock editorial collage carried over
-   from the Squarespace site.
-3. **Stale content**, ported verbatim and marked with `TODO (content pass)` comments:
-   `/ml-bootcamp` still says "not offered in Fall 2025" and "spring semester of 2025";
-   `/ai-futures` promises a six-part series but lists five sessions.
-4. **Dropped from the old site:** `/shop` and `/cart` (orphaned 2022 conference tickets in
-   GBP, not linked from anywhere), and an empty Squarespace calendar widget on `/agisf`.
-5. **Set up redirects** from the old Squarespace paths. They already match (`/events`,
-   `/agisf`, …), but confirm on the host before cutover.
+1. **Turn off the editorial notes.** The artboards carry `TO CONFIRM` / `TO WRITE` annotations
+   addressed to the ZAIS team — 16 of them across eight pages. They are reproduced faithfully because
+   they are part of the design, but they must not ship. Add `class="hide-editorial-notes"` to
+   `<body>` on every page, or delete the `.editorial-note` blocks.
+2. **The content is placeholder in places.** The notes themselves say so — dates for the next
+   AISF intake and AI Futures series, the whole ML Bootcamp format, the three bracketed
+   paragraphs of the ZAIS story on `/about/`, and the timeline milestones ("check every date,
+   partner name and attendance figure before publishing").
+3. **Two nav destinations don't exist.** "Open Meetups" and "Themed Events" appear in the
+   Programmes dropdown and the footer on all ten pages, pointing at `#`. The footer LinkedIn
+   link is also `#`.
+4. ~~Images are 27.6 MB.~~ **Done** — compressed to 2.6 MB (90% smaller). Each image is
+   resized to roughly twice its rendered size and re-encoded as progressive JPEG at q82. No
+   image in the set used transparency, so the two PNGs became JPEGs. Full-resolution originals
+   remain in the git-ignored export. One loose end: the four team portraits exist twice under
+   different names (`Lukas_Fluri.jpg` and `team-lukas-fluri.jpg`, etc.) because the Home and
+   About artboards reference different copies — about 220 KB of duplication, worth deduping if
+   anyone touches those pages.
+5. **Two Airtable forms are linked** from `/swiss-ai-safety-days/`. Confirm they are the
+   intended live forms. Note there is no contact form anywhere else on the site — the old
+   Squarespace pages had four, and the design replaces them with email and WhatsApp links.
+6. **The Luma calendar is not embedded yet** — `/events/` carries a note saying to add the live
+   widget at build time.
+7. **Set up redirects** from the old Squarespace paths. `/events`, `/ai-futures` and
+   `/ml-bootcamp` carry over unchanged; `/agisf` now lives at `/ai-safety-fundamentals/` and
+   `/discussion-group` at `/paper-reading-group/`.

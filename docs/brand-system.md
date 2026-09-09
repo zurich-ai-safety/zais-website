@@ -1,125 +1,101 @@
-# Brand system as implemented
+# Design system as built
 
-Source: `Zais-BrandGuidelines-Colors.pdf` and `Zais-BrandGuidelines-Fonts.pdf` (2026).
-Everything below is in `assets/css/site.css` as custom properties.
+The site is a conversion of the Claude Design canvas export in
+`temporary/ZAIS - Website`. **The artboards are the source of truth** — the values below were
+read back out of the generated pages, not copied from a spec.
 
-The gradient stops were extracted from the PDF's vector shading dictionaries, not eyeballed —
-they are the exact values in the artwork.
+> Two documents in the export disagree with the artboards. `readme.md` describes an earlier
+> iteration (concrete grey `#CACACA`, orange `#F24C27`, Geist-only, two weights) and
+> `tokens/colors.css` a second one (cream `#F6F2E2`, accent `#DE2C00`). Neither matches what
+> the pages actually render. `tokens/borders.css` also references six variables that no
+> longer exist (`--zais-orange`, `--zais-bone`, `--zais-concrete-50`, `--zais-concrete-25`,
+> `--zais-bone-18`, `--zais-concrete-18`), so those rules would resolve to nothing.
+> **Worth reconciling in Claude Design before anyone builds against the token files.**
 
 ---
 
+## Palette as rendered
+
+| Hex | Uses | Role |
+|---|---|---|
+| `#020522` | 245 | Ink — body copy, headings, rules |
+| `#FFFFFF` | 228 | White sections, text on accent |
+| `#CC3E1F` | 223 | The single accent — eyebrows, links, buttons, tags |
+| `#F7F3E7` | 73 | Page background, cream cards |
+| `#F1EBDA` | 42 | Dropdown hover, deeper cream |
+| `#C7C0B6` | 20 | Hero base under the shader |
+| `#E8492A` | 20 | Hero gradient hot stop |
+| `#28282E` | 10 | Footer |
+| `#0F0B33` | 1 | "Why Zurich" dark band |
+| `#FBF8EF` | 1 | "Upcoming" band |
+
+Supporting hero-gradient stops: `#D8D2C8`, `#DB4E2C`, `#C9AC99`, `#D1CBC1`, `#F2A48F`.
+Panel and avatar fills: `#FAF9F5`, `#EAE2CE`.
+
 ## Type
 
-Fonts p.2 only, so **Inter is the only typeface**. Hierarchy comes from weight and size, not
-from mixing families.
+Three families, all from Google Fonts:
 
-| Role | Weight | Where |
+| Family | Weights | Used for |
 |---|---|---|
-| Display — h1, section headings | **300 Light** | `.display`, `.split__aside h2`, `.lede`, `.subhead` |
-| Body | 400 Regular | paragraphs, list copy |
-| UI — nav, buttons, labels, card titles, eyebrows | **600 Semi Bold** | `.eyebrow`, `.btn`, `.nav a`, `.paper__title` |
-| Emphasis | **700 Bold** | `.callout__label` |
+| **Geist** | 300, 400, 500, 600 | Display headings, stat numerals, the wordmark |
+| **Inter** | 400, 500, 600 | Body copy, nav, buttons, card titles |
+| **JetBrains Mono** | 400, 500 | Eyebrows, dates, tags, counters, footer column heads |
 
-The guidelines showcase Light / Semi Bold / Bold. Regular 400 is added for body copy — Light
-at 16–17px is too thin to hold up as running text. Flag it if you'd rather run body at 300.
+34 distinct font sizes appear across the pages — the artboards size each element directly
+rather than working from a scale.
 
-Geist (Fonts p.1) and JetBrains Mono (p.3) are not used, per your instruction to work from
-p.2 only. JetBrains Mono would be the obvious pick if you later want mono treatment on dates,
-author lines and paper metadata.
+## Signatures
 
-## Primary palette — Colors p.1
+- **1.5px dashed outlines** on buttons, icon badges, footer social pills and the stat strip.
+- **Pill buttons** (`border-radius: 100px`); everything else is square.
+- **No shadows** except the nav dropdown panel.
+- Container is `max-width: 80rem` with `clamp(1.25rem, 4vw, 2.5rem)` gutters, on every section.
+- Section rhythm is `clamp(64px, 8vw, 104px)` top and bottom.
 
-| Hex | Token | Role on the site |
-|---|---|---|
-| `#DE2C00` | `--red-700` | Accent on every surface. Buttons, eyebrows, links, gradient midpoint. |
-| `#C3CBD6` | `--blue-300` | Muted text on dark bands. |
-| `#E3DFD5` | `--warm-200` | Image placeholder backgrounds. |
-| `#FFFFFF` | `--brand-white` | Card and light-band surfaces. |
-| `#102E60` | `--blue-700` | Gradient stop; brand mark. |
+## The hero shader
 
-## Shade ramps — Colors p.2
+`assets/js/hero-shader.js` is a WebGL mesh gradient — eight colour blobs drifting in place.
+It is a direct port of the export's `shader-hero.jsx`: the GLSL and the uniform table are
+copied verbatim and only the React wrapper was replaced, so the render is identical.
 
-```
-red    #A81900  #DE2C00  #FF5C33  #FF7C5C  #FFC8BA
-warm   #857C6D  #B2A894  #CFC5B4  #E3DFD5  #F1EFE8   #FFFFFF
-blue   #010D2C  #102E60  #2F80B1  #C3CBD6  #DDE4E8
-```
+It degrades safely. The hero section paints its own CSS radial-gradient stack underneath, so
+if WebGL is unavailable the canvas is hidden and the static gradient shows through. Motion
+stops under `prefers-reduced-motion`, when the tab is hidden, and when the hero scrolls out
+of view.
 
-> The last blue swatch is labelled `#857C6D` in the PDF but its RGB reads 221/228/232. That is
-> a copy-paste slip in the document — the RGB value (`#DDE4E8`) fits the ramp, so that is what
-> is implemented. Worth fixing in the source file.
+Verified: both shaders compile clean, the program links, no GL errors, and a forced frame
+samples `#0c0524` navy top-left → `#ff2600` orange centre → `#fdf9e9` cream bottom-right.
 
-## Gradients — Colors p.4
+## How the conversion works
 
-Stops at 0 / 20 / 45 / 65 / 100, exactly as the page annotates.
+`.dc.html` artboards carry Design-Canvas-specific markup. The conversion rewrites only that,
+and leaves every inline style untouched — verified: all 2,689 style attributes across the ten
+pages are byte-identical to the artboards apart from asset paths.
 
-| Token | Stops |
+| Canvas construct | Becomes |
 |---|---|
-| `--grad-main` | `#2F80B1` → `#102E60` → `#DE2C00` → `#FF5C33` → `#CFC5B4` |
-| `--grad-red` | `#A81900` → `#DE2C00` → `#FF5C33` → `#FF7C5C` → `#FFC8BA` |
-| `--grad-blue` | `#010D2C` → `#102E60` → `#2F80B1` → `#C3CBD6` → `#DDE4E8` |
-| `--grad-warm` | `#857C6D` → `#B2A894` → `#CFC5B4` → `#E3DFD5` → `#F1EFE8` |
+| `<x-dc>`, `<helmet>`, `<script type="text/x-dc">` | stripped |
+| `style-hover="…"` | a `[data-hv="hvN"]:hover` rule in `assets/css/hover.css` |
+| `<sc-if value hint-placeholder-val>` | resolved against the default |
+| `onMouseEnter` / `onClick` | `data-menu` / `data-action`, handled in `site.js` |
+| `<x-import ShaderBackground>` | `<canvas class="hero-shader">` |
+| `ZAIS%20Foo.dc.html` | the real route |
 
-`--grad-main` appears as a 3px hairline wherever a dark band meets a light one, in the header
-brand mark, and in the favicon. It is the only place the whole palette shows at once, which is
-what keeps it feeling like a signature rather than decoration.
+The hover rules need `!important` because the artboards use inline styles, which would
+otherwise beat any class-based rule.
 
-`--grad-red` draws the bullet marks in `.bullets`.
+Two behaviours were reimplemented rather than ported:
 
-## How light and dark surfaces work
+- **Nav dropdowns** are now pure CSS (`:hover`, `:focus-within`) instead of component state.
+  This makes them keyboard-reachable, which the canvas version was not.
+- **The two carousels** (homepage "Voices", About timeline) are reimplemented in
+  `assets/js/site.js`, matching the original state logic — 1/2/3 slides per view by width for
+  Voices, six clamped steps for the timeline.
 
-One set of component rules serves both. Dark bands re-declare the semantic tokens; `.paper`
-re-declares them back to light so cards keep working inside a dark band.
+## Regenerating
 
-| Token | Light surface | Dark band |
-|---|---|---|
-| `--bg` | `#F1EFE8` | `#010D2C` |
-| `--surface` | `#FFFFFF` | `rgb(195 203 214 / .07)` |
-| `--ink` | `#010D2C` | `#F1EFE8` |
-| `--ink-muted` | `#414D68` | `#C3CBD6` |
-| `--ink-faint` | `#55617C` | `#94A1BA` |
-| `--accent` | `#DE2C00` | `#DE2C00` |
-| `--rule` | `#D9D4C7` | `rgb(195 203 214 / .2)` |
-
-### The accent and contrast
-
-Brand red `#DE2C00` is the accent on every surface. It measures:
-
-| Background | Ratio | AA small text (4.5:1) |
-|---|---|---|
-| White `#FFFFFF` — cards, white bands | **4.70** | passes |
-| Sand `#F1EFE8` — light bands | **4.09** | just under |
-| Navy `#010D2C` — dark bands | **4.08** | just under |
-
-This is the **only** contrast exception anywhere on the site — every other text/background pair
-passes AA. It affects small red text: eyebrows, section numbers, `.acc__num`, `.topic__num`,
-inline links in body copy, and the required-field asterisks. It is an accepted brand decision,
-not an oversight.
-
-Earlier drafts avoided it by using `#A81900` on light and `#FF5C33` on dark, but `#FF5C33`
-reads orange rather than the brand red. If strict AA becomes a requirement, those two shades
-are the swap — both are documented on Colors p.2, and it is a two-line change in the token
-blocks.
-
-## The aurora
-
-The gradient field on dark bands, adapted from genevaaisummit.swiss: a navy base with five
-soft radial blobs on `mix-blend-mode: hard-light`, drifting on 34–64s loops. Colours are drawn
-from the brand ramps — `#2F80B1`, `#102E60`, `#DE2C00`, `#FF5C33`, `#CFC5B4`.
-
-A fixed scrim over the top holds text contrast steady wherever the blobs happen to drift, so
-the band measures the same whether a blob is behind the headline or not. All motion is disabled
-under `prefers-reduced-motion`.
-
-## Page rhythm
-
-Adapted from antler.co: the page is a stack of full-bleed bands, one idea each, alternating
-tone.
-
-```
-hero (deep + aurora) → white → sand → white → deep (+ aurora) → footer (deep)
-```
-
-Every page opens on a dark hero, so the header can stay transparent over it and gain a blurred
-navy background on scroll. A dark band running straight into the dark footer drops the gradient
-hairline between them so the two read as one closing block.
+The converter lives outside the repo, in the session scratchpad. The generated pages are
+committed and are what the site serves — editing them directly is fine and expected. If the
+canvas export is updated and you want a fresh conversion, ask for the converter to be re-run
+rather than hand-merging.

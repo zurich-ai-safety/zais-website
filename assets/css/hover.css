@@ -1,0 +1,15 @@
+/* Generated from style-hover attributes in the Design Canvas export.
+   !important is required: the artboards use inline styles, which would
+   otherwise win over any class-based hover rule. */
+[data-hv="hv1"]:hover { opacity:0.7 !important; color:#FFFFFF !important; }
+[data-hv="hv2"]:hover { background:#F1EBDA !important; color:#CC3E1F !important; }
+[data-hv="hv3"]:hover { background:#FFFFFF !important; color:#CC3E1F !important; }
+[data-hv="hv4"]:hover { color:#CC3E1F !important; }
+[data-hv="hv5"]:hover { color:#020522 !important; }
+[data-hv="hv6"]:hover { opacity:1 !important; }
+[data-hv="hv7"]:hover { border-color:#CC3E1F !important; color:#020522 !important; }
+[data-hv="hv8"]:hover { background:#020522 !important; color:#FFFFFF !important; }
+[data-hv="hv9"]:hover { background:#CC3E1F !important; color:#F7F3E7 !important; }
+[data-hv="hv10"]:hover { border-color:#CC3E1F !important; color:#CC3E1F !important; }
+[data-hv="hv11"]:hover { background:#CC3E1F !important; color:#FFFFFF !important; }
+[data-hv="hv12"]:hover { background:#020522 !important; color:#F7F3E7 !important; }

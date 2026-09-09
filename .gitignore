@@ -8,3 +8,7 @@ desktop.ini
 
 # Local Claude Code state (launch.json is committed deliberately)
 .claude/settings.local.json
+
+# Claude Design canvas export — 111 MB of source artboards and assets.
+# The converted pages in this repo are what ships; the export is reference only.
+temporary/
