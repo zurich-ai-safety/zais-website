@@ -22,22 +22,7 @@
 
 
 
-<section data-screen-label="Open Meetups Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
-  <div class="gradient" data-set="A" id="hero-gradient">
-    <div class="gradient-layer gl-base"></div>
-    <div class="gradient-layer gl-2"></div>
-    <div class="gradient-layer gl-3"></div>
-    <div class="gradient-layer gl-4"></div>
-    <div class="gradient-layer gl-5"></div>
-  </div>
-  <div class="grain"></div>
-
-  <div aria-hidden="true" style="position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden">
-    <div style="position:absolute;inset:0;background-color:rgba(2,5,34,0.07);background-image:linear-gradient(180deg, rgba(2,5,34,0.52) 0px, rgba(2,5,34,0.46) 82px, rgba(2,5,34,0.12) 132px, rgba(2,5,34,0) 190px), linear-gradient(100deg, rgba(2,5,34,0.40) 0%, rgba(2,5,34,0.24) 42%, rgba(2,5,34,0.07) 72%, rgba(2,5,34,0) 92%), linear-gradient(0deg, rgba(2,5,34,0.18) 0%, rgba(2,5,34,0.05) 42%, rgba(2,5,34,0) 70%)"></div>
-    <div style="position:absolute;left:0;right:0;top:190px;bottom:0;background-image:linear-gradient(270deg, rgba(255,255,251,0.32) 0%, rgba(255,255,251,0.28) 26%, rgba(255,255,251,0.20) 38%, rgba(255,255,251,0.06) 43%, rgba(255,255,251,0) 46%)"></div>
-  </div>
-
-  <header style="position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,0.3)">
+  <header class="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100">
     <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
       <a href="/" style="font-family:'Geist',sans-serif;font-size:24px;font-weight:600;letter-spacing:0.01em;color:#FFFFFF;justify-self:start">ZAIS</a>
       <nav style="display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap">
@@ -73,9 +58,51 @@
         <button type="button" class="set-toggle" id="hero-set-toggle" aria-pressed="false" aria-label="Switch background theme">
           <span class="set-toggle-dot"></span>
         </button>
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </header><div style="position:relative;z-index:1;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem);display:flex;align-items:flex-start;gap:clamp(2.5rem,5vw,4rem);flex-wrap:wrap"><div style="flex:1 1 440px;min-width:0"><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;margin-bottom:20px">Programme</div><h1 style="font-size:clamp(34px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;font-weight:400;color:#FFFFFF;margin:0 0 24px;max-width:900px">Open Meetups</h1><h2 style="font-size:clamp(18px,2vw,24px);line-height:1.4;letter-spacing:-0.01em;font-weight:500;color:#FFFFFF;margin:0 0 22px;max-width:600px">The easiest way to meet the community.</h2><p style="font-size:16px;line-height:1.7;color:rgba(255,255,255,0.85);max-width:600px;margin:0 0 32px;text-wrap:pretty">One evening a month at or in front of our PEAKS coworking office, with no programme and no agenda beyond the people who turn up. Organizers are there from the start, so it is the right evening to ask the questions you would not ask in a lecture.</p><div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;border-top:1px dashed rgba(255,255,255,0.35);border-bottom:1px dashed rgba(255,255,255,0.35);padding:24px 0;margin:0 0 32px"><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Frequency</div><div style="font-size:16px;color:#FFFFFF">Monthly</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Cost</div><div style="font-size:16px;color:#FFFFFF">Free</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Location</div><div style="font-size:16px;color:#FFFFFF">Peaks Coworking Space</div></div></div><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap"><a href="/get-involved/" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-size:15px;font-weight:500" data-hv="hv3">Get Involved</a></div></div><div style="flex:1 1 380px;min-width:280px;align-self:flex-start"><div data-hero-image-slot style="width:100%;aspect-ratio:4/3;background-color:#F1EBDA;background-image:url(&quot;/assets/img/open-meetups-hero.jpg&quot;);background-size:cover;background-position:center"></div></div></div>
+  </header>
+
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="/" class="mobile-nav-brand">ZAIS</a>
+      <button type="button" class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="/">Home</a>
+      <div class="mobile-nav-group">Programmes</div>
+      <a href="/ai-futures/" class="mobile-nav-sublink">AI Futures</a>
+      <a href="/open-meetups/" class="mobile-nav-sublink">Open Meetups</a>
+      <a href="/ai-safety-fundamentals/" class="mobile-nav-sublink">AI Safety Fundamentals</a>
+      <a href="/themed-events/" class="mobile-nav-sublink">Themed Events</a>
+      <div class="mobile-nav-group">Events</div>
+      <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" class="mobile-nav-sublink">Swiss AI Safety Days &#8599;</a>
+      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" class="mobile-nav-sublink">Luma Calendar &#8599;</a>
+      <a href="/about/">About ZAIS</a>
+      <a href="/research/">Research</a>
+    </nav>
+    <div class="mobile-nav-bottom-row"><a href="/get-involved/" class="mobile-nav-cta">Get Involved</a><button type="button" class="set-toggle" aria-pressed="false" aria-label="Switch background theme"><span class="set-toggle-dot"></span></button></div>
+  </div>
+<section data-screen-label="Open Meetups Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
+  <div class="gradient" data-set="A" id="hero-gradient">
+    <div class="gradient-layer gl-base"></div>
+    <div class="gradient-layer gl-2"></div>
+    <div class="gradient-layer gl-3"></div>
+    <div class="gradient-layer gl-4"></div>
+    <div class="gradient-layer gl-5"></div>
+  </div>
+  <div class="grain"></div>
+
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;inset:0;background-color:rgba(2,5,34,0.07);background-image:linear-gradient(180deg, rgba(2,5,34,0.52) 0px, rgba(2,5,34,0.46) 82px, rgba(2,5,34,0.12) 132px, rgba(2,5,34,0) 190px), linear-gradient(100deg, rgba(2,5,34,0.40) 0%, rgba(2,5,34,0.24) 42%, rgba(2,5,34,0.07) 72%, rgba(2,5,34,0) 92%), linear-gradient(0deg, rgba(2,5,34,0.18) 0%, rgba(2,5,34,0.05) 42%, rgba(2,5,34,0) 70%)"></div>
+    <div style="position:absolute;left:0;right:0;top:190px;bottom:0;background-image:linear-gradient(270deg, rgba(255,255,251,0.32) 0%, rgba(255,255,251,0.28) 26%, rgba(255,255,251,0.20) 38%, rgba(255,255,251,0.06) 43%, rgba(255,255,251,0) 46%)"></div>
+  </div>
+
+<div aria-hidden="true" style="height:80px"></div>
+  <div style="position:relative;z-index:1;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem);display:flex;align-items:flex-start;gap:clamp(2.5rem,5vw,4rem);flex-wrap:wrap"><div style="flex:1 1 440px;min-width:0"><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;margin-bottom:20px">Programme</div><h1 style="font-size:clamp(34px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;font-weight:400;color:#FFFFFF;margin:0 0 24px;max-width:900px">Open Meetups</h1><h2 style="font-size:clamp(18px,2vw,24px);line-height:1.4;letter-spacing:-0.01em;font-weight:500;color:#FFFFFF;margin:0 0 22px;max-width:600px">The easiest way to meet the community.</h2><p style="font-size:16px;line-height:1.7;color:rgba(255,255,255,0.85);max-width:600px;margin:0 0 32px;text-wrap:pretty">One evening a month at or in front of our PEAKS coworking office, with no programme and no agenda beyond the people who turn up. Organizers are there from the start, so it is the right evening to ask the questions you would not ask in a lecture.</p><div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;border-top:1px dashed rgba(255,255,255,0.35);border-bottom:1px dashed rgba(255,255,255,0.35);padding:24px 0;margin:0 0 32px"><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Frequency</div><div style="font-size:16px;color:#FFFFFF">Monthly</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Cost</div><div style="font-size:16px;color:#FFFFFF">Free</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Location</div><div style="font-size:16px;color:#FFFFFF">Peaks Coworking Space</div></div></div><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap"><a href="/get-involved/" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-size:15px;font-weight:500" data-hv="hv3">Get Involved</a></div></div><div style="flex:1 1 380px;min-width:280px;align-self:flex-start"><div data-hero-image-slot style="width:100%;aspect-ratio:4/3;background-color:#F1EBDA;background-image:url(&quot;/assets/img/open-meetups-hero.jpg&quot;);background-size:cover;background-position:center"></div></div></div>
+
 </section>
 
 <section data-screen-label="What and Who" style="background:#F7F3E7">
@@ -155,7 +182,7 @@
 
 </div>
 </div>
-<script src="/assets/js/site.js?v=20260915b" defer></script>
+<script src="/assets/js/site.js?v=20260915h" defer></script>
 
 </body>
 </html>

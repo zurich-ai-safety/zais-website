@@ -79,19 +79,37 @@
      dragging, trackpad and touch scrolling all work on their own. */
 
   function initStoryTimeline() {
-    var scroller = document.querySelector("[data-tl-scroll]");
-    if (!scroller) return;
+    var viewport = document.querySelector(".timeline-viewport");
+    var track = document.querySelector(".timeline-track");
+    if (!viewport || !track) return;
 
     var prev = document.querySelector('[data-action="storyPrev"]');
     var next = document.querySelector('[data-action="storyNext"]');
 
+    function step() {
+      var first = track.querySelector(".timeline-milestone");
+      var width = first ? first.getBoundingClientRect().width + 36 : 340;
+      return Math.min(viewport.clientWidth * 0.8, width * 1.4);
+    }
+
     function nudge(dir) {
-      var amount = Math.min(scroller.clientWidth * 0.8, 340) * dir;
-      scroller.scrollBy({ left: amount, behavior: "smooth" });
+      viewport.scrollBy({ left: step() * dir, behavior: "smooth" });
+    }
+
+    function paintProgress() {
+      var max = viewport.scrollWidth - viewport.clientWidth;
+      var progress = max > 0 ? viewport.scrollLeft / max : 0;
+      track.style.setProperty("--timeline-progress", progress);
+      if (prev) prev.disabled = viewport.scrollLeft <= 1;
+      if (next) next.disabled = viewport.scrollLeft >= max - 1;
     }
 
     if (prev) prev.addEventListener("click", function (e) { e.preventDefault(); nudge(-1); });
     if (next) next.addEventListener("click", function (e) { e.preventDefault(); nudge(1); });
+
+    viewport.addEventListener("scroll", paintProgress, { passive: true });
+    window.addEventListener("resize", paintProgress);
+    paintProgress();
   }
 
   /* ---- Programme session tabs (list left, detail right) -------------- */
@@ -133,23 +151,30 @@
 
   function initHeroToggle() {
     var gradient = document.getElementById('hero-gradient');
-    var toggle = document.getElementById('hero-set-toggle');
-    if (!gradient || !toggle) return;
+    var toggles = document.querySelectorAll('.set-toggle');
+    if (!gradient || !toggles.length) return;
 
     var STORAGE_KEY = 'zais-gradient-set';
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     if (stored === 'A' || stored === 'B') {
       gradient.dataset.set = stored;
-      toggle.setAttribute('aria-pressed', String(stored === 'B'));
     }
 
-    toggle.addEventListener('click', function () {
+    function sync() {
       var isDark = gradient.dataset.set === 'B';
-      var next = isDark ? 'A' : 'B';
-      gradient.dataset.set = next;
-      toggle.setAttribute('aria-pressed', String(!isDark));
-      try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+      toggles.forEach(function (t) { t.setAttribute('aria-pressed', String(isDark)); });
+    }
+    sync();
+
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var isDark = gradient.dataset.set === 'B';
+        var next = isDark ? 'A' : 'B';
+        gradient.dataset.set = next;
+        sync();
+        try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+      });
     });
   }
 
@@ -160,21 +185,218 @@
      nothing is ever hidden. Each element reveals once, the first time it
      scrolls into view, then is left alone. */
 
+  /* Splits an element's text into one <span class="wr-word"> per word,
+     walking the DOM (not innerHTML) so any nested tag - e.g. the inline
+     link inside the FAQ paragraph on the Themed Events page - is kept
+     intact and just has its own text words wrapped in turn. */
+  function wrapWords(el) {
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        var parts = node.textContent.split(/(\s+)/);
+        var frag = document.createDocumentFragment();
+        parts.forEach(function (part) {
+          if (part === '') return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            var span = document.createElement('span');
+            span.className = 'wr-word';
+            span.textContent = part;
+            frag.appendChild(span);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        Array.prototype.slice.call(node.childNodes).forEach(walk);
+      }
+    }
+    Array.prototype.slice.call(el.childNodes).forEach(walk);
+  }
+
   function initScrollReveal() {
     var els = document.querySelectorAll('[data-reveal]');
-    if (!els.length || !('IntersectionObserver' in window)) return;
+    if (!els.length) return;
 
-    els.forEach(function (el) { el.classList.add('reveal-pending'); });
+    // Headings and paragraphs get the word-by-word, scroll-linked reveal;
+    // everything else tagged data-reveal (programme rows, drag cards - full
+    // composite blocks, not body text) keeps the older single fade + rise.
+    var textEls = [];
+    var blockEls = [];
+    els.forEach(function (el) {
+      (/^(H1|H2|H3|P)$/.test(el.tagName) ? textEls : blockEls).push(el);
+    });
 
-    var observer = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('reveal-visible');
-        obs.unobserve(entry.target);
+    if (blockEls.length && 'IntersectionObserver' in window) {
+      blockEls.forEach(function (el) { el.classList.add('reveal-pending'); });
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('reveal-visible');
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+      blockEls.forEach(function (el) { observer.observe(el); });
+    }
+
+    if (textEls.length) {
+      textEls.forEach(wrapWords);
+      var ticking = false;
+      // Progress is computed per block (not per word position), so the lit
+      // boundary can fall mid-line - word 14 of 30 lights up before word 15
+      // even when both sit on the same visual line - a true word-by-word
+      // reveal in reading order, not a line-by-line snap.
+      function paintWords() {
+        var revealLine = window.innerHeight * 0.78;
+        textEls.forEach(function (block) {
+          var spans = block.__wrWords || (block.__wrWords = block.querySelectorAll('.wr-word'));
+          if (!spans.length) return;
+          var rect = block.getBoundingClientRect();
+          var progress = rect.height > 0 ? (revealLine - rect.top) / rect.height : 0;
+          if (progress < 0) progress = 0;
+          if (progress > 1) progress = 1;
+          var litCount = Math.round(progress * spans.length);
+          for (var i = 0; i < spans.length; i++) {
+            spans[i].classList.toggle('wr-lit', i < litCount);
+          }
+        });
+        ticking = false;
+      }
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(paintWords);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      paintWords();
+    }
+  }
+
+  /* ---- Drag-to-scroll horizontal row, with a custom "Drag" cursor ------ */
+  /* Mouse users drag the row sideways; touchscreens already scroll it
+     natively with a swipe. A small circular indicator follows the pointer
+     while it's over the row, replacing the native cursor, so dragging is
+     the only affordance shown — no scrollbar, no arrow buttons. */
+
+  function initDragScroll() {
+    var rows = document.querySelectorAll('[data-drag-scroll]');
+    if (!rows.length) return;
+
+    rows.forEach(function (row) {
+      var cursor = document.createElement('div');
+      cursor.className = 'drag-cursor';
+      cursor.textContent = 'DRAG';
+      document.body.appendChild(cursor);
+
+      var dragging = false;
+      var moved = false;
+      var startX = 0;
+      var startScroll = 0;
+
+      function moveCursor(e) {
+        cursor.style.transform = 'translate3d(' + (e.clientX - 32) + 'px,' + (e.clientY - 32) + 'px,0)';
+      }
+
+      row.addEventListener('mouseenter', function (e) {
+        cursor.classList.add('is-visible');
+        moveCursor(e);
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+      row.addEventListener('mousemove', moveCursor);
+      row.addEventListener('mouseleave', function () {
+        cursor.classList.remove('is-visible');
+        dragging = false;
+        row.classList.remove('is-dragging');
+      });
 
-    els.forEach(function (el) { observer.observe(el); });
+      row.addEventListener('mousedown', function (e) {
+        dragging = true;
+        moved = false;
+        startX = e.clientX;
+        startScroll = row.scrollLeft;
+        row.classList.add('is-dragging');
+      });
+
+      window.addEventListener('mousemove', function (e) {
+        if (!dragging) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        row.scrollLeft = startScroll - dx;
+      });
+
+      window.addEventListener('mouseup', function () {
+        if (!dragging) return;
+        dragging = false;
+        row.classList.remove('is-dragging');
+      });
+
+      /* Suppress the click a drag gesture would otherwise fire on
+         whatever's underneath the pointer (e.g. a "Learn more" link). */
+      row.addEventListener('click', function (e) {
+        if (moved) {
+          e.preventDefault();
+          e.stopPropagation();
+          moved = false;
+        }
+      }, true);
+    });
+  }
+
+  /* ---- Current-page underline (nav, all pages) ------------------------ */
+  /* Marks whichever top-level link matches the current page with
+     data-nav-current, which site.css turns into an underline. Runs once on
+     load; dropdown triggers have no href so they are never matched, and
+     sub-pages (Get Involved, AI Futures, etc.) simply have no top-level
+     link marked, same as the reference. */
+  function initNavCurrent() {
+    var here = location.pathname.replace(/\/index\.html$/, '');
+    if (here.length > 1) here = here.replace(/\/+$/, '');
+    if (here === '') here = '/';
+    document.querySelectorAll('header nav > a[href], .mobile-nav-links > a[href]').forEach(function (a) {
+      var href;
+      try { href = new URL(a.getAttribute('href'), location.origin).pathname; }
+      catch (e) { return; }
+      if (href.length > 1) href = href.replace(/\/+$/, '');
+      if (href === here) a.setAttribute('data-nav-current', 'true');
+    });
+  }
+
+  function initStickyHeader() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    function paint() {
+      header.classList.toggle('is-compact', window.scrollY > 24);
+    }
+    window.addEventListener('scroll', paint, { passive: true });
+    paint();
+  }
+
+  function initMobileNav() {
+    var toggle = document.getElementById("mobile-menu-toggle");
+    var closeBtn = document.getElementById("mobile-menu-close");
+    var panel = document.getElementById("mobile-nav-panel");
+    if (!toggle || !panel) return;
+
+    function open() {
+      panel.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("mobile-nav-open");
+    }
+    function close() {
+      panel.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("mobile-nav-open");
+    }
+
+    toggle.addEventListener("click", function () {
+      if (panel.classList.contains("is-open")) close(); else open();
+    });
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    panel.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", close);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
   }
 
   function boot() {
@@ -183,6 +405,10 @@
     initSessionTabs();
     initHeroToggle();
     initScrollReveal();
+    initDragScroll();
+    initMobileNav();
+    initStickyHeader();
+    initNavCurrent();
   }
 
   if (document.readyState === "loading") {
