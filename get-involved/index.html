@@ -22,7 +22,21 @@
 
 
 
-<section data-screen-label="Get Involved Hero" style="position:relative;isolation:isolate;background-color:#C7C0B6;background-image:radial-gradient(88% 132% at -6% 12%, #E8492A 0%, rgba(226,68,37,0.98) 36%, rgba(204,62,31,0.9) 62%, rgba(204,62,31,0.46) 80%, rgba(204,62,31,0) 96%), radial-gradient(46% 72% at 20% 98%, rgba(232,73,42,0.55) 0%, rgba(204,62,31,0.16) 52%, rgba(204,62,31,0) 82%), radial-gradient(44% 96% at 128% 0%, #D8D2C8 0%, rgba(199,192,182,0.5) 42%, rgba(199,192,182,0) 84%), linear-gradient(120deg, #E8492A 0%, #DB4E2C 24%, #C9AC99 62%, #C7C0B6 82%, #D1CBC1 100%)">
+<section data-screen-label="Get Involved Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
+  <div class="gradient" data-set="A" id="hero-gradient">
+    <div class="gradient-layer gl-base"></div>
+    <div class="gradient-layer gl-2"></div>
+    <div class="gradient-layer gl-3"></div>
+    <div class="gradient-layer gl-4"></div>
+    <div class="gradient-layer gl-5"></div>
+  </div>
+  <div class="grain"></div>
+
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;inset:0;background-color:rgba(2,5,34,0.07);background-image:linear-gradient(180deg, rgba(2,5,34,0.52) 0px, rgba(2,5,34,0.46) 82px, rgba(2,5,34,0.12) 132px, rgba(2,5,34,0) 190px), linear-gradient(100deg, rgba(2,5,34,0.40) 0%, rgba(2,5,34,0.24) 42%, rgba(2,5,34,0.07) 72%, rgba(2,5,34,0) 92%), linear-gradient(0deg, rgba(2,5,34,0.18) 0%, rgba(2,5,34,0.05) 42%, rgba(2,5,34,0) 70%)"></div>
+    <div style="position:absolute;left:0;right:0;top:190px;bottom:0;background-image:linear-gradient(270deg, rgba(255,255,251,0.32) 0%, rgba(255,255,251,0.28) 26%, rgba(255,255,251,0.20) 38%, rgba(255,255,251,0.06) 43%, rgba(255,255,251,0) 46%)"></div>
+  </div>
+
   <header style="position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,0.3)">
     <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
       <a href="/" style="font-family:'Geist',sans-serif;font-size:24px;font-weight:600;letter-spacing:0.01em;color:#FFFFFF;justify-self:start">ZAIS</a>
@@ -34,9 +48,9 @@
           
             <div data-dropdown="programmes" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#F7F3E7;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
               <a href="/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
-              <a href="#" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
+              <a href="/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
               <a href="/ai-safety-fundamentals/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Safety Fundamentals</a>
-              <a href="#" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
+              <a href="/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
             </div></div>
           
         </div>
@@ -46,7 +60,7 @@
           
             <div data-dropdown="events" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#F7F3E7;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
               <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Swiss AI Safety Days ↗</a>
-              <a href="/events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Luma Calendar</a>
+              <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Luma Calendar &#8599;</a>
             </div></div>
           
         </div>
@@ -54,28 +68,31 @@
         <a href="/about/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">About ZAIS</a>
         <a href="/research/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Research</a>
       </nav>
-      <a href="/get-involved/" style="justify-self:end;display:inline-flex;align-items:center;padding:11px 22px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:14px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
+      <div style="justify-self:end;display:flex;align-items:center;gap:14px">
+        <a href="/get-involved/" style="display:inline-flex;align-items:center;padding:11px 22px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:14px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
+        <button type="button" class="set-toggle" id="hero-set-toggle" aria-pressed="false" aria-label="Switch background theme">
+          <span class="set-toggle-dot"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div style="position:relative;z-index:1;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem)"><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;margin-bottom:20px">Get Involved</div><h1 style="font-size:clamp(34px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;font-weight:400;color:#FFFFFF;margin:0 0 24px;max-width:900px">Get involved!</h1><p style="font-size:18px;line-height:1.65;color:#FFFFFF;max-width:640px;margin:0 0 36px;text-wrap:pretty">Join our WhatsApp community to stay informed about future events and programmes. Check out our calendar to see what's coming up and add it to your own.</p></div>
 </section>
 
-<section data-screen-label="Two Ways" style="background:#F7F3E7;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)">
-  <div style="max-width:80rem;margin:0 auto"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px"><div style="background:#F1EBDA;border:1px solid rgba(2,5,34,0.12);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:#CC3E1F">DAY TO DAY</div><h3 style="font-size:clamp(20px,2.2vw,25px);font-weight:400;letter-spacing:-0.02em;color:#020522;margin:0">WhatsApp community</h3><p style="font-size:15px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;flex:1">Where sessions, sign-ups, and last-minute socials get announced first. 350+ members.</p><div style="border-top:1px dashed rgba(2,5,34,0.2);padding-top:18px;font-size:13px;color:rgba(2,5,34,0.55)">Announcements · questions · intros</div><a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" style="display:inline-flex;align-items:center;align-self:flex-start;padding:12px 24px;border:1.5px dashed #020522;border-radius:100px;color:#020522;font-size:14px;font-weight:500" data-hv="hv12">Join our WhatsApp community →</a></div><div style="background:#F1EBDA;border:1px solid rgba(2,5,34,0.12);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:#F2A48F">WHAT'S ON</div><h3 style="font-size:clamp(20px,2.2vw,25px);font-weight:400;letter-spacing:-0.02em;color:#020522;margin:0">Luma calendar</h3><p style="font-size:15px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;flex:1">Every upcoming discussion, hackathon, and social — subscribe once and they land in your own calendar.</p><div style="border-top:1px dashed rgba(2,5,34,0.2);padding-top:18px;font-size:13px;color:rgba(2,5,34,0.55)">luma.com/zais</div><a href="https://luma.com/zais" style="display:inline-flex;align-items:center;align-self:flex-start;padding:12px 24px;border:1.5px dashed #020522;border-radius:100px;color:#020522;font-size:14px;font-weight:500" data-hv="hv12">Subscribe to our calendar →</a></div></div></div>
+<section data-screen-label="Two Ways" style="background:#F7F3E7">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px"><div style="background:#F1EBDA;border:1px solid rgba(2,5,34,0.12);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:#DE2C00">DAY TO DAY</div><h3 data-reveal style="font-size:clamp(20px,2.2vw,25px);font-weight:400;letter-spacing:-0.02em;color:#020522;margin:0">WhatsApp community</h3><p data-reveal style="font-size:15px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;flex:1">Where sessions, sign-ups, and last-minute socials get announced first. 350+ members.</p><div style="border-top:1px dashed rgba(2,5,34,0.2);padding-top:18px;font-size:13px;color:rgba(2,5,34,0.55)">Announcements · questions · intros</div><a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" style="display:inline-flex;align-items:center;align-self:flex-start;padding:12px 24px;border:1.5px dashed #020522;border-radius:100px;color:#020522;font-size:14px;font-weight:500" data-hv="hv12">Join our WhatsApp community →</a></div><div style="background:#F1EBDA;border:1px solid rgba(2,5,34,0.12);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:#F2A48F">WHAT'S ON</div><h3 data-reveal style="font-size:clamp(20px,2.2vw,25px);font-weight:400;letter-spacing:-0.02em;color:#020522;margin:0">Luma calendar</h3><p data-reveal style="font-size:15px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;flex:1">Every upcoming discussion, hackathon, and social — subscribe once and they land in your own calendar.</p><div style="border-top:1px dashed rgba(2,5,34,0.2);padding-top:18px;font-size:13px;color:rgba(2,5,34,0.55)">luma.com/zais</div><a href="https://luma.com/zais" style="display:inline-flex;align-items:center;align-self:flex-start;padding:12px 24px;border:1.5px dashed #020522;border-radius:100px;color:#020522;font-size:14px;font-weight:500" data-hv="hv12">Subscribe to our calendar →</a></div></div></div>
 </section>
 
-
-
-<section data-screen-label="CTA" style="background:#F7F3E7;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)">
-  <div style="max-width:80rem;margin:0 auto"><div style="max-width:760px;margin:0 auto;text-align:center"><h2 style="font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:-0.02em;font-weight:400;color:#020522;margin:0 0 20px;margin-left:auto;margin-right:auto">Say hello.</h2><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 36px">Not sure where you fit? Email us and we'll point you somewhere useful.</p><div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap"><a href="mailto:zurich@aisafety.ch" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed #CC3E1F;border-radius:100px;color:#CC3E1F;font-size:15px;font-weight:500" data-hv="hv9">Contact Us</a></div></div></div>
+<section data-screen-label="CTA" style="background:#F1EBDA">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="max-width:760px;margin:0 auto;text-align:center"><h2 data-reveal style="font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:-0.02em;font-weight:400;color:#020522;margin:0 0 20px;margin-left:auto;margin-right:auto">Say hello.</h2><p data-reveal style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 36px">Not sure where you fit? Email us and we'll point you somewhere useful.</p><div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap"><a href="mailto:zurich@aisafety.ch" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed #DE2C00;border-radius:100px;color:#DE2C00;font-size:15px;font-weight:500" data-hv="hv9">Contact Us</a></div></div></div>
 </section>
 
-<section data-screen-label="Stay in the Loop" style="background:#CC3E1F">
+<section data-screen-label="Stay in the Loop" style="background:#DE2C00">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(3.5rem,6vw,5.5rem) clamp(1.25rem,4vw,2.5rem) clamp(4rem,7vw,6rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(2rem,5vw,4rem);align-items:end">
     <div style="min-width:0">
-      <h2 style="font-family:'Geist',sans-serif;font-weight:300;font-size:clamp(38px,5.4vw,72px);line-height:1;letter-spacing:-0.025em;color:#FFFFFF;margin:0 0 clamp(32px,4vw,56px)">Stay in the loop.</h2>
-      <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#FFFFFF;margin:0;max-width:440px">Sessions, sign-ups and last-minute socials get announced in the community first. The calendar catches up afterwards.</p>
+      <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-0.025em;color:#FFFFFF;margin:0 0 clamp(18px,2vw,26px)">Stay in the loop.</h2>
+      <p data-reveal style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#FFFFFF;margin:0;max-width:440px">Sessions, sign-ups and last-minute socials get announced in the community first. The calendar catches up afterwards.</p>
     </div>
     <div style="min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
       <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);letter-spacing:-0.02em;color:#FFFFFF;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px" data-hv="hv5">WhatsApp Community —&gt;</a>
@@ -85,11 +102,11 @@
 </section>
 
 <footer data-screen-label="Footer" style="background:#28282E">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(1.5rem,2.5vw,2rem)">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2.25rem,3.5vw,3rem)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(1.5rem,3vw,2.5rem)">
       <div>
         <div style="display:flex;align-items:center;gap:10px;color:#F7F3E7;font-size:19px;font-weight:500;letter-spacing:-0.02em;margin-bottom:16px">
-          <span style="width:9px;height:9px;background:#CC3E1F;display:inline-block"></span>
+          <span style="width:9px;height:9px;background:#DE2C00;display:inline-block"></span>
           ZAIS
         </div>
         <p style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;color:rgba(247,243,231,0.6);margin:0;max-width:280px">Connecting bright minds to shape a safe trajectory for AI. Zurich, Switzerland.</p>
@@ -98,9 +115,9 @@
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Programmes</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
           <a href="/ai-futures/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Futures</a>
-          <a href="#" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Open Meetups</a>
+          <a href="/open-meetups/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Open Meetups</a>
           <a href="/ai-safety-fundamentals/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Safety Fundamentals</a>
-          <a href="#" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Themed Events</a>
+          <a href="/themed-events/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Themed Events</a>
         </div>
       </div>
       <div>
@@ -108,7 +125,7 @@
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
           <a href="/about/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">About ZAIS</a>
           <a href="/research/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Research</a>
-          <a href="/events/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Luma Calendar</a>
+          <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Luma Calendar &#8599;</a>
           <a href="/get-involved/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Get Involved</a>
         </div>
       </div>
@@ -123,10 +140,11 @@
     </div>
     <div style="margin-top:clamp(2rem,4vw,3rem);padding-top:20px;border-top:1px dashed rgba(247,243,231,0.18);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="#" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
         <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Luma</a>
         <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">WhatsApp</a>
-        <span style="border:1.5px dashed rgba(247,243,231,0.18);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.35)">YouTube (soon)</span>
+        <a href="https://www.instagram.com/zurich.aisafety/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Instagram</a>
+        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">YouTube</a>
       </div>
       <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.4)">© 2026 Zurich AI Safety</div>
     </div>
@@ -135,7 +153,7 @@
 
 </div>
 </div>
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v=20260915b" defer></script>
 
 </body>
 </html>

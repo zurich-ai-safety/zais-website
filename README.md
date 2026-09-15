@@ -57,16 +57,14 @@ Browsers cache `site.css` aggressively and you will chase phantom bugs otherwise
 | `/swiss-ai-safety-days/` | ZAIS Swiss AI Safety Days |
 | `/events/` | ZAIS Luma Calendar |
 | `/ai-safety-fundamentals/` | ZAIS AI Safety Fundamentals |
-| `/ml-bootcamp/` | ZAIS ML Bootcamp |
-| `/paper-reading-group/` | ZAIS Paper Reading Group |
 | `/ai-futures/` | ZAIS AI Futures Discussions |
 
 ```
-assets/css/site.css     Base, dropdowns, disclosure, breakpoints, reduced motion
+assets/css/site.css     Base, dropdowns, disclosure, breakpoints, hero gradient, reduced motion
 assets/css/hover.css    Generated from the artboards' style-hover attributes
 assets/js/site.js       The two carousels
-assets/js/hero-shader.js  WebGL hero gradient, ported from the export
 assets/img/             21 images copied out of the export
+assets/img/gradient/    10 pre-rendered hero gradient frames (5 light + 5 dark), see docs/brand-system.md
 
 docs/brand-system.md            The design system as built, and what the conversion changed
 docs/original-site-inventory.md What the old Squarespace site contained (historical record)
@@ -111,7 +109,7 @@ overflow and broken links or images:
 ```js
 (async () => {
   const pages = ['/','/about/','/get-involved/','/research/','/swiss-ai-safety-days/','/events/',
-                 '/ai-safety-fundamentals/','/ml-bootcamp/','/paper-reading-group/','/ai-futures/'];
+                 '/ai-safety-fundamentals/','/ai-futures/'];
   const f = document.createElement('iframe');
   f.style.cssText='position:fixed;inset:0;height:900px;opacity:0;pointer-events:none;z-index:-9;border:0';
   document.body.appendChild(f);
@@ -165,9 +163,8 @@ Expected: no `OVERFLOW` warnings, and `all N links and assets OK`.
    they are part of the design, but they must not ship. Add `class="hide-editorial-notes"` to
    `<body>` on every page, or delete the `.editorial-note` blocks.
 2. **The content is placeholder in places.** The notes themselves say so — dates for the next
-   AISF intake and AI Futures series, the whole ML Bootcamp format, the three bracketed
-   paragraphs of the ZAIS story on `/about/`, and the timeline milestones ("check every date,
-   partner name and attendance figure before publishing").
+   AISF intake and AI Futures series, and the three bracketed paragraphs of the ZAIS story on
+   `/about/` (the ZAIS story and timeline milestones have since been replaced with real content).
 3. **Two nav destinations don't exist.** "Open Meetups" and "Themed Events" appear in the
    Programmes dropdown and the footer on all ten pages, pointing at `#`. The footer LinkedIn
    link is also `#`.
@@ -183,6 +180,8 @@ Expected: no `OVERFLOW` warnings, and `all N links and assets OK`.
    Squarespace pages had four, and the design replaces them with email and WhatsApp links.
 6. **The Luma calendar is not embedded yet** — `/events/` carries a note saying to add the live
    widget at build time.
-7. **Set up redirects** from the old Squarespace paths. `/events`, `/ai-futures` and
-   `/ml-bootcamp` carry over unchanged; `/agisf` now lives at `/ai-safety-fundamentals/` and
-   `/discussion-group` at `/paper-reading-group/`.
+7. **Set up redirects** from the old Squarespace paths. `/events` and `/ai-futures` carry
+   over unchanged; `/agisf` now lives at `/ai-safety-fundamentals/`. `/ml-bootcamp` and
+   `/discussion-group` (old Paper Reading Group) have no destination anymore — both pages were
+   removed from this rebuild on 2026-09-15. Needs a decision: redirect that old traffic
+   somewhere relevant (e.g. `/ai-safety-fundamentals/` or the homepage) or let them 404.

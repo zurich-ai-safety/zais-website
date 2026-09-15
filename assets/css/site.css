@@ -23,7 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: #CC3E1F; text-decoration: none; }
+a { color: #DE2C00; text-decoration: none; }
 a:hover { color: #020522; }
 
 img, canvas { display: block; max-width: 100%; }
@@ -31,7 +31,7 @@ img, canvas { display: block; max-width: 100%; }
 [hidden] { display: none !important; }
 
 :focus-visible {
-  outline: 2px solid #CC3E1F;
+  outline: 2px solid #DE2C00;
   outline-offset: 3px;
 }
 
@@ -40,7 +40,7 @@ img, canvas { display: block; max-width: 100%; }
   left: -9999px;
   top: 0;
   z-index: 200;
-  background: #CC3E1F;
+  background: #DE2C00;
   color: #FFFFFF;
   padding: 12px 20px;
   font-size: 14px;
@@ -48,15 +48,89 @@ img, canvas { display: block; max-width: 100%; }
 }
 .skip-link:focus { left: 0; color: #FFFFFF; }
 
-/* ---------- 2. Hero shader ----------------------------------------------- */
+/* ---------- 2. Hero gradient (sitewide) ------------------------------------ */
 
-/* Sits in the layer the <x-import> occupied. If WebGL is missing the canvas is
-   hidden and the section's own CSS gradient shows through unchanged. */
-canvas.hero-shader {
-  width: 100%;
-  height: 100%;
-  display: block;
+/* Animated mesh-gradient hero background: two pre-rendered image sets (light
+   "A" / dark "B") crossfading in a 10s loop. Used on every page's hero; the
+   visitor-facing toggle sits once in the header nav (see the .set-toggle
+   markup next to "Get Involved" in each page's header) and drives whichever
+   #hero-gradient is on the current page. See assets/js/site.js for the
+   toggle logic and localStorage persistence. */
+
+.gradient, .grain { position: absolute; inset: 0; pointer-events: none; }
+.gradient { z-index: 0; }
+.grain { z-index: 1; }
+
+.gradient-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
+
+/* set A — light neutral (#DE2C00 + #D0C0A9) */
+.gradient[data-set="A"] .gl-base { background-image: url("/assets/img/gradient/setA-1.jpg"); }
+.gradient[data-set="A"] .gl-2    { background-image: url("/assets/img/gradient/setA-2.jpg"); }
+.gradient[data-set="A"] .gl-3    { background-image: url("/assets/img/gradient/setA-3.jpg"); }
+.gradient[data-set="A"] .gl-4    { background-image: url("/assets/img/gradient/setA-4.jpg"); }
+.gradient[data-set="A"] .gl-5    { background-image: url("/assets/img/gradient/setA-5.jpg"); }
+
+/* set B — dark neutral (#DE2C00 + #020522) */
+.gradient[data-set="B"] .gl-base { background-image: url("/assets/img/gradient/setB-1.jpg"); }
+.gradient[data-set="B"] .gl-2    { background-image: url("/assets/img/gradient/setB-2.jpg"); }
+.gradient[data-set="B"] .gl-3    { background-image: url("/assets/img/gradient/setB-3.jpg"); }
+.gradient[data-set="B"] .gl-4    { background-image: url("/assets/img/gradient/setB-4.jpg"); }
+.gradient[data-set="B"] .gl-5    { background-image: url("/assets/img/gradient/setB-5.jpg"); }
+
+.gl-2 { animation: fade-l2 10s linear infinite; }
+.gl-3 { animation: fade-l3 10s linear infinite; }
+.gl-4 { animation: fade-l4 10s linear infinite; }
+.gl-5 { animation: fade-l5 10s linear infinite; }
+
+/* One 10s linear loop: layers 2-5 fade out together over the first 2s,
+   then each fades back in, one at a time, over the remaining 8s. */
+@keyframes fade-l2 { 0%{opacity:1} 20%{opacity:0} 40%,100%{opacity:1} }
+@keyframes fade-l3 { 0%{opacity:1} 20%,40%{opacity:0} 60%,100%{opacity:1} }
+@keyframes fade-l4 { 0%{opacity:1} 20%,60%{opacity:0} 80%,100%{opacity:1} }
+@keyframes fade-l5 { 0%{opacity:1} 20%,80%{opacity:0} 100%{opacity:1} }
+
+.grain {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-step 0.5s steps(4) infinite;
+}
+@keyframes grain-step {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-2%,1%); }
+  50% { transform: translate(1%,-2%); }
+  75% { transform: translate(-1%,-1%); }
+  100% { transform: translate(0,0); }
+}
+
+/* Toggle lives inline in the header nav, next to "Get Involved" — see the
+   header markup in each page's hero section. */
+.set-toggle {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.set-toggle-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #D0C0A9;
+  transition: background 0.2s ease;
+}
+.set-toggle[aria-pressed="true"] .set-toggle-dot { background: #020522; }
 
 /* ---------- 3. Nav dropdowns --------------------------------------------- */
 
@@ -73,12 +147,7 @@ canvas.hero-shader {
 /* These wrap content the canvas showed or hid conditionally. display:contents
    keeps them out of the layout entirely, so the grid and flex parents behave
    exactly as they did in the artboard. */
-.tl-card,
-.tl-dot-off,
 .editorial-note { display: contents; }
-
-.tl-card[hidden],
-.tl-dot-off[hidden] { display: none; }
 
 /* Working notes carried over from the design canvas. They are addressed to the
    ZAIS team, not to visitors — hide them before launch by adding the class
@@ -89,17 +158,8 @@ body.hide-editorial-notes .editorial-note { display: none; }
 
 [data-carousel-track] { will-change: transform; }
 
-[data-action="prev"],
-[data-action="next"],
-[data-action^="go"] { cursor: pointer; }
-
-button[data-action^="go"] {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: 0;
-  padding: 0;
-}
+[data-tl-scroll] { scrollbar-width: none; }
+[data-tl-scroll]::-webkit-scrollbar { display: none; }
 
 /* ---------- 6. Mobile ----------------------------------------------------- */
 
@@ -136,14 +196,81 @@ button[data-action^="go"] {
   [data-screen-label="Community"] div[style*="grid-template-columns:repeat(4"] {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
-  /* Timeline stepper dots. */
-  [data-screen-label="Where We Come From"] div[style*="grid-template-columns:repeat(6"] {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    row-gap: 18px !important;
-  }
 }
 
-/* ---------- 7. Reduced motion --------------------------------------------- */
+/* ---------- 7. Scroll reveal ----------------------------------------------- */
+
+/* Section headings and their intro paragraph fade in and rise slightly as
+   they scroll into view. The "reveal-pending" class is added by JS
+   (assets/js/site.js, initScrollReveal), never baked into the HTML, so a
+   visitor with JS disabled or slow to load always sees the content —
+   nothing depends on the animation to become visible. A heading and the
+   paragraph right after it reveal in a quick one-two via the transition
+   delay below, not simultaneously. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-pending.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+h1.reveal-pending + p.reveal-pending,
+h2.reveal-pending + p.reveal-pending,
+h3.reveal-pending + p.reveal-pending {
+  transition-delay: 0.12s;
+}
+
+/* ---------- 8. Carousel and tab delighters -------------------------------- */
+
+/* Voice/testimonial carousel cards: a gentle lift and shadow on hover, on
+   top of the existing quote-overlay fade, so the card itself feels alive
+   under the cursor, not just the overlay. */
+[data-voice-card] {
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.35s ease;
+}
+[data-voice-card]:hover {
+  box-shadow: 0 18px 40px rgba(2,5,34,0.18);
+  z-index: 2;
+}
+
+/* Past-events photo mosaic: a soft zoom + lift per tile on hover. */
+[data-mosaic-item] {
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.4s ease;
+}
+[data-mosaic-item]:hover {
+  box-shadow: 0 16px 36px rgba(2,5,34,0.25);
+  z-index: 2;
+}
+
+/* Curriculum session tabs: an inactive tab nudges right and tints toward
+   the accent on hover, hinting it's clickable; the detail panel plays a
+   quick fade-and-rise every time it's switched in. Colors need !important
+   because initSessionTabs() sets them inline in site.js. */
+[data-action="selectSession"] {
+  transition: transform 0.2s ease !important;
+}
+[data-action="selectSession"]:hover {
+  transform: translateX(4px) !important;
+}
+[data-action="selectSession"]:not([data-active="true"]):hover [data-session-num],
+[data-action="selectSession"]:not([data-active="true"]):hover [data-session-title] {
+  color: rgba(222,44,0,0.6) !important;
+}
+[data-session-detail-panel] {
+  animation: session-fade-in 0.35s ease;
+}
+@keyframes session-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- 9. Reduced motion --------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

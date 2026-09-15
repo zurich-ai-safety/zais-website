@@ -6,8 +6,10 @@ read back out of the generated pages, not copied from a spec.
 
 > Two documents in the export disagree with the artboards. `readme.md` describes an earlier
 > iteration (concrete grey `#CACACA`, orange `#F24C27`, Geist-only, two weights) and
-> `tokens/colors.css` a second one (cream `#F6F2E2`, accent `#DE2C00`). Neither matches what
-> the pages actually render. `tokens/borders.css` also references six variables that no
+> `tokens/colors.css` a second one (cream `#F6F2E2`). Neither matches the cream that
+> actually renders. `tokens/colors.css`'s accent (`#DE2C00`) was adopted sitewide in
+> September 2026, replacing the previously-rendered `#CC3E1F` — see the Palette table below.
+> `tokens/borders.css` also references six variables that no
 > longer exist (`--zais-orange`, `--zais-bone`, `--zais-concrete-50`, `--zais-concrete-25`,
 > `--zais-bone-18`, `--zais-concrete-18`), so those rules would resolve to nothing.
 > **Worth reconciling in Claude Design before anyone builds against the token files.**
@@ -20,7 +22,7 @@ read back out of the generated pages, not copied from a spec.
 |---|---|---|
 | `#020522` | 245 | Ink — body copy, headings, rules |
 | `#FFFFFF` | 228 | White sections, text on accent |
-| `#CC3E1F` | 223 | The single accent — eyebrows, links, buttons, tags |
+| `#DE2C00` | 223 | The single accent — eyebrows, links, buttons, tags |
 | `#F7F3E7` | 73 | Page background, cream cards |
 | `#F1EBDA` | 42 | Dropdown hover, deeper cream |
 | `#C7C0B6` | 20 | Hero base under the shader |
@@ -31,6 +33,8 @@ read back out of the generated pages, not copied from a spec.
 
 Supporting hero-gradient stops: `#D8D2C8`, `#DB4E2C`, `#C9AC99`, `#D1CBC1`, `#F2A48F`.
 Panel and avatar fills: `#FAF9F5`, `#EAE2CE`.
+
+**Ink text opacity — two tiers only:** `#020522` solid for primary text (headings, nav, primary body); `rgba(2,5,34,0.78)` for secondary body copy; `rgba(2,5,34,0.55)` for meta/tertiary text (labels, captions, dates, sub-titles under names). Every page was audited and normalized to these three values in September 2026 — don't introduce a fourth.
 
 ## Type
 
@@ -53,19 +57,21 @@ rather than working from a scale.
 - Container is `max-width: 80rem` with `clamp(1.25rem, 4vw, 2.5rem)` gutters, on every section.
 - Section rhythm is `clamp(64px, 8vw, 104px)` top and bottom.
 
-## The hero shader
+## The hero gradient
 
-`assets/js/hero-shader.js` is a WebGL mesh gradient — eight colour blobs drifting in place.
-It is a direct port of the export's `shader-hero.jsx`: the GLSL and the uniform table are
-copied verbatim and only the React wrapper was replaced, so the render is identical.
+The homepage hero background is `.gradient` (see `assets/css/site.css`, "Hero gradient"
+section, and the markup at the top of `index.html`'s Hero section) — five pre-rendered
+images crossfading on a 10s loop, in two sets: `setA-*.jpg` (light, cream neutral) and
+`setB-*.jpg` (dark, navy neutral), under `assets/img/gradient/`. A corner toggle button
+(`#hero-set-toggle`) swaps between the two sets by flipping `data-set` on `#hero-gradient`;
+the switch does not persist across page loads. Only the current set's five images are
+fetched — the browser doesn't load the inactive set until it's toggled to.
 
-It degrades safely. The hero section paints its own CSS radial-gradient stack underneath, so
-if WebGL is unavailable the canvas is hidden and the static gradient shows through. Motion
-stops under `prefers-reduced-motion`, when the tab is hidden, and when the hero scrolls out
-of view.
+This replaced an earlier WebGL mesh-gradient shader (`assets/js/hero-shader.js`, now
+removed) that rendered the same look live. The images in `assets/img/gradient/` are
+frames captured from that shader.
 
-Verified: both shaders compile clean, the program links, no GL errors, and a forced frame
-samples `#0c0524` navy top-left → `#ff2600` orange centre → `#fdf9e9` cream bottom-right.
+Motion stops under `prefers-reduced-motion` (site-wide rule in `assets/css/site.css`).
 
 ## How the conversion works
 
@@ -79,7 +85,6 @@ pages are byte-identical to the artboards apart from asset paths.
 | `style-hover="…"` | a `[data-hv="hvN"]:hover` rule in `assets/css/hover.css` |
 | `<sc-if value hint-placeholder-val>` | resolved against the default |
 | `onMouseEnter` / `onClick` | `data-menu` / `data-action`, handled in `site.js` |
-| `<x-import ShaderBackground>` | `<canvas class="hero-shader">` |
 | `ZAIS%20Foo.dc.html` | the real route |
 
 The hover rules need `!important` because the artboards use inline styles, which would
