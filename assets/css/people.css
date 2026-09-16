@@ -1,11 +1,6 @@
 /* Retain the shared role/name row and its contact buttons beside the name. */
 [data-voice-card] { min-width: 0; }
-[data-voice-card] > div:first-child {
-  height: auto !important;
-  aspect-ratio: 1;
-}
-
-/* Quotes fit the square crop and remain readable on keyboard focus. */
+/* Keep the original portrait proportions and readable keyboard quotes. */
 [data-voice-card] [data-hv="hv6"] {
   overflow-y: auto;
   padding: clamp(18px, 2.2vw, 30px) !important;

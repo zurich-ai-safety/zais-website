@@ -32,7 +32,8 @@ original-artboard behavior in `brand-system.md`.
 
 ## People and publications
 
-- Home and About portraits are square, with matching role/name styling.
+- Portraits retain their original proportions: responsive heights on Home and
+  square images on About, with matching role/name styling.
 - Contact buttons remain beside the person's name, as explicitly accepted.
 - Community cards have no hover shadow. Quotes are available on hover/focus;
   only the current carousel page can receive keyboard focus. Without JavaScript,
