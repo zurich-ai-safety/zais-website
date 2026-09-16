@@ -1,0 +1,38 @@
+/* Full first-page previews, rendered at 3× their desktop display width. */
+.publication-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) 144px;
+  grid-template-areas: "number copy thumbnail";
+  gap: clamp(16px, 3vw, 32px);
+  padding: 28px 0;
+  border-bottom: 1px dashed rgba(2, 5, 34, 0.2);
+  align-items: start;
+}
+
+.publication-number { grid-area: number; padding-top: 4px; }
+.publication-copy { grid-area: copy; min-width: 0; }
+.publication-thumbnail {
+  grid-area: thumbnail;
+  display: block;
+  width: 144px;
+  border: 1px solid rgba(2, 5, 34, 0.16);
+  background: #fff;
+}
+.publication-thumbnail img { width: 100%; height: auto; }
+.publication-thumbnail:hover { border-color: #DE2C00; }
+.publication-thumbnail:focus-visible { outline: 2px solid #DE2C00; outline-offset: 4px; }
+
+@media (max-width: 640px) {
+  .publication-row {
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "number copy" "thumbnail copy";
+    column-gap: 16px;
+    row-gap: 12px;
+  }
+  .publication-thumbnail { width: 64px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .publication-thumbnail { transition: border-color 180ms ease; }
+}

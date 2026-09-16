@@ -1,0 +1,52 @@
+/* Shared feedback for the existing dashed pills; labels keep their typography. */
+:is(a, button)[style*="border-radius:100px"],
+:is(a, button)[style*="border-radius: 100px"],
+.mobile-nav-cta {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  cursor: pointer;
+}
+footer a[style*="border-radius:100px"][style*="JetBrains"] {
+  font-size: 12px !important;
+}
+
+/* Keyboard focus receives the same colour feedback as pointer hover. */
+[data-hv="hv2"]:focus-visible { background: #F1EBDA !important; color: #DE2C00 !important; }
+[data-hv="hv3"]:focus-visible { background: #FFFFFF !important; color: #DE2C00 !important; }
+[data-hv="hv4"]:focus-visible { color: #DE2C00 !important; }
+[data-hv="hv5"]:focus-visible { color: #020522 !important; }
+[data-hv="hv7"]:focus-visible { border-color: #DE2C00 !important; color: #020522 !important; }
+[data-hv="hv8"]:focus-visible { background: #020522 !important; color: #FFFFFF !important; }
+[data-hv="hv9"]:focus-visible { background: #DE2C00 !important; color: #F7F3E7 !important; }
+[data-hv="hv10"]:focus-visible { border-color: #DE2C00 !important; color: #DE2C00 !important; }
+[data-hv="hv11"]:focus-visible { background: #DE2C00 !important; color: #FFFFFF !important; }
+[data-hv="hv12"]:focus-visible { background: #020522 !important; color: #F7F3E7 !important; }
+
+/* Label, arrow and ring inherit a single animated colour on course actions. */
+[data-screen-label="Programmes"] a[data-hv="hv5"] > span {
+  border-color: currentColor !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :is(a, button)[data-hv], .mobile-nav-cta, .timeline-arrow {
+    transition: color 180ms ease, background-color 180ms ease,
+      border-color 180ms ease, opacity 180ms ease, transform 180ms ease !important;
+  }
+  :is(a, button)[style*="border-radius:100px"]:active,
+  :is(a, button)[style*="border-radius: 100px"]:active,
+  .mobile-nav-cta:active, .timeline-arrow:active:not(:disabled) {
+    transform: translateY(0) scale(.98) !important;
+  }
+  [data-screen-label="Programmes"] a[data-hv="hv5"]:active {
+    transform: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-hv], .mobile-nav-cta, .timeline-arrow, .set-toggle,
+  [data-action="selectSession"] {
+    transition: none !important;
+    transform: none !important;
+  }
+}
