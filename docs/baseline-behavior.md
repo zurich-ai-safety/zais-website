@@ -16,6 +16,8 @@ original-artboard behavior in `brand-system.md`.
   240ms and exit is 200ms. Focus stays inside and page scrolling stays locked
   through exit; closing restores focus and scroll position. Resizing to desktop
   cleans up the mobile state. Without JavaScript, navigation remains expanded.
+  Menu rows, including subitems, fade and slide in with a short stagger on every
+  opening; keyboard focus makes an item immediately visible.
 
 ## Motion and controls
 

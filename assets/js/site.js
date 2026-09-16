@@ -196,6 +196,10 @@
     var hero = document.querySelector('section[data-screen-label*="Hero"]');
     var entrance = hero ? Array.from(hero.querySelectorAll('h1, h2, p, a[data-hv="hv3"]')) : [];
     var headerItems = Array.from(document.querySelectorAll('header .header-brand, header .site-navigation > a, header .nav-trigger, header .header-actions > *, header .header-mobile-controls > *'));
+    // Mobile menu rows enter when the menu opens, separately from page load.
+    if (window.matchMedia('(max-width: 1060px)').matches) {
+      headerItems = headerItems.filter(function (el) { return !el.closest('.navigation-panel'); });
+    }
     function enter(el, delay) {
       if (reduced.matches) return;
       el.style.setProperty('--entrance-delay', delay + 'ms');

@@ -19,6 +19,12 @@
   var inertElements = [];
   document.documentElement.classList.add('nav-enhanced');
 
+  // Animate each menu row, including nested links, on every mobile opening.
+  panel.querySelectorAll('.site-navigation > a, .nav-trigger, [data-dropdown] a, .header-actions > *').forEach(function (item, index) {
+    item.setAttribute('data-menu-entrance', '');
+    item.style.setProperty('--menu-item-delay', Math.min(index * 35, 280) + 'ms');
+  });
+
   function pathFor(url) {
     return url.pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '') || '/';
   }

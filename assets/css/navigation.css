@@ -157,6 +157,16 @@ html { scroll-padding-top: 88px; }
   @media (max-width: 1060px) {
     .navigation-panel.is-open { animation: menu-enter 240ms ease both; }
     .navigation-panel.is-open.is-closing { animation: menu-exit 200ms ease both; }
+    .navigation-panel.is-open [data-menu-entrance] {
+      animation: menu-item-enter 420ms cubic-bezier(.22,.61,.36,1) both;
+      animation-delay: var(--menu-item-delay, 0ms);
+    }
+    .navigation-panel.is-closing [data-menu-entrance] { animation-play-state: paused; }
+    .navigation-panel.is-open [data-menu-entrance]:focus-visible { animation: none; }
+    @keyframes menu-item-enter {
+      from { opacity: 0; translate: 0 12px; }
+      to { opacity: 1; translate: 0 0; }
+    }
     @keyframes menu-enter { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
     @keyframes menu-exit {
       from { opacity: var(--menu-close-opacity, 1); transform: var(--menu-close-transform, none); }
