@@ -1,4 +1,4 @@
-/* Zurich AI Safety — behaviour for the two carousels.
+/* Zurich AI Safety  -  behaviour for the two carousels.
  *
  * The nav dropdowns are pure CSS (hover / focus-within), so nothing here
  * touches them. Everything below reproduces the state logic that lived in the
@@ -150,48 +150,62 @@
      loads via localStorage so it doesn't reset when you navigate. */
 
   function initHeroToggle() {
-    /* Switches every .gradient on the page between the red set (A) and the
-       blue set (C) - the two palettes the homepage heroes use. All heroes
-       switch together, and the choice is remembered across page loads. */
-    var RED = 'A', BLUE = 'C';
+    /* Cycles every .gradient on the page through the hero palettes. The
+       red set ('D') is registered in the CSS but kept out of this list, so
+       the switcher only offers blue and sand. All heroes change together
+       and the choice is remembered across page loads. */
+    var SETS = ['C', 'A'];
+    var NAMES = { C: 'blue', A: 'the original sand' };
     var gradients = document.querySelectorAll('.gradient');
     var toggles = document.querySelectorAll('.set-toggle');
     if (!gradients.length || !toggles.length) return;
 
+    /* The control is currently hidden in the nav. While it is, leave every
+       hero on the palette its own markup declares and ignore any set
+       remembered from an earlier visit, so pages render as authored. */
+    var visible = Array.prototype.some.call(toggles, function (t) {
+      return t.offsetParent !== null;
+    });
+    if (!visible) return;
+
     var STORAGE_KEY = 'zais-gradient-set';
-    var current = gradients[0].dataset.set === BLUE ? BLUE : RED;
+    var current = SETS.indexOf(gradients[0].dataset.set);
+    if (current < 0) current = 0;
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    if (stored === RED || stored === BLUE) current = stored;
+    if (SETS.indexOf(stored) >= 0) current = SETS.indexOf(stored);
 
     function apply() {
+      var set = SETS[current];
+      var next = SETS[(current + 1) % SETS.length];
       Array.prototype.forEach.call(gradients, function (g) {
-        g.dataset.set = current;
-        /* Tag the hero itself so CSS can adapt the things that sit outside
-           .gradient - the weights mask and the scrim - to the palette. */
+        g.dataset.set = set;
         var host = g.closest ? g.closest('section') : null;
-        if (host) host.dataset.palette = current;
+        if (host) host.dataset.palette = set;
       });
       Array.prototype.forEach.call(toggles, function (tg) {
-        tg.setAttribute('aria-pressed', String(current === BLUE));
-        tg.setAttribute('title', current === BLUE ? 'Switch to red' : 'Switch to blue');
+        tg.dataset.next = next;
+        tg.setAttribute('aria-pressed', String(set !== SETS[0]));
+        tg.setAttribute('title', 'Switch to ' + NAMES[next]);
+        tg.setAttribute('aria-label', 'Background colour: ' + NAMES[set] +
+                        '. Switch to ' + NAMES[next] + '.');
       });
     }
     apply();
 
     Array.prototype.forEach.call(toggles, function (toggle) {
       toggle.addEventListener('click', function () {
-        current = current === BLUE ? RED : BLUE;
+        current = (current + 1) % SETS.length;
         apply();
-        try { localStorage.setItem(STORAGE_KEY, current); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY, SETS[current]); } catch (e) {}
       });
     });
   }
 
   /* ---- Scroll reveal for section headings + intros -------------------- */
   /* Elements are marked with data-reveal in the HTML. The reveal-pending
-     class (which starts them invisible) is only added here, in JS — never
-     in the HTML or a static CSS class — so if JS fails to run or load,
+     class (which starts them invisible) is only added here, in JS  -  never
+     in the HTML or a static CSS class  -  so if JS fails to run or load,
      nothing is ever hidden. Each element reveals once, the first time it
      scrolls into view, then is left alone. */
 
@@ -286,7 +300,7 @@
   /* Mouse users drag the row sideways; touchscreens already scroll it
      natively with a swipe. A small circular indicator follows the pointer
      while it's over the row, replacing the native cursor, so dragging is
-     the only affordance shown — no scrollbar, no arrow buttons. */
+     the only affordance shown  -  no scrollbar, no arrow buttons. */
 
   function initDragScroll() {
     var rows = document.querySelectorAll('[data-drag-scroll]');
@@ -308,10 +322,20 @@
       }
 
       row.addEventListener('mouseenter', function (e) {
-        cursor.classList.add('is-visible');
+        if (!overInteractive(e)) cursor.classList.add('is-visible');
         moveCursor(e);
       });
-      row.addEventListener('mousemove', moveCursor);
+      /* Over a link or button the native pointer is the right affordance,
+         so the DRAG bubble steps out of the way. */
+      function overInteractive(e) {
+        var el = e.target;
+        return !!(el && el.closest && el.closest('a, button'));
+      }
+      row.addEventListener('mousemove', function (e) {
+        moveCursor(e);
+        if (dragging) return;
+        cursor.classList.toggle('is-visible', !overInteractive(e));
+      });
       row.addEventListener('mouseleave', function () {
         cursor.classList.remove('is-visible');
         dragging = false;
@@ -409,10 +433,160 @@
     });
   }
 
+  /* ---- Why Zurich stat slider (mobile) ------------------------------- */
+  /* Below 760px the stat row turns into a scroll-snap track. This only
+     builds the dot indicators and keeps the active one in sync; the
+     scrolling itself is pure CSS. No-ops when the markup is absent. */
+
+  function initStatSlider() {
+    var track = document.querySelector('[data-stat-slider]');
+    var dots = document.querySelector('[data-stat-dots]');
+    if (!track || !dots || !track.children.length) return;
+
+    var cards = Array.prototype.slice.call(track.children);
+
+    cards.forEach(function (card, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'stat-dot';
+      dot.setAttribute('aria-label', 'Show statistic ' + (i + 1) + ' of ' + cards.length);
+      dot.addEventListener('click', function () {
+        track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+      });
+      dots.appendChild(dot);
+    });
+
+    function paint() {
+      var centre = track.scrollLeft + track.clientWidth / 2;
+      var best = 0;
+      var bestDist = Infinity;
+      cards.forEach(function (card, i) {
+        var mid = card.offsetLeft - track.offsetLeft + card.offsetWidth / 2;
+        var dist = Math.abs(mid - centre);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      Array.prototype.forEach.call(dots.children, function (dot, i) {
+        dot.setAttribute('data-active', String(i === best));
+      });
+    }
+
+    track.addEventListener('scroll', paint, { passive: true });
+    window.addEventListener('resize', paint);
+    paint();
+  }
+
+  /* ---- Programme chapters: flyout on mobile -------------------------- */
+  /* On wide screens the curriculum is a two-column widget (chapter list
+     left, detail right). Below 760px each detail panel is moved directly
+     under its own chapter button so tapping a chapter flies its text out
+     underneath, accordion style. Panels move back on resize. */
+
+  function initSessionFlyout() {
+    var widget = document.querySelector('[data-session-widget]');
+    if (!widget) return;
+    var detail = widget.querySelector('[data-session-detail]');
+    var buttons = Array.prototype.slice.call(
+      widget.querySelectorAll('[data-action="selectSession"]')
+    );
+    if (!detail || !buttons.length) return;
+
+    var panels = Array.prototype.slice.call(
+      detail.querySelectorAll('[data-session-detail-panel]')
+    );
+    if (!panels.length) return;
+
+    var mq = window.matchMedia('(max-width: 760px)');
+    var mobile = null;
+
+    function panelFor(id) {
+      for (var i = 0; i < panels.length; i++) {
+        if (panels[i].getAttribute('data-session-detail-panel') === id) return panels[i];
+      }
+      return null;
+    }
+
+    function toMobile() {
+      buttons.forEach(function (btn) {
+        var panel = panelFor(btn.getAttribute('data-session'));
+        if (!panel) return;
+        panel.setAttribute('data-session-flyout', '');
+        btn.insertAdjacentElement('afterend', panel);
+      });
+      detail.style.display = 'none';
+      buttons.forEach(function (btn) {
+        btn.setAttribute('aria-expanded', btn.getAttribute('data-active') === 'true' ? 'true' : 'false');
+      });
+    }
+
+    function toDesktop() {
+      panels.forEach(function (panel) {
+        panel.removeAttribute('data-session-flyout');
+        detail.appendChild(panel);
+      });
+      detail.style.display = '';
+      buttons.forEach(function (btn) { btn.removeAttribute('aria-expanded'); });
+      /* Never leave the desktop view with everything collapsed. */
+      var anyOpen = panels.some(function (p) { return !p.hidden; });
+      if (!anyOpen && panels[0]) {
+        panels[0].hidden = false;
+        buttons.forEach(function (btn) {
+          var on = btn.getAttribute('data-session') === panels[0].getAttribute('data-session-detail-panel');
+          btn.setAttribute('data-active', String(on));
+          btn.setAttribute('aria-selected', String(on));
+          var colour = on ? '#DE2C00' : '#020522';
+          var title = btn.querySelector('[data-session-title]');
+          var num = btn.querySelector('[data-session-num]');
+          if (title) title.style.color = colour;
+          if (num) num.style.color = colour;
+        });
+      }
+    }
+
+    function sync() {
+      if (mq.matches === mobile) return;
+      mobile = mq.matches;
+      if (mobile) toMobile(); else toDesktop();
+    }
+
+    /* On mobile a second tap on the open chapter closes it. The tab
+       handler in initSessionTabs has already run by this point, so the
+       panel is open and the button active: just collapse both. */
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (!mobile) return;
+        var panel = panelFor(btn.getAttribute('data-session'));
+        if (!panel) return;
+        if (btn.getAttribute('data-expanded') === 'true') {
+          panel.hidden = true;
+          btn.setAttribute('data-active', 'false');
+          btn.setAttribute('aria-selected', 'false');
+          var title = btn.querySelector('[data-session-title]');
+          var num = btn.querySelector('[data-session-num]');
+          if (title) title.style.color = '#020522';
+          if (num) num.style.color = '#020522';
+        }
+        buttons.forEach(function (b) {
+          var open = b.getAttribute('data-active') === 'true';
+          b.setAttribute('data-expanded', String(open));
+          b.setAttribute('aria-expanded', String(open));
+        });
+      });
+    });
+
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+    else if (mq.addListener) mq.addListener(sync);
+    sync();
+    buttons.forEach(function (b) {
+      b.setAttribute('data-expanded', String(b.getAttribute('data-active') === 'true'));
+    });
+  }
+
   function boot() {
     initVoices();
     initStoryTimeline();
     initSessionTabs();
+    initSessionFlyout();
+    initStatSlider();
     initHeroToggle();
     initScrollReveal();
     initDragScroll();

@@ -11,7 +11,7 @@
 }
 
 [data-hv="hv1"]:hover { opacity:0.7 !important; color:#FFFFFF !important; }
-[data-hv="hv2"]:hover { background:#F1EBDA !important; color:#DE2C00 !important; }
+[data-hv="hv2"]:hover { background:#FBF8EF !important; color:#020522 !important; }
 [data-hv="hv3"]:hover { background:#FFFFFF !important; color:#DE2C00 !important; }
 [data-hv="hv4"]:hover { color:#DE2C00 !important; }
 [data-hv="hv5"]:hover { color:#020522 !important; }
