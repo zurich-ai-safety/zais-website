@@ -33,7 +33,7 @@
     var next = document.querySelector('[data-action="nextSlide"]');
     var GAP = 16;
     var page = 0;
-    var perView = 3;
+    var perView = 4;
 
     function pages() { return Math.ceil(slides / perView); }
 
@@ -46,7 +46,7 @@
 
     function fit() {
       var w = window.innerWidth;
-      var pv = w < 520 ? 1 : w < 780 ? 2 : 3;
+      var pv = w < 520 ? 1 : w < 780 ? 2 : w < 1100 ? 3 : 4;
       if (pv !== perView) {
         perView = pv;
         page = Math.min(page, pages() - 1);
@@ -150,30 +150,40 @@
      loads via localStorage so it doesn't reset when you navigate. */
 
   function initHeroToggle() {
-    var gradient = document.getElementById('hero-gradient');
+    /* Switches every .gradient on the page between the red set (A) and the
+       blue set (C) - the two palettes the homepage heroes use. All heroes
+       switch together, and the choice is remembered across page loads. */
+    var RED = 'A', BLUE = 'C';
+    var gradients = document.querySelectorAll('.gradient');
     var toggles = document.querySelectorAll('.set-toggle');
-    if (!gradient || !toggles.length) return;
+    if (!gradients.length || !toggles.length) return;
 
     var STORAGE_KEY = 'zais-gradient-set';
+    var current = gradients[0].dataset.set === BLUE ? BLUE : RED;
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    if (stored === 'A' || stored === 'B') {
-      gradient.dataset.set = stored;
-    }
+    if (stored === RED || stored === BLUE) current = stored;
 
-    function sync() {
-      var isDark = gradient.dataset.set === 'B';
-      toggles.forEach(function (t) { t.setAttribute('aria-pressed', String(isDark)); });
+    function apply() {
+      Array.prototype.forEach.call(gradients, function (g) {
+        g.dataset.set = current;
+        /* Tag the hero itself so CSS can adapt the things that sit outside
+           .gradient - the weights mask and the scrim - to the palette. */
+        var host = g.closest ? g.closest('section') : null;
+        if (host) host.dataset.palette = current;
+      });
+      Array.prototype.forEach.call(toggles, function (tg) {
+        tg.setAttribute('aria-pressed', String(current === BLUE));
+        tg.setAttribute('title', current === BLUE ? 'Switch to red' : 'Switch to blue');
+      });
     }
-    sync();
+    apply();
 
-    toggles.forEach(function (toggle) {
+    Array.prototype.forEach.call(toggles, function (toggle) {
       toggle.addEventListener('click', function () {
-        var isDark = gradient.dataset.set === 'B';
-        var next = isDark ? 'A' : 'B';
-        gradient.dataset.set = next;
-        sync();
-        try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+        current = current === BLUE ? RED : BLUE;
+        apply();
+        try { localStorage.setItem(STORAGE_KEY, current); } catch (e) {}
       });
     });
   }

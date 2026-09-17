@@ -83,6 +83,13 @@ img, canvas { display: block; max-width: 100%; }
 .gradient[data-set="B"] .gl-4    { background-image: url("/assets/img/gradient/setB-4.jpg"); }
 .gradient[data-set="B"] .gl-5    { background-image: url("/assets/img/gradient/setB-5.jpg"); }
 
+/* set C - blue duotone, matching the 4322 hero ramp */
+.gradient[data-set="C"] .gl-base { background-image: url("/assets/img/gradient/setC-1.jpg"); }
+.gradient[data-set="C"] .gl-2    { background-image: url("/assets/img/gradient/setC-2.jpg"); }
+.gradient[data-set="C"] .gl-3    { background-image: url("/assets/img/gradient/setC-3.jpg"); }
+.gradient[data-set="C"] .gl-4    { background-image: url("/assets/img/gradient/setC-4.jpg"); }
+.gradient[data-set="C"] .gl-5    { background-image: url("/assets/img/gradient/setC-5.jpg"); }
+
 .gl-2 { animation: fade-l2 10s linear infinite; }
 .gl-3 { animation: fade-l3 10s linear infinite; }
 .gl-4 { animation: fade-l4 10s linear infinite; }
@@ -136,16 +143,35 @@ img, canvas { display: block; max-width: 100%; }
 
 /* Fixed to the top at all times (see the header-spacer right after </header>
    in the HTML, which reserves the space it used to occupy in normal flow).
-   Transparent over the hero until the page scrolls past 24px, then an
-   instant snap - no fade - to a solid brand-orange bar, same threshold and
-   same no-transition behaviour as the reference. */
+   Transparent over the hero until the page scrolls past 24px, then a
+   solid white bar with ink-coloured contents. */
 .site-header {
   background: transparent;
   border-bottom: 1px solid rgba(255,255,255,0.3);
   transition: background-color 0.22s ease;
 }
 .site-header.is-compact {
-  background: #DE2C00;
+  background: #FFFFFF;
+  border-bottom-color: rgba(2,5,34,0.12);
+}
+/* Everything in the bar is white over the hero, so once the bar turns white
+   the contents have to flip to ink. The link colours are inline styles, so
+   these need !important to win. */
+.site-header.is-compact a,
+.site-header.is-compact nav span { color: #020522 !important; }
+.site-header.is-compact a[href="/get-involved/"] {
+  border-color: rgba(2,5,34,0.45) !important;
+}
+.site-header.is-compact a[href="/get-involved/"]:hover {
+  background: #020522 !important;
+  color: #FFFFFF !important;
+  border-color: #020522 !important;
+}
+.site-header.is-compact .menu-toggle { border-color: rgba(2,5,34,0.45); }
+.site-header.is-compact .menu-toggle span { background: #020522; }
+.site-header.is-compact .set-toggle {
+  border-color: rgba(2,5,34,0.28);
+  background: rgba(2,5,34,0.06);
 }
 /* Header row shrinks on scroll (80px -> 64px) and is slightly shorter by
    default once the hamburger breakpoint kicks in (80px -> 72px), matching
@@ -277,7 +303,8 @@ body.hide-editorial-notes .editorial-note { display: none; }
 }
 .mobile-nav-brand {
   font-family: 'Geist', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
+  white-space: nowrap;
   font-weight: 600;
   letter-spacing: normal;
   color: #020522;
@@ -609,3 +636,36 @@ h3.reveal-pending + p.reveal-pending {
     scroll-behavior: auto !important;
   }
 }
+
+/* Programme-page hero image: a soft-edged rectangle, not a vignette. Two
+   linear masks (one horizontal, one vertical) are intersected, so the middle
+   of the photo stays fully sharp and only the outer band on each side fades
+   out into the gradient. The inline background-color fades with it. */
+[data-hero-image-slot] {
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, #000 13%, #000 87%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 13%, #000 87%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right,  transparent 0%, #000 13%, #000 87%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 13%, #000 87%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Hero palette switching. In red the weights are masked to the dark areas of
+   the gradient and the heavy navy scrim steps back, so the top hero matches
+   the red weights hero further down the page. In blue both revert to the
+   unmasked, fully-scrimmed treatment the blue hero was designed with. */
+[data-palette="A"] canvas.hero-binary {
+  -webkit-mask-image: url("/assets/img/gradient/setA-weights-mask.png");
+          mask-image: url("/assets/img/gradient/setA-weights-mask.png");
+  -webkit-mask-size: cover;       mask-size: cover;
+  -webkit-mask-position: 50% 50%; mask-position: 50% 50%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+[data-palette="C"] canvas.hero-binary {
+  -webkit-mask-image: none; mask-image: none;
+}
+[data-hero-scrim] { transition: opacity .4s ease; }
+[data-palette="A"] [data-hero-scrim] { opacity: 0.22; }
+[data-palette="C"] [data-hero-scrim] { opacity: 1; }
