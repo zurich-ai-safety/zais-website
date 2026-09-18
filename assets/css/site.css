@@ -8,7 +8,7 @@
    motion and the mobile breakpoints.
    ========================================================================= */
 
-@import url("./hover.css?v=20260917185817");
+@import url("./hover.css?v=20260918122722");
 
 /* ---------- 1. Base ------------------------------------------------------ */
 
@@ -526,15 +526,15 @@ h3.reveal-pending + p.reveal-pending {
   width: 46px;
   height: 46px;
   border-radius: 999px;
-  background: rgba(2, 5, 34, 0.42);
-  backdrop-filter: blur(2px);
-  color: rgba(255, 255, 255, 0.92);
+  background: rgba(2, 5, 34, 0.86);
+  backdrop-filter: blur(3px);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 8.5px;
-  letter-spacing: 0.1em;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
   pointer-events: none;
   opacity: 0;
   transform-origin: center;
@@ -542,7 +542,7 @@ h3.reveal-pending + p.reveal-pending {
   z-index: 60;
 }
 .drag-cursor.is-visible {
-  opacity: 0.55;
+  opacity: 0.96;
 }
 
 /* Anything clickable inside the row keeps its own pointer, and the JS hides
