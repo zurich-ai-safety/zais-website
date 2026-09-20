@@ -13,63 +13,98 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260916fix">
-<link rel="stylesheet" href="/assets/css/navigation.css?v=20260916menu">
-<link rel="stylesheet" href="/assets/css/buttons.css?v=20260916fix">
-<link rel="stylesheet" href="/assets/css/motion.css?v=20260916fix">
-<link rel="stylesheet" href="/assets/css/people.css?v=20260917portraits">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260918122722">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100">
-    <div class="header-inner" style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
-      <a class="header-brand" href="/" style="font-family:'Geist',sans-serif;font-size:24px;font-weight:600;letter-spacing:0.01em;color:#FFFFFF;justify-self:start">ZAIS</a>
-      <div class="navigation-panel" id="navigation-panel"><div class="mobile-menu-heading"><a class="mobile-menu-brand" href="/">ZAIS</a><button class="menu-close" id="mobile-menu-close" type="button" aria-label="Close menu">&times;</button></div><nav class="site-navigation" aria-label="Main navigation" style="display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap">
+<div id="main">
+<div style="background:#F7F3E7;min-height:100vh;overflow-x:hidden">
+
+  <header class="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100">
+    <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
+      <a href="/" style="font-family:'Geist',sans-serif;font-size:19px;font-weight:600;letter-spacing:0.01em;color:#FFFFFF;justify-self:start;white-space:nowrap">Zurich AI Safety</a>
+      <nav style="display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap">
         <a href="/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Home</a>
 
-        <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="programmes">
-          <button class="nav-trigger" type="button" aria-controls="nav-programmes" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;gap:6px;cursor:default">Programmes <span style="font-size:10px;opacity:0.8">▾</span></button>
+        <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="activities">
+          <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;cursor:default"><span style="display:inline-flex;align-items:center;gap:6px">Activities <span style="font-size:10px;opacity:0.8">▾</span></span></span>
           
-            <div id="nav-programmes" data-dropdown="programmes" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#F7F3E7;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
-              <a href="/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
-              <a href="/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
-              <a href="/ai-safety-fundamentals/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Safety Fundamentals</a>
-              <a href="/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
+            <div data-dropdown="activities" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
+              <a href="/programmes/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
+              <a href="/programmes/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
+              <a href="/programmes/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
+              <a href="/programmes/ai-safety-fundamentals/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Safety Fundamentals</a>
+              <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Swiss AI Safety Days &#8599;</a>
             </div></div>
           
         </div>
 
-        <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="events">
-          <button class="nav-trigger" type="button" aria-controls="nav-events" style="cursor:default;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;gap:6px">Events <span style="font-size:10px;opacity:0.8">▾</span></button>
-          
-            <div id="nav-events" data-dropdown="events" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#F7F3E7;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
-              <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Swiss AI Safety Days ↗</a>
-              <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Luma Calendar &#8599;</a>
-            </div></div>
-          
-        </div>
 
-        <a href="/about/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">About ZAIS</a>
+        <a href="/about/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">About us</a>
         <a href="/research/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Research</a>
+        <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Calendar &#8599;</a>
       </nav>
-      <div class="header-actions" style="justify-self:end;display:flex;align-items:center;gap:14px">
+      <div style="justify-self:end;display:flex;align-items:center;gap:14px">
         <a href="/get-involved/" style="display:inline-flex;align-items:center;padding:11px 22px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:14px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
         <button type="button" class="set-toggle" id="hero-set-toggle" aria-pressed="false" aria-label="Switch background theme">
           <span class="set-toggle-dot"></span>
         </button>
-      </div>
-      </div>
-      <div class="header-mobile-controls"><button type="button" class="set-toggle header-mobile-theme" aria-pressed="false" aria-label="Switch background theme">
-          <span class="set-toggle-dot"></span>
-        </button><button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navigation-panel">
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel">
           <span></span><span></span><span></span>
-        </button></div>
+        </button>
+      </div>
     </div>
   </header>
-<div id="main">
-<div style="background:#F7F3E7;min-height:100vh;overflow-x:hidden">
 
-<section data-screen-label="Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="/" class="mobile-nav-brand">Zurich AI Safety</a>
+      <button type="button" class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="/">Home</a>
+      <div class="mobile-nav-group">Activities</div>
+      <a href="/programmes/open-meetups/" class="mobile-nav-sublink">Open Meetups</a>
+      <a href="/programmes/ai-futures/" class="mobile-nav-sublink">AI Futures</a>
+      <a href="/programmes/themed-events/" class="mobile-nav-sublink">Themed Events</a>
+      <a href="/programmes/ai-safety-fundamentals/" class="mobile-nav-sublink">AI Safety Fundamentals</a>
+      <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" class="mobile-nav-sublink">Swiss AI Safety Days &#8599;</a>
+      <a href="/about/">About us</a>
+      <a href="/research/">Research</a>
+      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer">Calendar &#8599;</a>
+    </nav>
+    <div class="mobile-nav-bottom-row"><a href="/get-involved/" class="mobile-nav-cta">Get Involved</a><button type="button" class="set-toggle" aria-pressed="false" aria-label="Switch background theme"><span class="set-toggle-dot"></span></button></div>
+  </div>
+
+<section data-screen-label="Hero (4322 blue)" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#0A1240;background-image:radial-gradient(62% 128% at -4% 10%, #1E2FB4 0%, rgba(27,43,180,0.97) 30%, rgba(22,36,148,0.80) 52%, rgba(14,22,86,0.26) 72%, rgba(10,18,64,0) 88%), radial-gradient(46% 72% at 20% 98%, rgba(46,107,245,0.52) 0%, rgba(30,47,180,0.16) 52%, rgba(10,18,64,0) 82%), radial-gradient(72% 112% at 114% 0%, #BBD2F4 0%, rgba(159,193,242,0.58) 45%, rgba(159,193,242,0) 86%), linear-gradient(120deg, #141A6E 0%, #1E2FB4 18%, #2E6BF5 46%, #7FA8E8 70%, #C3D9FA 100%)">
+
+  <div class="gradient" data-set="C">
+    <div class="gradient-layer gl-base"></div>
+    <div class="gradient-layer gl-2"></div>
+    <div class="gradient-layer gl-3"></div>
+    <div class="gradient-layer gl-4"></div>
+    <div class="gradient-layer gl-5"></div>
+  </div>
+  <div class="grain"></div>
+  <canvas class="hero-binary" aria-hidden="true" data-cell="24" data-colour="rgba(255,255,255,0.46)" data-span="1" data-floor="0.09" data-gamma="0.58" data-fps="16" data-rate="1" data-radius="250" data-glow="255,255,255" data-intensity="1" data-spotlight="off" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;pointer-events:none"></canvas>
+  <div data-hero-scrim aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none;background-image:linear-gradient(100deg, rgba(2,5,34,0.96) 0%, rgba(2,5,34,0.92) 34%, rgba(2,5,34,0.72) 52%, rgba(2,5,34,0.34) 70%, rgba(2,5,34,0.08) 86%), radial-gradient(70% 76% at 24% 50%, rgba(2,5,34,0.82) 0%, rgba(2,5,34,0.50) 46%, rgba(2,5,34,0) 88%)"></div>
+
+
+
+
+  <div aria-hidden="true" style="height:80px"></div>
+  <div style="position:relative;z-index:3;width:100%;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem);min-height:calc(100vh - 80px);display:flex;align-items:center">
+
+    <div style="max-width:800px">
+      <h1 style="font-family:'Geist',sans-serif;font-weight:300;font-size:clamp(44px,6.6vw,90px);line-height:0.98;letter-spacing:-0.018em;color:#FFFFFF;margin:0 0 clamp(28px,3vw,44px)">Let's make sure that AI development happens safely.</h1>
+      <p style="font-family: 'Inter',sans-serif; font-weight: 400; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 0 clamp(32px,3.5vw,44px)">Zurich AI Safety unites academic researchers, industry experts, and future leaders to address the critical risks posed by AI, with the goal of ensuring advanced systems are developed safely.</p>
+      <a href="/get-involved/" style="display:inline-flex;align-items:center;padding:15px 34px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
+    </div>
+
+  </div>
+</section>
+
+<section data-screen-label="Hero" style="display:none;position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
   <div class="gradient" data-set="A" id="hero-gradient">
     <div class="gradient-layer gl-base"></div>
     <div class="gradient-layer gl-2"></div>
@@ -86,69 +121,87 @@
 
 
 
-  <div class="header-spacer" aria-hidden="true"></div>
+  <div aria-hidden="true" style="height:80px"></div>
   <div style="position:relative;z-index:1;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem)">
 
     <div style="max-width:800px">
-      <h1 style="font-family:'Geist',sans-serif;font-weight:300;font-size:clamp(44px,6.6vw,90px);line-height:0.98;letter-spacing:-0.018em;color:#FFFFFF;margin:0 0 clamp(28px,3vw,44px)">Let's make sure that AI development happens responsibly.</h1>
-      <p style="font-family: 'Inter',sans-serif; font-weight: 400; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 0 clamp(32px,3.5vw,44px)">Zurich AI Safety unites academic researchers, industry experts, and future leaders to solve critical AI alignment challenges, with the unified goal of ensuring advanced systems are developed safely for the benefit of humanity.</p>
+      <h1 style="font-family:'Geist',sans-serif;font-weight:300;font-size:clamp(44px,6.6vw,90px);line-height:0.98;letter-spacing:-0.018em;color:#FFFFFF;margin:0 0 clamp(28px,3vw,44px)">Let's make sure that AI development happens safely.</h1>
+      <p style="font-family: 'Inter',sans-serif; font-weight: 400; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 0 clamp(32px,3.5vw,44px)">Zurich AI Safety unites academic researchers, industry experts, and future leaders to address the critical risks posed by AI, with the goal of ensuring advanced systems are developed safely.</p>
       <a href="/get-involved/" style="display:inline-flex;align-items:center;padding:15px 34px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
     </div>
 
   </div>
 </section>
 
-<section data-screen-label="Trust Bar" style="background:#FFFFFF;padding:clamp(1.25rem,2.5vw,2rem) clamp(1.25rem,4vw,2.5rem)">
-  <div style="max-width:80rem;margin:0 auto;background:#F7F3E7;border-radius:1rem;padding:clamp(1.5rem,3vw,2.25rem) clamp(1.5rem,2.5vw,2.5rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(1.75rem,3vw,2.5rem)">
-    <div style="display:flex;align-items:center;gap:22px">
-      <span style="width:64px;height:64px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:flex;align-items:center;justify-content:center">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#020522" stroke-width="1.3" stroke-linecap="square"><path d="M12 4l6.5 3.5v5c0 3.6-2.7 6.2-6.5 7.5-3.8-1.3-6.5-3.9-6.5-7.5v-5L12 4z"></path><polyline points="9,12 11.3,14.3 15.2,10.4"></polyline></svg>
-      </span>
-      <p style="font-family: 'Geist',sans-serif; font-weight: 400; font-size: clamp(19px,1.9vw,20px); line-height: 1.2; letter-spacing: -0.02em; color: #020522; margin: 0; max-width: 14ch">Accelerate Your Career in AI Safety</p>
+<section data-screen-label="Hero (weights)" style="display:none;position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
+  <style>
+    /* Show the weights only over the dark red areas of the gradient. The mask is
+       the gradient's own average luminance, inverted: dark -> opaque, light ->
+       transparent. cover / 50% 50% matches .gradient-layer exactly, so it stays
+       registered with the artwork at every viewport size. */
+    .hero-binary--masked {
+      -webkit-mask-image: url("/assets/img/gradient/setA-weights-mask.png");
+              mask-image: url("/assets/img/gradient/setA-weights-mask.png");
+      -webkit-mask-size: cover;     mask-size: cover;
+      -webkit-mask-position: 50% 50%; mask-position: 50% 50%;
+      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    }
+  </style>
+
+  <div class="gradient" data-set="A">
+    <div class="gradient-layer gl-base"></div>
+    <div class="gradient-layer gl-2"></div>
+    <div class="gradient-layer gl-3"></div>
+    <div class="gradient-layer gl-4"></div>
+    <div class="gradient-layer gl-5"></div>
+  </div>
+  <div class="grain"></div>
+  <canvas class="hero-binary hero-binary--masked" aria-hidden="true" data-cell="24" data-colour="rgba(255,255,255,0.42)" data-span="1" data-floor="0.09" data-gamma="0.58" data-fps="16" data-rate="1" data-radius="250" data-glow="255,255,255" data-intensity="1" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;pointer-events:none"></canvas>
+
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;inset:0;background-color:rgba(2,5,34,0.07);background-image:linear-gradient(180deg, rgba(2,5,34,0.52) 0px, rgba(2,5,34,0.46) 82px, rgba(2,5,34,0.12) 132px, rgba(2,5,34,0) 190px), linear-gradient(100deg, rgba(2,5,34,0.40) 0%, rgba(2,5,34,0.24) 42%, rgba(2,5,34,0.07) 72%, rgba(2,5,34,0) 92%), linear-gradient(0deg, rgba(2,5,34,0.18) 0%, rgba(2,5,34,0.05) 42%, rgba(2,5,34,0) 70%)"></div>
+    <div style="position:absolute;left:0;right:0;top:190px;bottom:0;background-image:linear-gradient(270deg, rgba(255,255,251,0.32) 0%, rgba(255,255,251,0.28) 26%, rgba(255,255,251,0.20) 38%, rgba(255,255,251,0.06) 43%, rgba(255,255,251,0) 46%)"></div>
+  </div>
+
+
+
+  <div aria-hidden="true" style="height:80px"></div>
+  <div style="position:relative;z-index:1;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem)">
+
+    <div style="max-width:800px">
+      <h1 style="font-family:'Geist',sans-serif;font-weight:300;font-size:clamp(44px,6.6vw,90px);line-height:0.98;letter-spacing:-0.018em;color:#FFFFFF;margin:0 0 clamp(28px,3vw,44px)">Let's make sure that AI development happens safely.</h1>
+      <p style="font-family: 'Inter',sans-serif; font-weight: 400; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 0 clamp(32px,3.5vw,44px)">Zurich AI Safety unites academic researchers, industry experts, and future leaders to address the critical risks posed by AI, with the goal of ensuring advanced systems are developed safely.</p>
+      <a href="/get-involved/" style="display:inline-flex;align-items:center;padding:15px 34px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
     </div>
-    <div style="display:flex;align-items:center;gap:22px">
-      <span style="width:64px;height:64px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:flex;align-items:center;justify-content:center">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#020522" stroke-width="1.3" stroke-linecap="square"><circle cx="12" cy="5.5" r="2.4"></circle><circle cx="5.2" cy="17.5" r="2.4"></circle><circle cx="18.8" cy="17.5" r="2.4"></circle><line x1="10.4" y1="7.4" x2="6.8" y2="15.6"></line><line x1="13.6" y1="7.4" x2="17.2" y2="15.6"></line><line x1="7.6" y1="17.5" x2="16.4" y2="17.5"></line></svg>
-      </span>
-      <p style="font-family: 'Geist',sans-serif; font-weight: 400; font-size: clamp(19px,1.9vw,20px); line-height: 1.2; letter-spacing: -0.02em; color: #020522; margin: 0; max-width: 14ch">Increase Your Network</p>
-    </div>
-    <div style="display:flex;align-items:center;gap:22px">
-      <span style="width:64px;height:64px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:flex;align-items:center;justify-content:center">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#020522" stroke-width="1.3" stroke-linecap="square"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="8.4"></circle><circle cx="12" cy="3.6" r="1.5"></circle><circle cx="19.3" cy="16.2" r="1.5"></circle><circle cx="4.7" cy="16.2" r="1.5"></circle></svg>
-      </span>
-      <p style="font-family: 'Geist',sans-serif; font-weight: 400; font-size: clamp(19px,1.9vw,20px); line-height: 1.2; letter-spacing: -0.02em; color: #020522; margin: 0; max-width: 14ch">Become Part of an Active Ecosystem</p>
-    </div>
+
   </div>
 </section>
-
 <section data-screen-label="Our Mission" style="background:#FFFFFF">
   
 <div style="max-width: 80rem; margin: 0 auto; padding: clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px); background-color: #FFFFFF">
-    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">OUR MISSION</div>
-
-    <p data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,35px);line-height:1.45;letter-spacing:-0.015em;color:#020522;margin:0;text-wrap:pretty">Zurich AI Safety exists to bring more talent into AI safety by attracting people to the field, upskilling them through rigorous programmes, and connecting them to real opportunities in Zurich. We build the infrastructure a growing field needs: talks, courses, reading groups, a flagship conference, and a shared home base, so that curiosity about AI safety turns into sustained, local contribution.</p>
+    <p style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,35px);line-height:1.45;letter-spacing:-0.015em;color:#020522;margin:0;text-wrap:pretty">Zurich AI Safety brings people into the field and connects them to real opportunities in Zurich and beyond. We are a community where AI risk gets discussed openly while building the local infrastructure that turns curiosity into sustained contribution.</p>
 
       </div></section>
 
-<section data-screen-label="Where To Start 02" style="background:#FFFFFF">
+<section data-screen-label="Where To Start 02" style="display:none;background:#FFFFFF">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(40px,4vw,56px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px)">
     <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Where To Start 02</div>
 
     <div style="border-top:1px solid rgba(2,5,34,0.16)">
-      <a href="/ai-futures/" data-reveal data-programme-row style="display:grid;grid-template-columns:minmax(180px,300px) 1fr auto;gap:clamp(24px,4vw,40px);align-items:start;padding:clamp(2rem,4vw,3rem) 0;text-decoration:none;border-bottom:1px solid rgba(2,5,34,0.16)">
+      <a href="/programmes/ai-futures/" data-programme-row style="display:grid;grid-template-columns:minmax(180px,300px) 1fr auto;gap:clamp(24px,4vw,40px);align-items:start;padding:clamp(2rem,4vw,3rem) 0;text-decoration:none;border-bottom:1px solid rgba(2,5,34,0.16)">
         <div style="aspect-ratio:4/3;background-image:url(&quot;/assets/img/ai-futures-hero-illustration.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
         <div>
-          <h3 data-row-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 14px">1. AI Futures</h3>
+          <h3 data-reveal data-row-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 14px">1. AI Futures</h3>
           <div style="margin-bottom:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase"><span style="color:#DE2C00;font-weight:500">Programme</span><span style="color:rgba(2,5,34,0.55)"> &#183; Every 2 weeks</span></div>
           <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:480px">AI Futures is a 6-part series that works through that question in the open – current systems, how fast they are improving, what could go wrong, and who decides.</p>
         </div>
         <span data-row-arrow style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease,border-color 0.2s ease">&#8594;</span>
       </a>
 
-      <a href="/open-meetups/" data-reveal data-programme-row style="display:grid;grid-template-columns:minmax(180px,300px) 1fr auto;gap:clamp(24px,4vw,40px);align-items:start;padding:clamp(2rem,4vw,3rem) 0;text-decoration:none;border-bottom:1px solid rgba(2,5,34,0.16)">
+      <a href="/programmes/open-meetups/" data-programme-row style="display:grid;grid-template-columns:minmax(180px,300px) 1fr auto;gap:clamp(24px,4vw,40px);align-items:start;padding:clamp(2rem,4vw,3rem) 0;text-decoration:none;border-bottom:1px solid rgba(2,5,34,0.16)">
         <div style="aspect-ratio:4/3;background-image:url(&quot;/assets/img/open-meetups-hero.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
         <div>
-          <h3 data-row-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 14px">2. Open Meetups</h3>
+          <h3 data-reveal data-row-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 14px">2. Open Meetups</h3>
           <div style="margin-bottom:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase"><span style="color:#DE2C00;font-weight:500">Programme</span><span style="color:rgba(2,5,34,0.55)"> &#183; Monthly</span></div>
           <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:480px">One evening a month at or in front of our PEAKS coworking office, with no programme and no agenda beyond the people who turn up.</p>
         </div>
@@ -158,53 +211,66 @@
   </div>
 </section>
 
-<section data-screen-label="Where To Start 03" style="background:#FFFFFF">
+<section id="wts" data-screen-label="Where To Start" style="background:#FFFFFF">
+  <style>
+    #wts .wts-media { position:relative; aspect-ratio:4/3; overflow:hidden; background:#F7F3E7; }
+    #wts .wts-media > span { position:absolute; inset:0; background-size:cover; background-position:center; background-repeat:no-repeat; }
+  </style>
   <div style="max-width:80rem;margin:0 auto;padding:clamp(40px,4vw,56px) 0 clamp(64px,8vw,104px)">
-    <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Where To Start 03</div></div>
+    <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Where To Start</div></div>
 
     <div data-drag-scroll style="display:flex;gap:clamp(20px,3vw,32px);overflow-x:auto;padding:4px clamp(1.25rem,4vw,2.5rem) 12px">
-      <div data-reveal style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
+      <div class="wts-card" style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;color:#DE2C00">01</div>
-        <div style="aspect-ratio:4/3;background-image:url(&quot;/assets/img/ai-futures-hero-illustration.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">AI Futures</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0">AI Futures is a 6-part series that works through that question in the open – current systems, how fast they are improving, what could go wrong, and who decides.</p>
-        <a href="/ai-futures/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
-      </div>
-
-      <div data-reveal style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;color:#DE2C00">02</div>
-        <div style="aspect-ratio:4/3;background-image:url(&quot;/assets/img/open-meetups-hero.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">Open Meetups</h3>
+        <div class="wts-media">
+          <span class="wts-media__photo" style="background-image:url(&quot;/assets/img/event-retreat.jpg&quot;)"></span>
+        </div>
+        <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">Open Meetups</h3>
         <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0">One evening a month at or in front of our PEAKS coworking office, with no programme and no agenda beyond the people who turn up.</p>
-        <a href="/open-meetups/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
+        <a href="/programmes/open-meetups/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
       </div>
 
-      <div data-reveal style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
+      <div class="wts-card" style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;color:#DE2C00">02</div>
+        <div class="wts-media">
+          <span class="wts-media__photo" style="background-image:url(&quot;/assets/img/event-ai-futures.jpg&quot;)"></span>
+        </div>
+        <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">AI Futures</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0">AI Futures is a 6-part series that works through that question in the open – current systems, how fast they are improving, what could go wrong, and who decides.</p>
+        <a href="/programmes/ai-futures/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
+      </div>
+
+      <div class="wts-card" style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;color:#DE2C00">03</div>
-        <div style="aspect-ratio:4/3;background-image:url(&quot;/assets/img/ai-safety-fundamentals-hero.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">AI Safety Fundamentals</h3>
+        <div class="wts-media">
+          <span class="wts-media__photo" style="background-image:url(&quot;/assets/img/event-roundtable.jpg&quot;)"></span>
+        </div>
+        <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">Themed Events</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0">A weekly discussion about current news, deep dives into specific AI safety topics, or research paper discussions - open to beginners and experts alike.</p>
+        <a href="/programmes/themed-events/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
+      </div>
+      <div class="wts-card" style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;color:#DE2C00">04</div>
+        <div class="wts-media">
+          <span class="wts-media__photo" style="background-image:url(&quot;/assets/img/event-lecture.jpg&quot;)"></span>
+        </div>
+        <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">AI Safety Fundamentals</h3>
         <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0">A six-week course introducing the technical foundations of AI safety research.</p>
-        <a href="/ai-safety-fundamentals/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
+        <a href="/programmes/ai-safety-fundamentals/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
       </div>
 
-      <div data-reveal style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;color:#DE2C00">04</div>
-        <div style="aspect-ratio:4/3;background-image:url(&quot;/assets/img/themed-events-hero.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.02em;color:#020522;margin:0">Themed Events</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0">A weekly deep dive into one AI safety topic, open to beginners and experts alike.</p>
-        <a href="/themed-events/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:12px;margin-top:auto" data-hv="hv5"><span style="width:36px;height:36px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">&#8594;</span>Learn more</a>
-      </div>
     </div>
   </div>
 </section>
 
-<section data-screen-label="Programmes" style="background:#FFFFFF">
+
+<section data-screen-label="Programmes" style="display:none;background:#FFFFFF">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(40px,4vw,56px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px)">
     <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Where To Start</div>
 
     <div style="max-width:920px;margin-bottom:clamp(3rem,6vw,5rem)">
       <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-0.025em;color:#020522;margin:0 0 clamp(18px,2vw,26px)">Take your first step to a future in AI safety.</h2>
-      <p data-reveal style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;max-width:800px">Ready to help shape a secure, beneficial future with advanced AI? Join one of our programs or be part of our events. We equip you with the technical skills and policy frameworks needed to ensure frontier AI remains safe.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;max-width:800px">Ready to help shape a secure, beneficial future with advanced AI? Join one of our programs or be part of our events. We equip you with the technical skills and policy frameworks needed to ensure frontier AI remains safe.</p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto;gap:1px;background:rgba(2,5,34,0.14);border:1px solid rgba(2,5,34,0.14)">
@@ -213,23 +279,23 @@
 
       <div style="background:#F7F3E7;padding:clamp(1.75rem,3.5vw,3rem);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(2.5rem,5vw,4rem);min-height:clamp(240px,30vw,440px)">
         <div>
-          <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">1. AI Futures</h3>
+          <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">1. AI Futures</h3>
           <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:460px">AI Futures is a 6-part series that works through that question in the open – current systems, how fast they are improving, what could go wrong, and who decides.</p>
         </div>
         <div style="border-top:1px solid rgba(2,5,34,0.22);padding-top:clamp(1.25rem,2vw,1.75rem);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
           <div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:2;color:rgba(2,5,34,0.55)">Frequency: Every 2 weeks<br>Cost: Free<br>Location: ETH Zurich</div>
-          <a href="/ai-futures/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore AI Futures</a>
+          <a href="/programmes/ai-futures/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore AI Futures</a>
         </div>
       </div>
 
       <div style="background:#F7F3E7;padding:clamp(1.75rem,3.5vw,3rem);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(2.5rem,5vw,4rem);min-height:clamp(240px,30vw,440px)">
         <div>
-          <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">2. Open Meetups</h3>
+          <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">2. Open Meetups</h3>
           <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:460px">One evening a month at or in front of our PEAKS coworking office, with no programme and no agenda beyond the people who turn up.</p>
         </div>
         <div style="border-top:1px solid rgba(2,5,34,0.22);padding-top:clamp(1.25rem,2vw,1.75rem);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
           <div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:2;color:rgba(2,5,34,0.55)">Frequency: Monthly<br>Cost: Free<br>Location: Peaks Coworking Space</div>
-          <a href="/open-meetups/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore Open Meetups</a>
+          <a href="/programmes/open-meetups/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore Open Meetups</a>
         </div>
       </div>
 
@@ -241,23 +307,23 @@
 
       <div style="background:#F7F3E7;padding:clamp(1.75rem,3.5vw,3rem);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(2.5rem,5vw,4rem);min-height:clamp(240px,30vw,440px)">
         <div>
-          <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">3. AI Safety Fundamentals</h3>
+          <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">3. AI Safety Fundamentals</h3>
           <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:460px">A six-week course introducing the technical foundations of AI safety research.</p>
         </div>
         <div style="border-top:1px solid rgba(2,5,34,0.22);padding-top:clamp(1.25rem,2vw,1.75rem);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
           <div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:2;color:rgba(2,5,34,0.55)">Frequency: Every 2 weeks<br>Cost: Free<br>Location: ETH Zurich</div>
-          <a href="/ai-safety-fundamentals/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore AI Safety Fundamentals</a>
+          <a href="/programmes/ai-safety-fundamentals/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore AI Safety Fundamentals</a>
         </div>
       </div>
 
       <div style="background:#F7F3E7;padding:clamp(1.75rem,3.5vw,3rem);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(2.5rem,5vw,4rem);min-height:clamp(240px,30vw,440px)">
         <div>
-          <h3 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">4. Themed Events</h3>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:460px">A weekly deep dive into one AI safety topic, open to beginners and experts alike.</p>
+          <h3 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.9vw,38px);line-height:1.1;letter-spacing:-0.025em;color:#020522;margin:0 0 20px">4. Themed Events</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:rgba(2,5,34,0.78);margin:0;max-width:460px">A weekly discussion about current news, deep dives into specific AI safety topics, or research paper discussions - open to beginners and experts alike.</p>
         </div>
         <div style="border-top:1px solid rgba(2,5,34,0.22);padding-top:clamp(1.25rem,2vw,1.75rem);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
           <div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:2;color:rgba(2,5,34,0.55)">Frequency: Weekly, every Tue<br>Cost: Free<br>Location: ETH Zurich</div>
-          <a href="/themed-events/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore Themed Events</a>
+          <a href="/programmes/themed-events/" style="font-family:'Inter',sans-serif;font-size:14px;color:#DE2C00;display:inline-flex;align-items:center;gap:14px" data-hv="hv5"><span style="width:44px;height:44px;flex:none;border:1.5px dashed #DE2C00;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-size:13px">→</span>Explore Themed Events</a>
         </div>
       </div>
 
@@ -266,19 +332,19 @@
 </div>
   </div>
 </section>
-<section data-screen-label="Why Zurich" style="background:#0F0B33">
+<section data-screen-label="Why Zurich" style="background:#020522">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px)">
     <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#FFFFFF;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.32);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">WHY ZURICH</div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start;gap:clamp(2rem,5vw,4rem)">
-      <div style="min-width:0;aspect-ratio:1.36/1;background:url(&quot;/assets/img/eth-exterior-mtkmeb9o-ija7.jpg&quot;) center / cover no-repeat"></div>
+    <div class="why-grid" style="display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);align-items:center;gap:clamp(2rem,4.5vw,3.5rem)">
+      <div style="min-width:0;aspect-ratio:4/3;background:url(&quot;/assets/img/eth-exterior-mtkmeb9o-ija7.jpg&quot;) center / cover no-repeat"></div>
       <div style="min-width:0;display:flex;flex-direction:column;gap:26px">
-        <p data-reveal style="font-family:'Inter',sans-serif;font-size:clamp(18px,1.7vw,22px);line-height:1.5;color:#FFFFFF;margin:0;max-width:520px;text-wrap:pretty">Zurich is home to ETH Zurich and a dense cluster of AI research labs, startups, and policy institutions, making it one of the best-connected places in Europe to work on AI safety.</p>
-        <p data-reveal style="font-family:'Inter',sans-serif;font-size:clamp(18px,1.7vw,22px);line-height:1.5;color:#FFFFFF;margin:0;max-width:520px;text-wrap:pretty">Being embedded in this ecosystem means faster feedback loops, easier collaboration, and a shorter path from idea to impact.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:clamp(17px,1.75vw,23px);line-height:1.5;letter-spacing:-0.01em;color:#FFFFFF;margin:0;max-width:560px;text-wrap:pretty">Zurich is home to ETH Zurich and its leading AI research, frontier AI labs and innovation, making it one of the best-connected places in Europe to work on AI safety.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:clamp(17px,1.75vw,23px);line-height:1.5;letter-spacing:-0.01em;color:#FFFFFF;margin:0;max-width:560px;text-wrap:pretty">A technical hub with local world-class talent closely connected to the policy and governance work happening in Bern and Geneva.</p>
       </div>
     </div>
 
-    <div style="margin-top:clamp(2.5rem,4vw,3.5rem);border-top:1.5px dashed rgba(255,255,255,0.28);border-bottom:1.5px dashed rgba(255,255,255,0.28);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+    <div class="why-stats" data-stat-slider style="margin-top:clamp(2.5rem,4vw,3.5rem);border-top:1.5px dashed rgba(255,255,255,0.28);border-bottom:1.5px dashed rgba(255,255,255,0.28);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#1</div>
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">World's leading talent hub</div>
@@ -292,10 +358,12 @@
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Top global AI companies here</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center">
-        <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#8</div>
+        <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#7</div>
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Best university in the world: ETH Zurich</div>
       </div>
     </div>
+    <div class="stat-dots" data-stat-dots aria-hidden="true"></div>
+    <p style="margin:clamp(14px,1.6vw,20px) 0 0;text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.06em;line-height:1.7;color:rgba(255,255,255,0.42)">Sources: Stanford AI Index 2026 (researchers and inventors per capita, Switzerland) · Sequoia Atlas (AI talent density, Zurich) · QS World University Rankings 2026</p>
   </div>
 </section>
 
@@ -303,13 +371,13 @@
 <section data-screen-label="Voices" style="background:#FFFFFF">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px)">
     <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Our Community</div>
-    <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.16;letter-spacing:-0.025em;color:#020522;margin:0 0 clamp(2.5rem,5vw,4rem);max-width:820px">Voices from the ecosystem. Hear directly from our community. Why they joined, and what they're working on.</h2>
-    <div style="overflow:hidden"><div data-carousel-track style="width:100%;display:grid;grid-auto-flow:column;gap:16px;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);grid-auto-columns:calc((100% - 32px) / 3);transform:translateX(0)">
+    <h2 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.16;letter-spacing:-0.025em;color:#020522;margin:0 0 clamp(2.5rem,5vw,4rem);max-width:820px">Voices from the ecosystem. Hear directly from our community. Why they joined, and what they're working on.</h2>
+    <div style="overflow:hidden"><div data-carousel-track style="width:100%;display:grid;grid-auto-flow:column;gap:16px;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);grid-auto-columns:calc((100% - 48px) / 4);transform:translateX(0)">
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Lukas_Fluri.jpg&quot;);background-size:cover;background-position:center 12%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Making AI safe may be one of the most important challenges of this century, with the potential to unlock unprecedented progress for humanity.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Lukas_Fluri.jpg&quot;);background-size:cover;background-position:center 12%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Making AI safe may be one of the most important challenges of this century, with the potential to unlock unprecedented progress for humanity.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS President</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">President</div>
             <a href="https://lukas-fluri.com/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Lukas Fluri</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:lukas@aisafety.ch" aria-label="Email Lukas Fluri" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://lukas-fluri.com/" target="_blank" rel="noopener noreferrer" aria-label="Website" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.3 2.4 3.6 5.6 3.6 9s-1.3 6.6-3.6 9c-2.3-2.4-3.6-5.6-3.6-9s1.3-6.6 3.6-9z"></path></svg></a></div>
@@ -317,10 +385,10 @@
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Patrick_Widmann.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">The same speed that makes AI powerful makes safety urgent. I joined Zurich AI Safety to close that gap - building an ecosystem around the talent in Zurich.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Patrick_Widmann.jpg&quot;);background-size:cover;background-position:center;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">The same speed that makes AI powerful makes safety urgent. I joined Zurich AI Safety to close that gap - building an ecosystem around the talent in Zurich.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Director</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Director</div>
             <a href="https://www.linkedin.com/in/patrickwidmann/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Patrick Widmann</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:patrick@aisafety.ch" aria-label="Email Patrick Widmann" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/patrickwidmann/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
@@ -328,10 +396,10 @@
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Marcel_Steimke.jpg&quot;);background-size:cover;background-position:center 18%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Never has Edward O. Wilson’s diagnosis rung truer than on the cusp of the AI era: “We have Paleolithic emotions, medieval institutions, and godlike technology.” Zurich AI Safety works on closing that gap.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Marcel_Steimke.jpg&quot;);background-size:cover;background-position:center 18%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Never has Edward O. Wilson’s diagnosis rung truer than on the cusp of the AI era: “We have Paleolithic emotions, medieval institutions, and godlike technology.” Zurich AI Safety works on closing that gap.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Board Member</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Board Member</div>
             <a href="https://www.linkedin.com/in/marcel-s-a0657066/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Marcel Steimke</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:marcel@effectivealtruism.ch" aria-label="Email Marcel Steimke" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/marcel-s-a0657066/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
@@ -339,21 +407,21 @@
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Gisler_Isaia.jpg&quot;);background-size:cover;background-position:center 20%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">From the AI Safety Fundamentals Course with Lukas Fluri in 2022, through organizing hikes and hosting talks, to leading ZAIS’s policy work.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Gisler_Isaia.jpg&quot;);background-size:cover;background-position:center 20%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">From the AI Safety Fundamentals Course with Lukas Fluri in 2022, through organizing hikes and hosting talks, to leading ZAIS’s policy work.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Board Member</div>
-            <a href="https://www.linkedin.com/in/isaia-gisler-186925372/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Gisler Isaia</a>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Board Member</div>
+            <a href="https://www.linkedin.com/in/isaia-gisler-186925372/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Isaia Gisler</a>
           </div>
-          <div style="display:flex;gap:8px;flex:none"><a href="mailto:isaia@aisafety.ch" aria-label="Email Gisler Isaia" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/isaia-gisler-186925372/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
+          <div style="display:flex;gap:8px;flex:none"><a href="mailto:isaia@aisafety.ch" aria-label="Email Isaia Gisler" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/isaia-gisler-186925372/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
         </div>
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Marius_Wenk.jpg&quot;);background-size:cover;background-position:center 25%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">I joined ZAIS as a volunteer organizer in mid-2025, where we’ve been able to host an international AI safety conference in Zurich, and have been part of its amazing community since.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Marius_Wenk.jpg&quot;);background-size:cover;background-position:center 25%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">I joined ZAIS as a volunteer organizer in mid-2025, where we’ve been able to host an international AI safety conference in Zurich, and have been part of its amazing community since.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Program Manager</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Program Manager</div>
             <a href="https://www.linkedin.com/in/marius-wenk/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Marius Wenk</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:marius@effectivealtruism.ch" aria-label="Email Marius Wenk" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/marius-wenk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
@@ -361,10 +429,10 @@
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Andreia_Marques.jpg&quot;);background-size:cover;background-position:center 15%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">A camera extends memory, not the living of it. Let AI replace our thinking instead of extending it, and we lose the habit of thinking for ourselves, a loss too costly to undo. That’s why AI safety matters to me.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Andreia_Marques.jpg&quot;);background-size:cover;background-position:center 15%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">A camera extends memory, not the living of it. Let AI replace our thinking instead of extending it, and we lose the habit of thinking for ourselves, a loss too costly to undo. That’s why AI safety matters to me.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Organizer</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Organizer</div>
             <a href="https://www.linkedin.com/in/andreiacsmarques/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Andreia Marques</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:andreiacsmarques@gmail.com" aria-label="Email Andreia Marques" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/andreiacsmarques/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
@@ -372,21 +440,10 @@
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Placeholder_Avatar.jpg&quot;);background-size:cover;background-position:center 20%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">I joined ZAIS because I think alignment is a big deal and more people should care about it. I mostly work on mechanistic interpretability, and I’m also interested in policy/forecasting conversations. Feel free to reach out!</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Emil_Elakehal.jpg&quot;);background-size:cover;background-position:center 22%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Excited to chat about mathematics and theoretical computer science for AI Safety! Passionate about analytic philosophy and digital sovereignty on the side.</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Organizer</div>
-            <a href="https://www.linkedin.com/in/leo-schmidt-traub-155158233/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Leo Schmidt-Traub</a>
-          </div>
-          <div style="display:flex;gap:8px;flex:none"><a href="mailto:leo.schmidttraub@gmail.com" aria-label="Email Leo Schmidt-Traub" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/leo-schmidt-traub-155158233/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
-        </div>
-      </div>
-
-      <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Emil_Elakehal.jpg&quot;);background-size:cover;background-position:center 22%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Excited to chat about mathematics and theoretical computer science for AI Safety! Passionate about analytic philosophy and digital sovereignty on the side.</p></div></div>
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
-          <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Organizer</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Organizer</div>
             <a href="https://kalek.dev/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Emil Elakehal</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:aelakehal@ethz.ch" aria-label="Email Emil Elakehal" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://kalek.dev/" target="_blank" rel="noopener noreferrer" aria-label="Website" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.3 2.4 3.6 5.6 3.6 9s-1.3 6.6-3.6 9c-2.3-2.4-3.6-5.6-3.6-9s1.3-6.6 3.6-9z"></path></svg></a></div>
@@ -394,37 +451,16 @@
       </div>
 
       <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Placeholder_Avatar.jpg&quot;);background-size:cover;background-position:center 20%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Advice-tech professionals: Your skills probably transfer more than you think. We are deploying systems we cannot yet reliably evaluate, and that work needs production engineering, not just alignment theory. Start with one evening, not a career change.</p></div></div>
+        <div style="position:relative;height:clamp(230px,19vw,330px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Batuhan_Akar.jpg&quot;);background-size:cover;background-position:center 35%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:12px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:34px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(14px,1.35vw,16.5px);line-height:1.55;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">It is our only choice to ensure AI development goes well!</p></div></div>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
           <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Organizer</div>
-            <a href="https://www.linkedin.com/in/marnikolic/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Marija Nikolic</a>
-          </div>
-          <div style="display:flex;gap:8px;flex:none"><a href="mailto:marija@aisafety.ch" aria-label="Email Marija Nikolic" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://www.linkedin.com/in/marnikolic/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
-        </div>
-      </div>
-
-      <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Batuhan_Akar.jpg&quot;);background-size:cover;background-position:center 35%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">It is our only choice to ensure AI development goes well!</p></div></div>
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
-          <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Organizer</div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">Organizer</div>
             <a href="https://batuhanakar.com/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Batuhan Akar</a>
           </div>
           <div style="display:flex;gap:8px;flex:none"><a href="mailto:batuhanakar00@gmail.com" aria-label="Email Batuhan Akar" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a><a href="https://batuhanakar.com/" target="_blank" rel="noopener noreferrer" aria-label="Website" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.3 2.4 3.6 5.6 3.6 9s-1.3 6.6-3.6 9c-2.3-2.4-3.6-5.6-3.6-9s1.3-6.6 3.6-9z"></path></svg></a></div>
         </div>
       </div>
 
-      <div data-voice-card style="color:#020522">
-        <div style="position:relative;height:clamp(300px,26vw,460px);overflow:hidden;background-color:#EAE2CE;background-image:url(&quot;/assets/img/Placeholder_Avatar.jpg&quot;);background-size:cover;background-position:center 20%;background-repeat:no-repeat"><div style="position:absolute;inset:0;background:rgba(222,44,0,0.78);opacity:0;transition:opacity 0.28s ease;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding:clamp(1.5rem,2.6vw,2.25rem)" data-hv="hv6"><span style="font-family:'Geist',sans-serif;font-weight:500;font-size:44px;line-height:0.7;color:#FFFFFF;text-shadow:0 1px 5px rgba(2,5,34,0.5)">”</span><p style="font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#FFFFFF;margin:0;text-wrap:pretty;text-shadow:0 1px 5px rgba(2,5,34,0.5)">Alignment of AI is the most imminent problem of our time as AI capabilities develop at a frightening pace. As an organizer, I aim to make good outcomes more likely for transformative AI.</p></div></div>
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px">
-          <div style="min-width:0">
-            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#DE2C00;margin-bottom:8px">ZAIS Organizer</div>
-            <a href="https://www.linkedin.com/in/mmtf/" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;color:#020522" data-hv="hv4">Efe Akça</a>
-          </div>
-          <div style="display:flex;gap:8px;flex:none"><a href="https://www.linkedin.com/in/mmtf/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="width:34px;height:34px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1.5px dashed rgba(222,44,0,0.55);border-radius:100px;color:#DE2C00;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;line-height:1">in</span></a></div>
-        </div>
-      </div>
     </div></div>
     <div style="display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:clamp(2.5rem,4.5vw,3.5rem)">
       <span style="margin-right:auto;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:rgba(2,5,34,0.55)"><span data-slide-label>1 / 2</span></span>
@@ -435,12 +471,12 @@
 </section>
 
 <section data-screen-label="Upcoming" style="background:#FBF8EF">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)">
-    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Full Calendar</div>
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem) clamp(28px,3.2vw,40px)">
+    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Next events</div>
     <div style="display:flex;align-items:flex-start;gap:clamp(2rem,5vw,4rem);flex-wrap:wrap">
       <div style="flex:1 1 34%;min-width:min(100%,280px);max-width:420px">
-        <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-0.025em;color:#020522;margin:0 0 clamp(14px,1.6vw,18px)">What's coming up.</h2>
-        <p data-reveal style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0 0 clamp(20px,2.5vw,28px)">Everything is free unless marked otherwise, and everything is walkable from the city centre. Drop in for one evening or follow the whole calendar.</p>
+        <h2 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-0.025em;color:#020522;margin:0 0 clamp(14px,1.6vw,18px)">What's coming up.</h2>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0 0 clamp(20px,2.5vw,28px)">Join our events to get in touch with the community and to learn and discuss current news and developments in AI safety.</p>
         <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:13px 26px;border:1.5px dashed #DE2C00;border-radius:100px;color:#DE2C00;font-size:14px;font-weight:500;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9">View full calendar</a>
       </div>
       <div style="flex:1 1 52%;min-width:min(100%,320px)">
@@ -450,8 +486,8 @@
   </div>
 </section>
 
-<section data-screen-label="Community" style="background:#F7F3E7">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px)">
+<section data-screen-label="Community" style="background:#FBF8EF">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(28px,3.2vw,40px) clamp(1.25rem,4vw,2.5rem) clamp(64px,8vw,104px)">
     <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">PAST EVENTS</div>
     <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
       <div data-mosaic-item style="grid-column: span 1; height: clamp(170px,26vw,430px); background-image: repeating-linear-gradient(135deg,rgba(2,5,34,0.09) 0 1px,transparent 1px 9px); display: flex; align-items: center; justify-content: center; text-align: center; background: url(&quot;/assets/img/2-mtsj3gk0-me20.jpg&quot;) center / cover no-repeat"></div>
@@ -465,41 +501,40 @@
 </section>
 
 <section data-screen-label="Stay in the Loop" style="background:#DE2C00">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(3.5rem,6vw,5.5rem) clamp(1.25rem,4vw,2.5rem) clamp(4rem,7vw,6rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(2rem,5vw,4rem);align-items:end">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(2.25rem,3.4vw,3rem) clamp(1.25rem,4vw,2.5rem) clamp(2.5rem,3.8vw,3.25rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(1.5rem,3vw,2.5rem);align-items:end">
     <div style="min-width:0">
-      <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-0.025em;color:#FFFFFF;margin:0 0 clamp(18px,2vw,26px)">Stay in the loop.</h2>
-      <p data-reveal style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#FFFFFF;margin:0;max-width:440px">Sessions, sign-ups and last-minute socials get announced in the community first. The calendar catches up afterwards.</p>
+      <h2 style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2.1vw,26px);line-height:1.2;letter-spacing:-0.02em;color:#FFFFFF;margin:0 0 clamp(10px,1.2vw,14px)">Stay in the loop.</h2>
+      <p style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.88);margin:0;max-width:440px">Follow our events on Luma or join our WhatsApp group to become part of the discussion.</p>
     </div>
-    <div style="min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
-      <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);letter-spacing:-0.02em;color:#FFFFFF;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px" data-hv="hv5">WhatsApp Community —&gt;</a>
-      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);letter-spacing:-0.02em;color:#FFFFFF;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px" data-hv="hv5">Luma Calendar —&gt;</a>
+    <div class="loop-actions" style="min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap">
+      <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;white-space:nowrap;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">WhatsApp community</a>
+      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;white-space:nowrap;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">See the events</a>
     </div>
   </div>
 </section>
 
-<footer data-screen-label="Footer" style="background:#28282E">
+<footer data-screen-label="Footer" style="background:#020522">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2.25rem,3.5vw,3rem)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(1.5rem,3vw,2.5rem)">
       <div>
         <div style="display:flex;align-items:center;gap:10px;color:#F7F3E7;font-size:19px;font-weight:500;letter-spacing:-0.02em;margin-bottom:16px">
-          <span style="width:9px;height:9px;background:#DE2C00;display:inline-block"></span>
-          ZAIS
+          Zurich AI Safety
         </div>
         <p style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;color:rgba(247,243,231,0.6);margin:0;max-width:280px">Connecting bright minds to shape a safe trajectory for AI. Zurich, Switzerland.</p>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Programmes</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <a href="/ai-futures/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Futures</a>
-          <a href="/open-meetups/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Open Meetups</a>
-          <a href="/ai-safety-fundamentals/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Safety Fundamentals</a>
-          <a href="/themed-events/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Themed Events</a>
+          <a href="/programmes/open-meetups/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Open Meetups</a>
+          <a href="/programmes/ai-futures/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Futures</a>
+          <a href="/programmes/themed-events/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Themed Events</a>
+          <a href="/programmes/ai-safety-fundamentals/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Safety Fundamentals</a>
         </div>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Organisation</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <a href="/about/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">About ZAIS</a>
+          <a href="/about/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">About us</a>
           <a href="/research/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Research</a>
           <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Luma Calendar &#8599;</a>
           <a href="/get-involved/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Get Involved</a>
@@ -509,8 +544,8 @@
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Contact</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
           <a href="mailto:zurich@aisafety.ch" style="color:rgba(247,243,231,0.85)" data-hv="hv4">zurich@aisafety.ch</a>
-          <a href="/get-involved/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Join our WhatsApp community</a>
-          <a href="/swiss-ai-safety-days/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Swiss AI Safety Days</a>
+          <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Join our WhatsApp community</a>
+          <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Swiss AI Safety Days</a>
         </div>
       </div>
     </div>
@@ -519,7 +554,6 @@
         <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
         <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Luma</a>
         <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">WhatsApp</a>
-        <a href="https://www.instagram.com/zurich.aisafety/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Instagram</a>
         <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">YouTube</a>
       </div>
       <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.4)">© 2026 Zurich AI Safety</div>
@@ -529,7 +563,7 @@
 
 </div>
 </div>
-<script src="/assets/js/site.js?v=20260916menu" defer></script>
-<script src="/assets/js/navigation.js?v=20260916menu" defer></script>
+<script src="/assets/js/site.js?v=20260918122722" defer></script>
+<script src="/assets/js/hero-binary.js?v=20260918122722" defer></script>
 </body>
 </html>

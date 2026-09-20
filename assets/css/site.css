@@ -8,7 +8,7 @@
    motion and the mobile breakpoints.
    ========================================================================= */
 
-@import url("./hover.css");
+@import url("./hover.css?v=20260918122722");
 
 /* ---------- 1. Base ------------------------------------------------------ */
 
@@ -83,12 +83,33 @@ img, canvas { display: block; max-width: 100%; }
 .gradient[data-set="B"] .gl-4    { background-image: url("/assets/img/gradient/setB-4.jpg"); }
 .gradient[data-set="B"] .gl-5    { background-image: url("/assets/img/gradient/setB-5.jpg"); }
 
-.gl-2 { animation: fade-l2 10s linear infinite; }
-.gl-3 { animation: fade-l3 10s linear infinite; }
-.gl-4 { animation: fade-l4 10s linear infinite; }
-.gl-5 { animation: fade-l5 10s linear infinite; }
+/* set C - blue duotone, matching the 4322 hero ramp */
+.gradient[data-set="C"] .gl-base { background-image: url("/assets/img/gradient/setC-1.jpg"); }
+.gradient[data-set="C"] .gl-2    { background-image: url("/assets/img/gradient/setC-2.jpg"); }
+.gradient[data-set="C"] .gl-3    { background-image: url("/assets/img/gradient/setC-3.jpg"); }
+.gradient[data-set="C"] .gl-4    { background-image: url("/assets/img/gradient/setC-4.jpg"); }
+.gradient[data-set="C"] .gl-5    { background-image: url("/assets/img/gradient/setC-5.jpg"); }
 
-/* One 10s linear loop: layers 2-5 fade out together over the first 2s,
+/* set R - red, built to the same darkness as set C so both heroes read alike */
+.gradient[data-set="R"] .gl-base { background-image: url("/assets/img/gradient/setR-1.jpg"); }
+.gradient[data-set="R"] .gl-2    { background-image: url("/assets/img/gradient/setR-2.jpg"); }
+.gradient[data-set="R"] .gl-3    { background-image: url("/assets/img/gradient/setR-3.jpg"); }
+.gradient[data-set="R"] .gl-4    { background-image: url("/assets/img/gradient/setR-4.jpg"); }
+.gradient[data-set="R"] .gl-5    { background-image: url("/assets/img/gradient/setR-5.jpg"); }
+
+/* set D - the brand red from the earlier hero, deep red through to light coral */
+.gradient[data-set="D"] .gl-base { background-image: url("/assets/img/gradient/setD-1.jpg"); }
+.gradient[data-set="D"] .gl-2    { background-image: url("/assets/img/gradient/setD-2.jpg"); }
+.gradient[data-set="D"] .gl-3    { background-image: url("/assets/img/gradient/setD-3.jpg"); }
+.gradient[data-set="D"] .gl-4    { background-image: url("/assets/img/gradient/setD-4.jpg"); }
+.gradient[data-set="D"] .gl-5    { background-image: url("/assets/img/gradient/setD-5.jpg"); }
+
+.gl-2 { animation: fade-l2 45s linear infinite; }
+.gl-3 { animation: fade-l3 45s linear infinite; }
+.gl-4 { animation: fade-l4 45s linear infinite; }
+.gl-5 { animation: fade-l5 45s linear infinite; }
+
+/* One 45s linear loop: layers 2-5 fade out together over the first 2s,
    then each fades back in, one at a time, over the remaining 8s. */
 @keyframes fade-l2 { 0%{opacity:1} 20%{opacity:0} 40%,100%{opacity:1} }
 @keyframes fade-l3 { 0%{opacity:1} 20%,40%{opacity:0} 60%,100%{opacity:1} }
@@ -130,7 +151,103 @@ img, canvas { display: block; max-width: 100%; }
   background: #D0C0A9;
   transition: background 0.2s ease;
 }
-.set-toggle[aria-pressed="true"] .set-toggle-dot { background: #020522; }
+/* The dot previews the palette you will get next. */
+.set-toggle[data-next="C"] .set-toggle-dot { background: #2E6BF5; }
+.set-toggle[data-next="R"] .set-toggle-dot { background: #DE2C00; }
+.set-toggle[data-next="D"] .set-toggle-dot { background: #F2603C; }
+
+/* ---------- 3. Sticky header ---------------------------------------------- */
+
+/* Fixed to the top at all times (see the header-spacer right after </header>
+   in the HTML, which reserves the space it used to occupy in normal flow).
+   Transparent over the hero until the page scrolls past 24px, then a
+   solid white bar with ink-coloured contents. */
+.site-header {
+  background: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: background-color 0.22s ease;
+}
+.site-header.is-compact {
+  background: #FFFFFF;
+  border-bottom-color: rgba(2,5,34,0.12);
+}
+/* Everything in the bar is white over the hero, so once the bar turns white
+   the contents have to flip to ink. The link colours are inline styles, so
+   these need !important to win. */
+.site-header.is-compact a,
+.site-header.is-compact nav span { color: #020522 !important; }
+.site-header.is-compact a[href="/get-involved/"] {
+  border-color: rgba(2,5,34,0.45) !important;
+}
+.site-header.is-compact a[href="/get-involved/"]:hover {
+  background: #020522 !important;
+  color: #FFFFFF !important;
+  border-color: #020522 !important;
+}
+.site-header.is-compact .menu-toggle { border-color: rgba(2,5,34,0.45); }
+.site-header.is-compact .menu-toggle span { background: #020522; }
+.site-header.is-compact .set-toggle {
+  border-color: rgba(2,5,34,0.28);
+  background: rgba(2,5,34,0.06);
+}
+/* Header row shrinks on scroll (80px -> 64px) and is slightly shorter by
+   default once the hamburger breakpoint kicks in (80px -> 72px), matching
+   the reference exactly. The inline min-height:80px on the row is the
+   default value, so only the two overrides need !important here. */
+.site-header > div {
+  transition: min-height 0.22s ease;
+}
+.site-header.is-compact > div {
+  min-height: 64px !important;
+}
+@media (max-width: 1060px) {
+  .site-header > div {
+    min-height: 72px !important;
+  }
+}
+
+/* ---------- 4. Nav dropdowns --------------------------------------------- */
+
+/* The export drove these from component state on mouseenter/mouseleave.
+   Hover plus focus-within does the same job without script, and keeps the
+   menus reachable from the keyboard. Kept in the DOM (not display:none) and
+   faded + slid in on open so the menu animates instead of snapping. */
+[data-dropdown] > div {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+}
+
+/* Open on the label itself (or the open menu), not on the whole stretched
+   column - the wrapper is the full height of the header, so hovering anywhere
+   in that strip used to trigger it. The label is stretched to full height so
+   there is no gap to cross on the way down to the menu. */
+[data-menu] > span { align-self: stretch; }
+
+[data-menu] > span:hover + [data-dropdown] > div,
+[data-menu] > [data-dropdown]:hover > div,
+[data-menu]:focus-within > [data-dropdown] > div {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Current-page underline, applied dynamically by initNavCurrent() in
+   site.js (compares location.pathname to each top-level link's href)
+   instead of being hardcoded per page. */
+header nav > a[data-nav-current] {
+  border-bottom: 1.5px solid #FFFFFF;
+  padding-bottom: 2px;
+}
+.mobile-nav-links > a[data-nav-current] {
+  align-self: flex-start;
+  border-bottom: 1.5px solid #020522;
+  padding-bottom: 4px;
+}
 
 /* ---------- 5. Disclosure wrappers --------------------------------------- */
 
@@ -151,7 +268,150 @@ body.hide-editorial-notes .editorial-note { display: none; }
 [data-tl-scroll] { scrollbar-width: none; }
 [data-tl-scroll]::-webkit-scrollbar { display: none; }
 
-/* ---------- 7. Mobile content layouts ------------------------------------ */
+/* ---------- 7. Mobile ----------------------------------------------------- */
+
+/* The export authored no breakpoints — it relies on flex-wrap and auto-fit
+   grids. Two places still overflow on a phone, so they are handled here. */
+/* Hamburger trigger: hidden on desktop, shown below 1060px. */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1.5px dashed rgba(255,255,255,0.85);
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: #FFFFFF;
+}
+
+/* Full-screen mobile nav overlay, opened by the hamburger. Hidden via
+   opacity/visibility (not display) so it can fade in rather than snap. */
+.mobile-nav-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  background: #FFFFFF;
+  padding: 20px 40px 32px;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+}
+.mobile-nav-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+}
+.mobile-nav-brand {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  white-space: nowrap;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: #020522;
+}
+.mobile-nav-close {
+  width: 44px;
+  height: 44px;
+  border: 1.5px dashed #020522;
+  border-radius: 100px;
+  background: transparent;
+  color: #020522;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  flex: none;
+}
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: none;
+}
+/* Top-level items (Home, About ZAIS, Research) and the group headers
+   (Programmes, Events) share the same large style, same as the reference -
+   only the sub-links underneath a group are smaller and lighter. */
+.mobile-nav-links > a,
+.mobile-nav-group {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(22px,6vw,28px);
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #020522;
+}
+.mobile-nav-group { margin-bottom: -4px; }
+.mobile-nav-links > a.mobile-nav-sublink {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(2,5,34,0.78);
+  letter-spacing: normal;
+}
+/* Each row rises in as the panel opens. The animation is keyed to .is-open,
+   which is toggled on every open/close, so it replays each time rather than
+   only on the first opening. Delays are set per row by site.js. */
+.mobile-nav-panel.is-open [data-menu-entrance] {
+  animation: mobile-nav-item-enter 420ms cubic-bezier(.22,.61,.36,1) both;
+  animation-delay: var(--menu-item-delay, 0ms);
+}
+@keyframes mobile-nav-item-enter {
+  from { opacity: 0; translate: 0 12px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+.mobile-nav-bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: none;
+}
+.mobile-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 1.5px dashed #DE2C00;
+  border-radius: 100px;
+  color: #DE2C00;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+body.mobile-nav-open { overflow: hidden; }
+
+@media (max-width: 1060px) {
+  /* Below this width the inline nav row and Get Involved pill are replaced
+     by the hamburger + full-screen overlay above; only the logo, the theme
+     toggle and the hamburger stay in the header row. */
+  header nav,
+  header > div > div[style*="justify-self:end"] > a[href="/get-involved/"] {
+    display: none !important;
+  }
+  .menu-toggle { display: flex; }
+}
 
 @media (max-width: 720px) {
   /* Programme grid on the homepage is a hard 2-up. */
@@ -162,6 +422,44 @@ body.hide-editorial-notes .editorial-note { display: none; }
   [data-screen-label="Community"] div[style*="grid-template-columns:repeat(4"] {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+}
+
+/* ---------- 8. Scroll reveal ----------------------------------------------- */
+
+/* Section headings and their intro paragraph fade in and rise slightly as
+   they scroll into view. The "reveal-pending" class is added by JS
+   (assets/js/site.js, initScrollReveal), never baked into the HTML, so a
+   visitor with JS disabled or slow to load always sees the content  - 
+   nothing depends on the animation to become visible. A heading and the
+   paragraph right after it reveal in a quick one-two via the transition
+   delay below, not simultaneously. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-pending.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+h1.reveal-pending + p.reveal-pending,
+h2.reveal-pending + p.reveal-pending,
+h3.reveal-pending + p.reveal-pending {
+  transition-delay: 0.12s;
+}
+
+/* Headings/paragraphs marked data-reveal use this instead of the block
+   fade above: each word dims to 25% until it scrolls up past a line near
+   the bottom of the viewport, then brightens to full color - a "typewriter"
+   style reveal that plays out as you scroll rather than firing once. Words
+   are wrapped in .wr-word spans by wrapWords() in site.js; without JS the
+   text is never wrapped and simply shows at full opacity. */
+.wr-word {
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
+}
+.wr-word.wr-lit {
+  opacity: 1;
 }
 
 /* ---------- 9. Carousel and tab delighters -------------------------------- */
@@ -237,24 +535,34 @@ body.hide-editorial-notes .editorial-note { display: none; }
   position: fixed;
   top: 0;
   left: 0;
-  width: 64px;
-  height: 64px;
+  width: 46px;
+  height: 46px;
   border-radius: 999px;
-  background: #DE2C00;
+  background: rgba(2, 5, 34, 0.86);
+  backdrop-filter: blur(3px);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
   pointer-events: none;
   opacity: 0;
+  transform-origin: center;
   transition: opacity 0.2s ease;
   z-index: 60;
 }
 .drag-cursor.is-visible {
-  opacity: 1;
+  opacity: 0.96;
+}
+
+/* Anything clickable inside the row keeps its own pointer, and the JS hides
+   the DRAG bubble while you are over one - it is a hint for the empty space
+   between cards, not for the links themselves. */
+[data-drag-scroll] a,
+[data-drag-scroll] button {
+  cursor: pointer;
 }
 
 /* ---------- 12. Story timeline (zig-zag, scroll-progress) ----------------- */
@@ -276,7 +584,7 @@ body.hide-editorial-notes .editorial-note { display: none; }
 .timeline-track {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, minmax(240px, 340px));
+  grid-template-columns: repeat(7, minmax(240px, 340px));
   grid-template-rows: auto 48px auto;
   column-gap: clamp(24px, 3vw, 36px);
   width: max-content;
@@ -310,6 +618,7 @@ body.hide-editorial-notes .editorial-note { display: none; }
 .timeline-milestone:nth-child(4) { grid-column: 4; }
 .timeline-milestone:nth-child(5) { grid-column: 5; }
 .timeline-milestone:nth-child(6) { grid-column: 6; }
+.timeline-milestone:nth-child(7) { grid-column: 7; }
 .timeline-node {
   grid-row: 2;
   align-self: center;
@@ -344,27 +653,44 @@ body.hide-editorial-notes .editorial-note { display: none; }
 .timeline-arrow:disabled { opacity: 0.3; cursor: default; }
 
 @media (max-width: 760px) {
-  .timeline-viewport { overflow: visible; padding: 0; }
-  .timeline-track { display: block; width: 100%; padding-left: 30px; }
-  .timeline-track::before, .timeline-track::after {
-    position: absolute;
-    left: 5px;
-    top: 18px;
-    bottom: auto;
-    width: 1px;
-    height: calc(100% - 18px);
-    align-self: auto;
+  /* The timeline stays horizontal on small screens - it just gets narrower
+     cards and keeps its swipe. The old rule here turned it into a vertical
+     list, which lost the sense of a track running through time. */
+  .timeline-track {
+    grid-template-columns: repeat(7, minmax(225px, 78vw));
+    grid-template-rows: auto 40px auto;
+    column-gap: 20px;
   }
-  .timeline-track::after { transform: scaleY(var(--timeline-progress, 0)); transform-origin: center top; }
-  .timeline-milestone { display: block; padding-bottom: 40px; grid-column: auto !important; }
-  .timeline-milestone:last-child { padding-bottom: 0; }
-  .timeline-node { position: absolute; left: -30px; top: 13px; }
-  .timeline-copy { grid-row: auto; align-self: auto; }
-  .timeline-copy h3 { font-size: 22px !important; }
-  .timeline-navigation { display: none; }
+  .timeline-viewport {
+    padding: 6px 0 16px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .timeline-milestone { scroll-snap-align: start; }
+  .timeline-copy h3 { font-size: 20px !important; }
+  .timeline-copy p { font-size: 14px !important; }
+  .timeline-navigation { display: flex; }
 }
 
 /* ---------- 13. Reduced motion ---------------------------------------------- */
+
+/* ---------- Voice cards (homepage) ---------------------------------------
+   Carried over from the modular build. hover.css only reveals the quote
+   overlay on :hover, which leaves it unreachable by keyboard; :focus-within
+   gives the same reveal when the card's link is tabbed to. The overflow and
+   size clamp keep the longer quotes readable inside the portrait crop. */
+[data-voice-card] { min-width: 0; }
+[data-voice-card] [data-hv="hv6"] {
+  overflow-y: auto;
+  padding: clamp(18px, 2.2vw, 30px) !important;
+}
+[data-voice-card] [data-hv="hv6"] p {
+  font-size: clamp(14px, 1.25vw, 18px) !important;
+}
+[data-voice-card]:focus-within [data-hv="hv6"] { opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) {
+  [data-voice-card] [data-hv="hv6"] { transition: none !important; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -373,4 +699,194 @@ body.hide-editorial-notes .editorial-note { display: none; }
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* Hero palette switching. Red and blue are now the same treatment on two
+   palettes: unmasked weights over a dark ground with the full scrim. The
+   red set is built to match the blue set's luminance, so nothing else
+   needs to change between them. */
+[data-palette] canvas.hero-binary { -webkit-mask-image: none; mask-image: none; }
+[data-hero-scrim] { transition: opacity .4s ease, background-image .4s ease; }
+
+/* The scrim is hardcoded navy in the markup, which tinted the left edge of
+   every hero blue whatever the palette. Each palette gets its own dark end
+   instead, so the red versions start red and stay red. */
+[data-palette="R"] [data-hero-scrim] {
+  background-image: linear-gradient(100deg, rgba(40,9,4,0.96) 0%, rgba(40,9,4,0.92) 34%, rgba(40,9,4,0.72) 52%, rgba(40,9,4,0.34) 70%, rgba(40,9,4,0.08) 86%), radial-gradient(70% 76% at 24% 50%, rgba(40,9,4,0.82) 0%, rgba(40,9,4,0.50) 46%, rgba(40,9,4,0) 88%) !important;
+}
+[data-palette="D"] [data-hero-scrim] {
+  background-image: linear-gradient(100deg, rgba(58,12,4,0.96) 0%, rgba(58,12,4,0.92) 34%, rgba(58,12,4,0.72) 52%, rgba(58,12,4,0.34) 70%, rgba(58,12,4,0.08) 86%), radial-gradient(70% 76% at 24% 50%, rgba(58,12,4,0.82) 0%, rgba(58,12,4,0.50) 46%, rgba(58,12,4,0) 88%) !important;
+}
+
+/* Palette A is the original build's sand-and-coral gradient. It is far lighter
+   than the others, so it needs its own handling: a warmer, much weaker scrim
+   that leaves the sand character intact (white on it reaches 7:1, against
+   3.75:1 unscrimmed), and the weights masked to the darker areas so they are
+   not lost in the pale half. */
+[data-palette="A"] [data-hero-scrim] {
+  background-image:
+    linear-gradient(100deg, rgba(110,21,8,0.62) 0%, rgba(110,21,8,0.54) 34%,
+      rgba(110,21,8,0.34) 52%, rgba(110,21,8,0.15) 70%, rgba(110,21,8,0.04) 86%),
+    radial-gradient(70% 76% at 24% 50%, rgba(110,21,8,0.38) 0%,
+      rgba(110,21,8,0.20) 46%, rgba(110,21,8,0) 88%) !important;
+}
+[data-palette="A"] canvas.hero-binary {
+  -webkit-mask-image: url("/assets/img/gradient/setA-weights-mask.png");
+          mask-image: url("/assets/img/gradient/setA-weights-mask.png");
+  -webkit-mask-size: cover;       mask-size: cover;
+  -webkit-mask-position: 50% 50%; mask-position: 50% 50%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+.set-toggle[data-next="A"] .set-toggle-dot { background: #D0C0A9; }
+
+/* PEAKS photo strip: five pictures, so five columns on desktop rather than
+   letting auto-fit settle on four and orphan the last one. */
+@media (max-width: 900px) { .peaks-photos { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 560px) { .peaks-photos { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* ==== Mobile refinements ============================================== */
+
+/* Hero action buttons sit side by side instead of stacking. */
+@media (max-width: 600px) {
+  .hero-actions {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    width: 100%;
+  }
+  .hero-actions > a {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 10px !important;
+    font-size: 14px !important;
+    white-space: nowrap;
+  }
+}
+
+/* Why Zurich stats become a swipeable slider. */
+.stat-dots { display: none; }
+@media (max-width: 760px) {
+  .why-stats {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .why-stats::-webkit-scrollbar { width: 0; height: 0; display: none; }
+  .why-stats > div {
+    flex: 0 0 66%;
+    scroll-snap-align: center;
+    border-right: 1.5px dashed rgba(255, 255, 255, 0.28);
+  }
+  .why-stats > div:last-child { border-right: none; }
+
+  .stat-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .stat-dot {
+    all: unset;
+    cursor: pointer;
+    width: 7px;
+    height: 7px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.28);
+    transition: background .2s ease, width .2s ease;
+  }
+  .stat-dot[data-active="true"] { background: #FFFFFF; width: 18px; }
+}
+
+/* Programme chapters stack, with the detail text flying out on tap. */
+@media (max-width: 760px) {
+  [data-session-widget] { grid-template-columns: 1fr !important; }
+  [data-session-list] { padding-right: 0 !important; }
+  [data-action="selectSession"] {
+    grid-template-columns: 26px 1fr 20px !important;
+    border-bottom: 1px solid rgba(2, 5, 34, 0.12);
+    padding: 15px 0 !important;
+  }
+  [data-action="selectSession"]::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .22s ease;
+    align-self: center;
+    justify-self: end;
+    color: rgba(2, 5, 34, 0.42);
+  }
+  [data-action="selectSession"][data-active="true"] {
+    border-bottom-color: transparent;
+  }
+  [data-action="selectSession"][data-active="true"]::after {
+    transform: rotate(-135deg) translate(-3px, -3px);
+    color: #DE2C00;
+  }
+  [data-session-flyout] {
+    padding: 2px 0 22px 40px;
+    border-bottom: 1px solid rgba(2, 5, 34, 0.12);
+  }
+}
+
+/* Team overview keeps two columns on narrow screens. */
+@media (max-width: 760px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(18px, 4vw, 26px) !important;
+  }
+  .team-grid > div { min-width: 0; }
+  .team-grid a[data-hv="hv4"] { font-size: 17px !important; }
+}
+/* At phone width the name and the contact icons stop fighting for the row. */
+@media (max-width: 460px) {
+  .team-grid > div > div:last-child {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+}
+/* Smaller contact buttons on phones. */
+@media (max-width: 760px) {
+  .team-grid a[data-hv="hv9"] {
+    width: 27px !important;
+    height: 27px !important;
+    border-width: 1.2px !important;
+  }
+  .team-grid a[data-hv="hv9"] svg {
+    width: 12px;
+    height: 12px;
+  }
+  .team-grid a[data-hv="hv9"] + a[data-hv="hv9"] { margin-left: -1px; }
+}
+
+/* Colour switcher hidden in the nav. The palette machinery stays in place
+   (pages keep their default set); only the control is removed. */
+.set-toggle { display: none !important; }
+
+/* Stay-in-the-loop banner: buttons go full width side by side on phones. */
+@media (max-width: 760px) {
+  .loop-actions {
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+  }
+  .loop-actions > a {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 13px 10px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Why Zurich: image and text stack on narrow screens. */
+@media (max-width: 860px) {
+  .why-grid { grid-template-columns: 1fr !important; }
 }

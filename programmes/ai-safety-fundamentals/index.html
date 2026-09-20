@@ -13,63 +13,73 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260916fix">
-<link rel="stylesheet" href="/assets/css/navigation.css?v=20260916menu">
-<link rel="stylesheet" href="/assets/css/buttons.css?v=20260916fix">
-<link rel="stylesheet" href="/assets/css/motion.css?v=20260916fix">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260918122722">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100">
-    <div class="header-inner" style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
-      <a class="header-brand" href="/" style="font-family:'Geist',sans-serif;font-size:24px;font-weight:600;letter-spacing:0.01em;color:#FFFFFF;justify-self:start">ZAIS</a>
-      <div class="navigation-panel" id="navigation-panel"><div class="mobile-menu-heading"><a class="mobile-menu-brand" href="/">ZAIS</a><button class="menu-close" id="mobile-menu-close" type="button" aria-label="Close menu">&times;</button></div><nav class="site-navigation" aria-label="Main navigation" style="display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap">
+<div id="main">
+<div style="background:#F7F3E7;color:#020522;min-height:100vh;overflow-x:hidden">
+
+
+
+  <header class="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100">
+    <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
+      <a href="/" style="font-family:'Geist',sans-serif;font-size:19px;font-weight:600;letter-spacing:0.01em;color:#FFFFFF;justify-self:start;white-space:nowrap">Zurich AI Safety</a>
+      <nav style="display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap">
         <a href="/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Home</a>
 
-        <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="programmes">
-          <button class="nav-trigger" type="button" aria-controls="nav-programmes" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;border-bottom:1.5px solid #FFFFFF;padding-bottom:2px;display:inline-flex;align-items:center;gap:6px;cursor:default">Programmes <span style="font-size:10px;opacity:0.8">▾</span></button>
+        <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="activities">
+          <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;cursor:default"><span style="display:inline-flex;align-items:center;gap:6px;border-bottom:1.5px solid #FFFFFF;padding-bottom:2px">Activities <span style="font-size:10px;opacity:0.8">▾</span></span></span>
           
-            <div id="nav-programmes" data-dropdown="programmes" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#F7F3E7;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
-              <a href="/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
-              <a href="/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
-              <a href="/ai-safety-fundamentals/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Safety Fundamentals</a>
-              <a href="/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
+            <div data-dropdown="activities" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
+              <a href="/programmes/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
+              <a href="/programmes/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
+              <a href="/programmes/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
+              <a href="/programmes/ai-safety-fundamentals/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Safety Fundamentals</a>
+              <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Swiss AI Safety Days &#8599;</a>
             </div></div>
           
         </div>
 
-        <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="events">
-          <button class="nav-trigger" type="button" aria-controls="nav-events" style="cursor:default;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;gap:6px">Events <span style="font-size:10px;opacity:0.8">▾</span></button>
-          
-            <div id="nav-events" data-dropdown="events" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#F7F3E7;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
-              <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Swiss AI Safety Days ↗</a>
-              <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Luma Calendar &#8599;</a>
-            </div></div>
-          
-        </div>
 
-        <a href="/about/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">About ZAIS</a>
+        <a href="/about/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">About us</a>
         <a href="/research/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Research</a>
+        <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Calendar &#8599;</a>
       </nav>
-      <div class="header-actions" style="justify-self:end;display:flex;align-items:center;gap:14px">
+      <div style="justify-self:end;display:flex;align-items:center;gap:14px">
         <a href="/get-involved/" style="display:inline-flex;align-items:center;padding:11px 22px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:14px;font-weight:400;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">Get Involved</a>
         <button type="button" class="set-toggle" id="hero-set-toggle" aria-pressed="false" aria-label="Switch background theme">
           <span class="set-toggle-dot"></span>
         </button>
-      </div>
-      </div>
-      <div class="header-mobile-controls"><button type="button" class="set-toggle header-mobile-theme" aria-pressed="false" aria-label="Switch background theme">
-          <span class="set-toggle-dot"></span>
-        </button><button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navigation-panel">
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel">
           <span></span><span></span><span></span>
-        </button></div>
+        </button>
+      </div>
     </div>
   </header>
-<div id="main">
-<div style="background:#F7F3E7;color:#020522;min-height:100vh;overflow-x:hidden">
+
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="/" class="mobile-nav-brand">Zurich AI Safety</a>
+      <button type="button" class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="/">Home</a>
+      <div class="mobile-nav-group">Activities</div>
+      <a href="/programmes/open-meetups/" class="mobile-nav-sublink">Open Meetups</a>
+      <a href="/programmes/ai-futures/" class="mobile-nav-sublink">AI Futures</a>
+      <a href="/programmes/themed-events/" class="mobile-nav-sublink">Themed Events</a>
+      <a href="/programmes/ai-safety-fundamentals/" class="mobile-nav-sublink">AI Safety Fundamentals</a>
+      <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener" class="mobile-nav-sublink">Swiss AI Safety Days &#8599;</a>
+      <a href="/about/">About us</a>
+      <a href="/research/">Research</a>
+      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer">Calendar &#8599;</a>
+    </nav>
+    <div class="mobile-nav-bottom-row"><a href="/get-involved/" class="mobile-nav-cta">Get Involved</a><button type="button" class="set-toggle" aria-pressed="false" aria-label="Switch background theme"><span class="set-toggle-dot"></span></button></div>
+  </div>
 
 <section data-screen-label="AISF Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
-  <div class="gradient" data-set="A" id="hero-gradient">
+  <div class="gradient" data-set="C" id="hero-gradient">
     <div class="gradient-layer gl-base"></div>
     <div class="gradient-layer gl-2"></div>
     <div class="gradient-layer gl-3"></div>
@@ -78,64 +88,60 @@
   </div>
   <div class="grain"></div>
 
-  <div aria-hidden="true" style="position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden">
-    <div style="position:absolute;inset:0;background-color:rgba(2,5,34,0.07);background-image:linear-gradient(180deg, rgba(2,5,34,0.52) 0px, rgba(2,5,34,0.46) 82px, rgba(2,5,34,0.12) 132px, rgba(2,5,34,0) 190px), linear-gradient(100deg, rgba(2,5,34,0.40) 0%, rgba(2,5,34,0.24) 42%, rgba(2,5,34,0.07) 72%, rgba(2,5,34,0) 92%), linear-gradient(0deg, rgba(2,5,34,0.18) 0%, rgba(2,5,34,0.05) 42%, rgba(2,5,34,0) 70%)"></div>
-    <div style="position:absolute;left:0;right:0;top:190px;bottom:0;background-image:linear-gradient(270deg, rgba(255,255,251,0.32) 0%, rgba(255,255,251,0.28) 26%, rgba(255,255,251,0.20) 38%, rgba(255,255,251,0.06) 43%, rgba(255,255,251,0) 46%)"></div>
-  </div>
+  <div data-hero-scrim aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none;background-image:linear-gradient(180deg, rgba(2,5,34,0.42) 0px, rgba(2,5,34,0.30) 80px, rgba(2,5,34,0) 150px), linear-gradient(100deg, rgba(2,5,34,0.96) 0%, rgba(2,5,34,0.92) 34%, rgba(2,5,34,0.72) 52%, rgba(2,5,34,0.34) 70%, rgba(2,5,34,0.08) 86%), radial-gradient(70% 76% at 24% 50%, rgba(2,5,34,0.82) 0%, rgba(2,5,34,0.50) 46%, rgba(2,5,34,0) 88%)"></div>
 
 
-  <div class="header-spacer" aria-hidden="true"></div>
-  <div style="position:relative;z-index:1;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem);display:flex;align-items:flex-start;gap:clamp(2.5rem,5vw,4rem);flex-wrap:wrap"><div style="flex:1 1 440px;min-width:0"><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;margin-bottom:20px">Programme</div><h1 style="font-size:clamp(34px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;font-weight:400;color:#FFFFFF;margin:0 0 24px;max-width:900px">AI Safety Fundamentals</h1><h2 style="font-size:clamp(18px,2vw,24px);line-height:1.4;letter-spacing:-0.01em;font-weight:500;color:#FFFFFF;margin:0 0 32px;max-width:600px">A six-week course introducing the technical foundations of AI safety research.</h2><div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;border-top:1px dashed rgba(255,255,255,0.35);border-bottom:1px dashed rgba(255,255,255,0.35);padding:24px 0;margin:0 0 32px"><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Duration</div><div style="font-size:16px;color:#FFFFFF">6 Sessions</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Frequency</div><div style="font-size:16px;color:#FFFFFF">Every 2 weeks</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Cost</div><div style="font-size:16px;color:#FFFFFF">Free</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Location</div><div style="font-size:16px;color:#FFFFFF">ETH Zurich</div></div></div><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap"><a href="https://forms.gle/wnb7DmFyQKh4zzZK9" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-size:15px;font-weight:500" data-hv="hv3">Apply now</a></div></div><div style="flex:1 1 380px;min-width:280px;align-self:flex-start"><div data-hero-image-slot style="width:100%;aspect-ratio:4/3;background-color:#F1EBDA;background-image:url(&quot;/assets/img/ai-safety-fundamentals-hero.jpg&quot;);background-size:cover;background-position:center"></div></div></div>
+  <div aria-hidden="true" style="height:80px"></div>
+  <div style="position:relative;z-index:3;max-width:80rem;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) clamp(3.5rem,6vw,5.5rem);display:flex;align-items:flex-start;gap:clamp(2.5rem,5vw,4rem);flex-wrap:wrap"><div style="flex:1 1 440px;min-width:0"><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;margin-bottom:20px">Programme</div><h1 style="font-size:clamp(34px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;font-weight:400;color:#FFFFFF;margin:0 0 24px;max-width:900px">AI Safety Fundamentals</h1><h2 style="font-size:clamp(18px,2vw,24px);line-height:1.4;letter-spacing:-0.01em;font-weight:500;color:#FFFFFF;margin:0 0 32px;max-width:600px">A six-week course introducing the technical foundations of AI safety research.</h2><div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;border-top:1px dashed rgba(255,255,255,0.35);border-bottom:1px dashed rgba(255,255,255,0.35);padding:24px 0;margin:0 0 32px"><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Duration</div><div style="font-size:16px;color:#FFFFFF">6 Sessions</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Frequency</div><div style="font-size:16px;color:#FFFFFF">Every 2 weeks</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Cost</div><div style="font-size:16px;color:#FFFFFF">Free</div></div><div><div style="font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#FFFFFF;margin-bottom:6px">Location</div><div style="font-size:16px;color:#FFFFFF">ETH Zurich</div></div></div><div class="hero-actions" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap"><a href="https://forms.gle/wnb7DmFyQKh4zzZK9" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-size:15px;font-weight:500" data-hv="hv3">Apply now</a></div></div><div style="flex:1 1 380px;min-width:280px;align-self:flex-start"><div data-hero-image-slot style="width:100%;aspect-ratio:4/3;background-color:#F1EBDA;background-image:url(&quot;/assets/img/event-lecture.jpg&quot;);background-size:cover;background-position:center"></div></div></div>
 </section>
 
-<section data-screen-label="What and Who" style="background:#F7F3E7">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:start"><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">What is it for?</h3><p data-reveal style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">Six weeks of curated reading and small-group discussion, from how models work to how they are governed.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">AI safety is new enough that the first textbook is only a couple of years old and university courses are still rare, especially in Europe. There is no course like this at a Swiss university, so we built one: curated readings, worked through in small groups of four or five with a facilitator who knows the material.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">One 90-minute discussion a week, about two to three hours of reading beforehand. Free, and several past participants finished it with no machine learning background at all.</p></div><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">Who is it for?</h3><p data-reveal style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">Anyone interested in AI development going safely, from a technical or a policy angle.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">Basic machine learning knowledge helps but is not required &#8212; several past participants finished the course with no prior background. You indicate your level when you apply, and we group people with similar-experience peers, so nobody spends six weeks either lost or bored.</p><p style="font-size:14px;line-height:1.7;color:rgba(2,5,34,0.55);margin:18px 0 0;max-width:720px">Curriculum baseline: <a href="https://course.aisafetyfundamentals.com/alignment">course.aisafetyfundamentals.com/alignment</a>. Groups and facilitators may skip or supplement readings based on skill level and interests.</p></div></div></div>
+<section data-screen-label="What and Who" style="background:#FFFFFF">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:start"><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">What is it for?</h3><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">Six weeks of curated reading and small-group discussion, from how models work to how they are governed.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">AI safety is new enough that the first textbook is only a couple of years old and university courses are still rare, especially in Europe. There is no course like this at a Swiss university, so we built one: curated readings, worked through in small groups of four or five with a facilitator who knows the material.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">One 90-minute discussion a week, about two to three hours of reading beforehand. Free, and several past participants finished it with no machine learning background at all.</p></div><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">Who is it for?</h3><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">Anyone interested in AI development going safely, from a technical or a policy angle.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">Basic machine learning knowledge helps but is not required — several past participants finished the course with no prior background. You indicate your level when you apply, and we group people with similar-experience peers, so nobody spends six weeks either lost or bored.</p></div></div></div>
 </section>
 
 <section data-screen-label="Curriculum" style="background:#FFFFFF">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="font-size:11px;font-weight:500;letter-spacing:0.14em;color:#DE2C00;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Curriculum</div><div data-session-widget style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start"><div data-session-list style="display:flex;flex-direction:column;padding-right:clamp(1.5rem,3vw,2.5rem)"><button type="button" data-action="selectSession" data-session="01" data-active="true" aria-selected="true" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:11px 0;width:100%"><div data-session-num style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#DE2C00">01</div><div data-session-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.3;letter-spacing:-0.01em;color:#DE2C00">What is AI alignment?</div></button><button type="button" data-action="selectSession" data-session="02" data-active="false" aria-selected="false" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:11px 0;width:100%"><div data-session-num style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#020522">02</div><div data-session-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.3;letter-spacing:-0.01em;color:#020522">Reinforcement learning from human feedback</div></button><button type="button" data-action="selectSession" data-session="03" data-active="false" aria-selected="false" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:11px 0;width:100%"><div data-session-num style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#020522">03</div><div data-session-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.3;letter-spacing:-0.01em;color:#020522">Scalable oversight</div></button><button type="button" data-action="selectSession" data-session="04" data-active="false" aria-selected="false" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:11px 0;width:100%"><div data-session-num style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#020522">04</div><div data-session-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.3;letter-spacing:-0.01em;color:#020522">Robustness, unlearning and control</div></button><button type="button" data-action="selectSession" data-session="05" data-active="false" aria-selected="false" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:11px 0;width:100%"><div data-session-num style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#020522">05</div><div data-session-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.3;letter-spacing:-0.01em;color:#020522">Mechanistic interpretability</div></button><button type="button" data-action="selectSession" data-session="06" data-active="false" aria-selected="false" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:11px 0;width:100%"><div data-session-num style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#020522">06</div><div data-session-title style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.3;letter-spacing:-0.01em;color:#020522">Technical governance</div></button></div><div data-session-detail style="padding-left:clamp(1.5rem,3vw,2.5rem);border-left:1px solid rgba(2,5,34,0.15)"><div data-session-detail-panel="01"><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#020522;margin:0 0 12px">Getting a system to want the right thing</div><p style="font-size:15px;line-height:1.85;color:rgba(2,5,34,0.78);margin:0 0 22px">What does it even mean for a system to do what we want? This week separates two problems that often get run together: writing down the right goal, and the system actually adopting it. Both turn out to be harder than they sound.</p><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.9;color:rgba(2,5,34,0.55)"><span style="color:#DE2C00">COVERED:</span> outer and inner alignment &#183; agents &#183; convergent instrumental goals &#183; why specifying goals is difficult</div></div><div data-session-detail-panel="02" hidden><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#020522;margin:0 0 12px">Why current systems mostly behave</div><p style="font-size:15px;line-height:1.85;color:rgba(2,5,34,0.78);margin:0 0 22px">Today&#39;s assistants are mostly helpful and mostly polite. This week is about the training method that made that happen, and the reasons it may stop working as systems get more capable than the people rating them.</p><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.9;color:rgba(2,5,34,0.55)"><span style="color:#DE2C00">COVERED:</span> RLHF and RLAIF &#183; reward models &#183; where human feedback breaks down</div></div><div data-session-detail-panel="03" hidden><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#020522;margin:0 0 12px">Supervising something better than you</div><p style="font-size:15px;line-height:1.85;color:rgba(2,5,34,0.78);margin:0 0 22px">How do you check work you could not do yourself? Three approaches: break the problem into pieces small enough to judge, have two systems argue and pick the better case, or use a weaker model to train a stronger one.</p><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.9;color:rgba(2,5,34,0.55)"><span style="color:#DE2C00">COVERED:</span> iterated amplification &#183; debate &#183; weak-to-strong generalisation</div></div><div data-session-detail-panel="04" hidden><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#020522;margin:0 0 12px">Practical defences</div><p style="font-size:15px;line-height:1.85;color:rgba(2,5,34,0.78);margin:0 0 22px">Three things you can do without solving alignment first: make a model hard to trick, remove knowledge you would rather it did not have, and limit the damage if it turns out to be working against you.</p><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.9;color:rgba(2,5,34,0.55)"><span style="color:#DE2C00">COVERED:</span> adversarial attacks and defences &#183; unlearning harmful capabilities &#183; control techniques for potentially deceptive models</div></div><div data-session-detail-panel="05" hidden><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#020522;margin:0 0 12px">Opening the box</div><p style="font-size:15px;line-height:1.85;color:rgba(2,5,34,0.78);margin:0 0 22px">Models are not black boxes by nature, only by default. This week covers the work to look inside: finding the structures within a network and working out what each one computes.</p><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.9;color:rgba(2,5,34,0.55)"><span style="color:#DE2C00">COVERED:</span> circuit analysis &#183; superposition &#183; dictionary learning</div></div><div data-session-detail-panel="06" hidden><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#020522;margin:0 0 12px">Rules, testing, and the coordination problem</div><p style="font-size:15px;line-height:1.85;color:rgba(2,5,34,0.78);margin:0 0 22px">Technical work only goes so far without rules around it. Testing systems before release, keeping control of them once deployed, and the harder question of how labs and countries coordinate when none of them wants to move first.</p><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.9;color:rgba(2,5,34,0.55)"><span style="color:#DE2C00">COVERED:</span> pre-deployment testing &#183; AI control techniques &#183; global coordination approaches</div></div></div></div></div>
 </section>
 
-<section data-screen-label="CTA" style="background:#F1EBDA">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="max-width:760px;margin:0 auto;text-align:center"><h2 data-reveal style="font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:-0.02em;font-weight:400;color:#020522;margin:0 0 20px;margin-left:auto;margin-right:auto">Ready to start?</h2><p data-reveal style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 36px">Applications for the next cohort open ahead of each intake. The intro evening is the easiest way to find out if it's for you.</p><div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap"><a href="https://forms.gle/wnb7DmFyQKh4zzZK9" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed #DE2C00;border-radius:100px;color:#DE2C00;font-size:15px;font-weight:500" data-hv="hv9">Apply now</a></div></div></div>
+<section data-screen-label="CTA" style="background:#FBF8EF">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="max-width:760px;margin:0 auto;text-align:center"><h2 data-reveal style="font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:-0.02em;font-weight:400;color:#020522;margin:0 0 20px;margin-left:auto;margin-right:auto">Ready to start?</h2><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 36px">Applications for the next cohort open ahead of each intake. The intro evening is the easiest way to find out if it's for you.</p><div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap"><a href="https://forms.gle/wnb7DmFyQKh4zzZK9" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:15px 30px;border:1.5px dashed #DE2C00;border-radius:100px;color:#DE2C00;font-size:15px;font-weight:500" data-hv="hv9">Apply now</a></div></div></div>
 </section>
 
 <section data-screen-label="Stay in the Loop" style="background:#DE2C00">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(3.5rem,6vw,5.5rem) clamp(1.25rem,4vw,2.5rem) clamp(4rem,7vw,6rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(2rem,5vw,4rem);align-items:end">
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(2.25rem,3.4vw,3rem) clamp(1.25rem,4vw,2.5rem) clamp(2.5rem,3.8vw,3.25rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(1.5rem,3vw,2.5rem);align-items:end">
     <div style="min-width:0">
-      <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-0.025em;color:#FFFFFF;margin:0 0 clamp(18px,2vw,26px)">Stay in the loop.</h2>
-      <p data-reveal style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#FFFFFF;margin:0;max-width:440px">Sessions, sign-ups and last-minute socials get announced in the community first. The calendar catches up afterwards.</p>
+      <h2 data-reveal style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(20px,2.1vw,26px);line-height:1.2;letter-spacing:-0.02em;color:#FFFFFF;margin:0 0 clamp(10px,1.2vw,14px)">Stay in the loop.</h2>
+      <p style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.88);margin:0;max-width:440px">Follow our events on Luma or join our WhatsApp group to become part of the discussion.</p>
     </div>
-    <div style="min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
-      <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);letter-spacing:-0.02em;color:#FFFFFF;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px" data-hv="hv5">WhatsApp Community &#8212;&gt;</a>
-      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);letter-spacing:-0.02em;color:#FFFFFF;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px" data-hv="hv5">Luma Calendar &#8212;&gt;</a>
+    <div class="loop-actions" style="min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap">
+      <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;white-space:nowrap;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">WhatsApp community</a>
+      <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:15px;font-weight:400;white-space:nowrap;transition:background 0.2s ease,color 0.2s ease" data-hv="hv3">See the events</a>
     </div>
   </div>
 </section>
 
-<footer data-screen-label="Footer" style="background:#28282E">
+<footer data-screen-label="Footer" style="background:#020522">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2.25rem,3.5vw,3rem)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(1.5rem,3vw,2.5rem)">
       <div>
         <div style="display:flex;align-items:center;gap:10px;color:#F7F3E7;font-size:19px;font-weight:500;letter-spacing:-0.02em;margin-bottom:16px">
-          <span style="width:9px;height:9px;background:#DE2C00;display:inline-block"></span>
-          ZAIS
+          Zurich AI Safety
         </div>
         <p style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;color:rgba(247,243,231,0.6);margin:0;max-width:280px">Connecting bright minds to shape a safe trajectory for AI. Zurich, Switzerland.</p>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Programmes</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <a href="/ai-futures/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Futures</a>
-          <a href="/open-meetups/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Open Meetups</a>
-          <a href="/ai-safety-fundamentals/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Safety Fundamentals</a>
-          <a href="/themed-events/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Themed Events</a>
+          <a href="/programmes/open-meetups/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Open Meetups</a>
+          <a href="/programmes/ai-futures/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Futures</a>
+          <a href="/programmes/themed-events/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Themed Events</a>
+          <a href="/programmes/ai-safety-fundamentals/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">AI Safety Fundamentals</a>
         </div>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Organisation</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <a href="/about/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">About ZAIS</a>
+          <a href="/about/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">About us</a>
           <a href="/research/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Research</a>
           <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Luma Calendar &#8599;</a>
           <a href="/get-involved/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Get Involved</a>
@@ -145,8 +151,8 @@
         <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,243,231,0.5);margin-bottom:16px">Contact</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
           <a href="mailto:zurich@aisafety.ch" style="color:rgba(247,243,231,0.85)" data-hv="hv4">zurich@aisafety.ch</a>
-          <a href="/get-involved/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Join our WhatsApp community</a>
-          <a href="/swiss-ai-safety-days/" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Swiss AI Safety Days</a>
+          <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Join our WhatsApp community</a>
+          <a href="https://swissaisafetydays.ch" target="_blank" rel="noopener noreferrer" style="color:rgba(247,243,231,0.85)" data-hv="hv4">Swiss AI Safety Days</a>
         </div>
       </div>
     </div>
@@ -155,7 +161,6 @@
         <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
         <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Luma</a>
         <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">WhatsApp</a>
-        <a href="https://www.instagram.com/zurich.aisafety/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Instagram</a>
         <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">YouTube</a>
       </div>
       <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.4)">© 2026 Zurich AI Safety</div>
@@ -165,8 +170,7 @@
 
 </div>
 </div>
-<script src="/assets/js/site.js?v=20260916menu" defer></script>
+<script src="/assets/js/site.js?v=20260918122722" defer></script>
 
-<script src="/assets/js/navigation.js?v=20260916menu" defer></script>
 </body>
 </html>

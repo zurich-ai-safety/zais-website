@@ -1,0 +1,65 @@
+/* Roll-on-hover link buttons. Vanilla rebuild of a framer-motion component:
+   each letter has two stacked copies; on hover the top copy rolls up and out
+   while the bottom copy rolls up into place, staggered from the centre of the
+   word outwards. No JS is needed for the animation itself - text-roll.js only
+   splits the text into letters and sets each one's transition-delay.
+   The pill and its hover match the site's other buttons (hv3). */
+
+.troll { list-style:none; margin:0; padding:0; width:100%; display:flex;
+         flex-direction:column; align-items:stretch; justify-content:center;
+         gap:clamp(16px,2vw,26px); }
+
+/* Each row is full width and centres its own content, so a link whose caption
+   is wider than its word still lines up with the others. */
+.troll__item { position:relative; width:100%; text-align:center; }
+
+.troll__link { display:inline-flex; align-items:center; justify-content:center;
+               max-width:100%;
+               padding:clamp(13px,1.7vw,19px) clamp(26px,3.4vw,42px);
+               border:1.5px dashed rgba(255,255,255,0.85); border-radius:100px;
+               text-decoration:none; color:#FFFFFF; cursor:pointer;
+               -webkit-user-select:none; user-select:none;
+               transition:background-color .22s ease, color .22s ease,
+                          border-color .22s ease; }
+
+/* hv3: fills white, text goes ZAIS red. Both roll layers inherit colour from
+   the link, so they follow without extra rules. */
+.troll__link:hover,
+.troll__link:focus-visible { background:#FFFFFF; color:#DE2C00;
+                             border-color:#FFFFFF; }
+
+.troll__roll { position:relative; display:block; overflow:hidden;
+               white-space:nowrap; text-align:center;
+               font-family:'Geist',sans-serif; font-weight:600;
+               text-transform:uppercase; letter-spacing:-0.03em;
+               font-size:clamp(19px,2.1vw,27px); line-height:0.9; }
+
+.troll__roll .tr-layer      { display:block; }
+.troll__roll .tr-layer--bot { position:absolute; inset:0; }
+
+.troll__roll span { display:inline-block;
+                    transition:transform .4s cubic-bezier(.4,0,.2,1);
+                    transition-delay:var(--d,0s); }
+.troll__roll .tr-layer--bot span { transform:translateY(100%); }
+
+.troll__link:hover        .tr-layer--top span,
+.troll__link:focus-visible .tr-layer--top span { transform:translateY(-100%); }
+.troll__link:hover        .tr-layer--bot span,
+.troll__link:focus-visible .tr-layer--bot span { transform:translateY(0); }
+
+/* The caption sits below the pill, so it brightens from the row, not the link. */
+.troll__desc { display:block; text-align:center; margin-top:11px;
+               font-family:'JetBrains Mono',ui-monospace,monospace;
+               font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+               color:rgba(255,255,255,0.62); transition:color .3s ease;
+               overflow-wrap:anywhere; }
+.troll__item:hover .troll__desc,
+.troll__item:focus-within .troll__desc { color:rgba(255,255,255,0.92); }
+
+.troll__link:focus-visible { outline:2px solid rgba(255,255,255,0.85);
+                             outline-offset:4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .troll__roll span { transition:none; }
+  .troll__roll .tr-layer--bot { display:none; }
+}
