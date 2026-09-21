@@ -8,7 +8,7 @@
    motion and the mobile breakpoints.
    ========================================================================= */
 
-@import url("./hover.css?v=20260918122722");
+@import url("./hover.css?v=20260918130824");
 
 /* ---------- 1. Base ------------------------------------------------------ */
 
@@ -625,19 +625,31 @@ h3.reveal-pending + p.reveal-pending {
 
 .timeline-navigation { display: flex; justify-content: flex-end; align-items: center; gap: 20px; margin-top: clamp(20px, 2.5vw, 28px); }
 .timeline-controls { display: flex; gap: 10px; }
+/* One arrow style for every carousel on the site: the homepage voices
+   slider and the about-page timeline used to disagree on colour and on
+   whether "next" got a solid fill. Both are dashed outlines now, equal
+   weight in each direction, matching the dashed pill buttons elsewhere. */
+.carousel-arrow,
 .timeline-arrow {
   width: 48px;
   height: 48px;
   display: grid;
   place-items: center;
-  border: 1.5px dashed #020522;
+  border: 1.5px dashed rgba(222, 44, 0, 0.7);
   border-radius: 100px;
   background: transparent;
-  color: #020522;
-  font: 20px 'Inter', sans-serif;
+  color: #DE2C00;
+  font: 14px 'Inter', sans-serif;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.timeline-arrow:hover:not(:disabled) { background: #020522; color: #F7F3E7; }
+.carousel-arrow:hover,
+.timeline-arrow:hover:not(:disabled) {
+  background: #DE2C00;
+  border-color: #DE2C00;
+  color: #FFFFFF;
+}
+.carousel-arrow[aria-disabled="true"],
 .timeline-arrow:disabled { opacity: 0.3; cursor: default; }
 
 @media (max-width: 760px) {
