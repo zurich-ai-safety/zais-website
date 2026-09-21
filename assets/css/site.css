@@ -69,14 +69,14 @@ img, canvas { display: block; max-width: 100%; }
   background-repeat: no-repeat;
 }
 
-/* set A  -  light neutral (#DE2C00 + #D0C0A9) */
+/* set A — light neutral (#DE2C00 + #D0C0A9) */
 .gradient[data-set="A"] .gl-base { background-image: url("/assets/img/gradient/setA-1.jpg"); }
 .gradient[data-set="A"] .gl-2    { background-image: url("/assets/img/gradient/setA-2.jpg"); }
 .gradient[data-set="A"] .gl-3    { background-image: url("/assets/img/gradient/setA-3.jpg"); }
 .gradient[data-set="A"] .gl-4    { background-image: url("/assets/img/gradient/setA-4.jpg"); }
 .gradient[data-set="A"] .gl-5    { background-image: url("/assets/img/gradient/setA-5.jpg"); }
 
-/* set B  -  dark neutral (#DE2C00 + #020522) */
+/* set B — dark neutral (#DE2C00 + #020522) */
 .gradient[data-set="B"] .gl-base { background-image: url("/assets/img/gradient/setB-1.jpg"); }
 .gradient[data-set="B"] .gl-2    { background-image: url("/assets/img/gradient/setB-2.jpg"); }
 .gradient[data-set="B"] .gl-3    { background-image: url("/assets/img/gradient/setB-3.jpg"); }
@@ -130,7 +130,7 @@ img, canvas { display: block; max-width: 100%; }
   100% { transform: translate(0,0); }
 }
 
-/* Toggle lives inline in the header nav, next to "Get Involved"  -  see the
+/* Toggle lives inline in the header nav, next to "Get Involved" — see the
    header markup in each page's hero section. */
 .set-toggle {
   flex: none;
@@ -257,7 +257,7 @@ header nav > a[data-nav-current] {
 .editorial-note { display: contents; }
 
 /* Working notes carried over from the design canvas. They are addressed to the
-   ZAIS team, not to visitors  -  hide them before launch by adding the class
+   ZAIS team, not to visitors — hide them before launch by adding the class
    `hide-editorial-notes` to <body>. */
 body.hide-editorial-notes .editorial-note { display: none; }
 
@@ -270,7 +270,7 @@ body.hide-editorial-notes .editorial-note { display: none; }
 
 /* ---------- 7. Mobile ----------------------------------------------------- */
 
-/* The export authored no breakpoints  -  it relies on flex-wrap and auto-fit
+/* The export authored no breakpoints — it relies on flex-wrap and auto-fit
    grids. Two places still overflow on a phone, so they are handled here. */
 /* Hamburger trigger: hidden on desktop, shown below 1060px. */
 .menu-toggle {
@@ -370,6 +370,18 @@ body.hide-editorial-notes .editorial-note { display: none; }
   color: rgba(2,5,34,0.78);
   letter-spacing: normal;
 }
+/* Each row rises in as the panel opens. The animation is keyed to .is-open,
+   which is toggled on every open/close, so it replays each time rather than
+   only on the first opening. Delays are set per row by site.js. */
+.mobile-nav-panel.is-open [data-menu-entrance] {
+  animation: mobile-nav-item-enter 420ms cubic-bezier(.22,.61,.36,1) both;
+  animation-delay: var(--menu-item-delay, 0ms);
+}
+@keyframes mobile-nav-item-enter {
+  from { opacity: 0; translate: 0 12px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
 .mobile-nav-bottom-row {
   display: flex;
   align-items: center;
@@ -503,7 +515,7 @@ h3.reveal-pending + p.reveal-pending {
 
 /* Horizontal card row the visitor drags sideways with the mouse; no
    scrollbar, no arrow buttons. Touchscreens already scroll it natively
-   with a swipe  -  this is a mouse-only affordance on top of that.
+   with a swipe — this is a mouse-only affordance on top of that.
    Remove this block and its <section> in index.html once a direction
    is picked. */
 [data-drag-scroll] {
@@ -673,6 +685,24 @@ h3.reveal-pending + p.reveal-pending {
 }
 
 /* ---------- 13. Reduced motion ---------------------------------------------- */
+
+/* ---------- Voice cards (homepage) ---------------------------------------
+   Carried over from the modular build. hover.css only reveals the quote
+   overlay on :hover, which leaves it unreachable by keyboard; :focus-within
+   gives the same reveal when the card's link is tabbed to. The overflow and
+   size clamp keep the longer quotes readable inside the portrait crop. */
+[data-voice-card] { min-width: 0; }
+[data-voice-card] [data-hv="hv6"] {
+  overflow-y: auto;
+  padding: clamp(18px, 2.2vw, 30px) !important;
+}
+[data-voice-card] [data-hv="hv6"] p {
+  font-size: clamp(14px, 1.25vw, 18px) !important;
+}
+[data-voice-card]:focus-within [data-hv="hv6"] { opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) {
+  [data-voice-card] [data-hv="hv6"] { transition: none !important; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

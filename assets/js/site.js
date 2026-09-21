@@ -1,4 +1,4 @@
-/* Zurich AI Safety  -  behaviour for the two carousels.
+/* Zurich AI Safety — behaviour for the two carousels.
  *
  * The nav dropdowns are pure CSS (hover / focus-within), so nothing here
  * touches them. Everything below reproduces the state logic that lived in the
@@ -204,8 +204,8 @@
 
   /* ---- Scroll reveal for section headings + intros -------------------- */
   /* Elements are marked with data-reveal in the HTML. The reveal-pending
-     class (which starts them invisible) is only added here, in JS  -  never
-     in the HTML or a static CSS class  -  so if JS fails to run or load,
+     class (which starts them invisible) is only added here, in JS — never
+     in the HTML or a static CSS class — so if JS fails to run or load,
      nothing is ever hidden. Each element reveals once, the first time it
      scrolls into view, then is left alone. */
 
@@ -300,7 +300,7 @@
   /* Mouse users drag the row sideways; touchscreens already scroll it
      natively with a swipe. A small circular indicator follows the pointer
      while it's over the row, replacing the native cursor, so dragging is
-     the only affordance shown  -  no scrollbar, no arrow buttons. */
+     the only affordance shown — no scrollbar, no arrow buttons. */
 
   function initDragScroll() {
     var rows = document.querySelectorAll('[data-drag-scroll]');
@@ -409,6 +409,16 @@
     var closeBtn = document.getElementById("mobile-menu-close");
     var panel = document.getElementById("mobile-nav-panel");
     if (!toggle || !panel) return;
+
+    // Stagger the rows so they rise in behind the panel. Tagged once; the
+    // animation itself is driven by .is-open in site.css, so it replays on
+    // every opening.
+    panel.querySelectorAll(
+      ".mobile-nav-links > a, .mobile-nav-group, .mobile-nav-bottom-row > *"
+    ).forEach(function (item, i) {
+      item.setAttribute("data-menu-entrance", "");
+      item.style.setProperty("--menu-item-delay", Math.min(i * 35, 280) + "ms");
+    });
 
     function open() {
       panel.classList.add("is-open");

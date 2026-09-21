@@ -9,6 +9,8 @@ untouched.**
 The pages are a conversion of the Claude Design canvas export in `temporary/ZAIS - Website`.
 Content and layout come from the artboards verbatim; see
 [docs/brand-system.md](docs/brand-system.md) for exactly what the conversion changed.
+Approved interaction and consistency refinements are documented in
+[docs/baseline-behavior.md](docs/baseline-behavior.md).
 
 ---
 
@@ -60,9 +62,13 @@ Browsers cache `site.css` aggressively and you will chase phantom bugs otherwise
 | `/ai-futures/` | ZAIS AI Futures Discussions |
 
 ```
-assets/css/site.css     Base, dropdowns, disclosure, breakpoints, hero gradient, reduced motion
+assets/css/site.css     Base, disclosure, breakpoints, hero gradient, reduced motion
 assets/css/hover.css    Generated from the artboards' style-hover attributes
-assets/js/site.js       The two carousels
+assets/css/navigation.css, buttons.css, motion.css   Shared interaction styles
+assets/css/people.css, publications.css, timeline.css   Page-specific refinements
+assets/js/site.js       Community carousel, reveals, theme toggle and session tabs
+assets/js/navigation.js Sticky header, dropdown keyboard access and mobile menu
+assets/js/timeline.js   About timeline progress, controls and entrances
 assets/img/             21 images copied out of the export
 assets/img/gradient/    10 pre-rendered hero gradient frames (5 light + 5 dark), see docs/brand-system.md
 
@@ -82,19 +88,20 @@ design.
 
 **2. Don't add a build step.** No npm, no bundler, no framework.
 
-**3. Header and footer are duplicated across all ten pages.** Change the nav in one, change it
-in all ten. Grep to be sure:
+**3. Header and footer are duplicated across all nine pages.** Change the nav in one, change it
+in all nine. Search to be sure:
 
 ```bash
-grep -rln "Open Meetups" --include=index.html .
+rg -l "Open Meetups" -g index.html
 ```
 
 **4. Colour and type live in the markup, not in tokens.** The export ships a `tokens/` folder,
 but its values disagree with the artboards — see the warning at the top of
 [docs/brand-system.md](docs/brand-system.md). Take values from the rendered pages.
 
-**5. Nav dropdowns are pure CSS** (`:hover` / `:focus-within`). Don't reintroduce JS for them;
-the CSS version is keyboard-accessible and the canvas version was not.
+**5. Nav dropdowns use CSS** (`:hover` / `:focus-within`) with semantic button triggers.
+`navigation.js` adds ArrowDown/Escape handling and expanded-state announcements;
+it also manages the fullscreen mobile menu. Keep the expanded no-JS mobile fallback.
 
 **6. Hover rules need `!important`.** Inline styles beat class rules, so `hover.css` cannot
 work without it. Add new hover states there, in the same form.

@@ -45,3 +45,21 @@
 }
 [data-hv="hv7"]:hover { transform: translateX(-2px); }
 [data-hv="hv8"]:hover { transform: translateX(2px); }
+
+/* ---- Arrow-circle links fill on hover, like the "Get Involved" pill ----
+   The "Learn more" links in Where To Start and the "Explore …" links in
+   Programmes are a dashed circle holding an arrow, followed by the label.
+   On hover the circle inverts from dashed outline to a solid accent fill,
+   the same move the Get Involved pill makes (hv3). Scoped to the circle via
+   > span:first-child, so the plain hv5 text links elsewhere are untouched. */
+[data-hv="hv5"] > span:first-child {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+[data-hv="hv5"]:hover > span:first-child {
+  background: #DE2C00 !important;
+  border-color: #DE2C00 !important;
+  /* White, not the cream used elsewhere on an accent fill: at 13px the arrow
+     counts as small text, and cream lands at 4.24:1 where white clears AA at
+     4.70:1 — the same pairing the Get Involved pill inverts to. */
+  color: #FFFFFF !important;
+}
