@@ -35,18 +35,24 @@
     var page = 0;
     var perView = 4;
 
-    function pages() { return Math.ceil(slides / perView); }
+    /* Phones show 1.5 cards and step one card at a time; wider screens
+       step a whole row. Either way the last position is clamped so the
+       final card lands flush instead of leaving a half-empty row. */
+    function step() { return perView >= 2 ? perView : 1; }
+    function pages() { return Math.max(1, Math.ceil((slides - perView) / step()) + 1); }
 
     function paint() {
-      track.style.gridAutoColumns =
-        "calc((100% - " + (perView - 1) * GAP + "px) / " + perView + ")";
-      track.style.transform = "translateX(calc(" + -page + " * (100% + " + GAP + "px)))";
+      var gaps = Math.ceil(perView) - 1;
+      var card = "((100% - " + gaps * GAP + "px) / " + perView + ")";
+      track.style.gridAutoColumns = "calc(" + card + ")";
+      var start = Math.min(page * step(), Math.max(0, slides - perView));
+      track.style.transform = "translateX(calc(" + -start + " * (" + card + " + " + GAP + "px)))";
       if (label) label.textContent = (page + 1) + " / " + pages();
     }
 
     function fit() {
       var w = window.innerWidth;
-      var pv = w < 520 ? 1 : w < 780 ? 2 : w < 1100 ? 3 : 4;
+      var pv = w < 520 ? 1.5 : w < 780 ? 2 : w < 1100 ? 3 : 4;
       if (pv !== perView) {
         perView = pv;
         page = Math.min(page, pages() - 1);
@@ -68,6 +74,20 @@
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); turn(i === 0 ? -1 : 1); }
       });
     });
+
+    /* Swipe on touch screens: a horizontal drag of 40px or more turns
+       one step in that direction. Vertical drags scroll the page as usual. */
+    var touchX = null, touchY = null;
+    track.addEventListener("touchstart", function (e) {
+      touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+    }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      var dy = e.changedTouches[0].clientY - touchY;
+      touchX = touchY = null;
+      if (Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy)) turn(dx < 0 ? 1 : -1);
+    }, { passive: true });
 
     window.addEventListener("resize", fit);
     fit();

@@ -8,7 +8,7 @@
    motion and the mobile breakpoints.
    ========================================================================= */
 
-@import url("./hover.css?v=20260921134922");
+@import url("./hover.css?v=20260922145241");
 
 /* ---------- 1. Base ------------------------------------------------------ */
 
@@ -692,12 +692,19 @@ h3.reveal-pending + p.reveal-pending {
    gives the same reveal when the card's link is tabbed to. The overflow and
    size clamp keep the longer quotes readable inside the portrait crop. */
 [data-voice-card] { min-width: 0; }
+/* Sized for the 330px cards. The earlier rule here (18px text, 30px
+   padding, overflow-y:auto) dated from the 460px cards and made the
+   longer quotes scroll inside the overlay. Everything fits now, so no
+   scrolling: the longest quote (40 words) needs ~220px of a 274px card. */
 [data-voice-card] [data-hv="hv6"] {
-  overflow-y: auto;
-  padding: clamp(18px, 2.2vw, 30px) !important;
+  overflow: hidden;
+  padding: clamp(14px, 1.6vw, 22px) !important;
+  gap: 8px !important;
 }
+[data-voice-card] [data-hv="hv6"] > span { font-size: 26px !important; }
 [data-voice-card] [data-hv="hv6"] p {
-  font-size: clamp(14px, 1.25vw, 18px) !important;
+  font-size: clamp(12.5px, 1vw, 14px) !important;
+  line-height: 1.45 !important;
 }
 [data-voice-card]:focus-within [data-hv="hv6"] { opacity: 1 !important; }
 @media (prefers-reduced-motion: reduce) {
@@ -901,4 +908,40 @@ h3.reveal-pending + p.reveal-pending {
 /* Why Zurich: image and text stack on narrow screens. */
 @media (max-width: 860px) {
   .why-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* Voices carousel on phones: 1.5 portrait cards per view, tighter text. */
+@media (max-width: 519px) {
+  .voices-heading {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 1.75rem !important;
+  }
+  /* Square, not tall: the source portraits are landscape, so a 3:4 crop
+     zoomed in on faces. 1:1 matches the team tiles on the About page. */
+  [data-voice-card] > div:first-child {
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+  }
+  [data-voice-card] [data-hv="hv6"] {
+    padding: 16px !important;
+    gap: 8px !important;
+  }
+  [data-voice-card] [data-hv="hv6"] > span { font-size: 24px !important; }
+  [data-voice-card] [data-hv="hv6"] > p {
+    font-size: 13px !important;
+    line-height: 1.42 !important;
+  }
+  [data-voice-card] > div:last-child {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+  }
+  [data-voice-card] a[data-hv="hv4"] { font-size: 18px !important; }
+  [data-voice-card] a[data-hv="hv9"] {
+    width: 28px !important;
+    height: 28px !important;
+  }
 }
