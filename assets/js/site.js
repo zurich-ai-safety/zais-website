@@ -47,6 +47,9 @@
       track.style.gridAutoColumns = "calc(" + card + ")";
       var start = Math.min(page * step(), Math.max(0, slides - perView));
       track.style.transform = "translateX(calc(" + -start + " * (" + card + " + " + GAP + "px)))";
+      Array.prototype.forEach.call(track.children, function (slide, i) {
+        slide.inert = i < start || i >= start + Math.ceil(perView);
+      });
       if (label) label.textContent = (page + 1) + " / " + pages();
     }
 
@@ -68,12 +71,6 @@
 
     if (prev) prev.addEventListener("click", function (e) { e.preventDefault(); turn(-1); });
     if (next) next.addEventListener("click", function (e) { e.preventDefault(); turn(1); });
-    [prev, next].forEach(function (el, i) {
-      if (!el) return;
-      el.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); turn(i === 0 ? -1 : 1); }
-      });
-    });
 
     /* Swipe on touch screens: a horizontal drag of 40px or more turns
        one step in that direction. Vertical drags scroll the page as usual. */
@@ -127,9 +124,22 @@
     if (prev) prev.addEventListener("click", function (e) { e.preventDefault(); nudge(-1); });
     if (next) next.addEventListener("click", function (e) { e.preventDefault(); nudge(1); });
 
+    scrollRegion(viewport, "Timeline");
     viewport.addEventListener("scroll", paintProgress, { passive: true });
     window.addEventListener("resize", paintProgress);
     paintProgress();
+  }
+
+  /* Keyboard-scrollable when the strip actually overflows */
+  function scrollRegion(el, label) {
+    el.setAttribute("role", "region");
+    el.setAttribute("aria-label", label);
+    function sync() {
+      if (el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0;
+      else el.removeAttribute("tabindex");
+    }
+    window.addEventListener("resize", sync);
+    sync();
   }
 
   /* ---- Programme session tabs (list left, detail right) -------------- */
@@ -147,7 +157,10 @@
       buttons.forEach(function (btn) {
         var isActive = btn.getAttribute('data-session') === id;
         btn.setAttribute('data-active', String(isActive));
-        btn.setAttribute('aria-selected', String(isActive));
+        if (btn.getAttribute('role') === 'tab') {
+          btn.setAttribute('aria-selected', String(isActive));
+          btn.tabIndex = isActive ? 0 : -1;
+        }
         var color = isActive ? '#DE2C00' : '#020522';
         var title = btn.querySelector('[data-session-title]');
         var num = btn.querySelector('[data-session-num]');
@@ -260,6 +273,7 @@
   function initScrollReveal() {
     var els = document.querySelectorAll('[data-reveal]');
     if (!els.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     // Headings and paragraphs get the word-by-word, scroll-linked reveal;
     // everything else tagged data-reveal (programme rows, drag cards - full
@@ -329,6 +343,7 @@
     rows.forEach(function (row) {
       var cursor = document.createElement('div');
       cursor.className = 'drag-cursor';
+      cursor.setAttribute('aria-hidden', 'true');
       cursor.textContent = 'DRAG';
       document.body.appendChild(cursor);
 
@@ -406,11 +421,41 @@
     if (here.length > 1) here = here.replace(/\/+$/, '');
     if (here === '') here = '/';
     document.querySelectorAll('header nav > a[href], .mobile-nav-links > a[href]').forEach(function (a) {
-      var href;
-      try { href = new URL(a.getAttribute('href'), location.origin).pathname; }
+      var url;
+      try { url = new URL(a.getAttribute('href'), location.origin); }
       catch (e) { return; }
+      if (url.origin !== location.origin) return;
+      var href = url.pathname;
       if (href.length > 1) href = href.replace(/\/+$/, '');
       if (href === here) a.setAttribute('data-nav-current', 'true');
+    });
+  }
+
+  /* Keyboard/click toggle for the desktop nav dropdowns (hover is CSS). */
+  function initNavMenus() {
+    document.querySelectorAll("header [data-menu]").forEach(function (menu) {
+      var button = menu.querySelector(":scope > button");
+      if (!button) return;
+      function setOpen(open) {
+        if (open) menu.setAttribute("data-open", "");
+        else menu.removeAttribute("data-open");
+        button.setAttribute("aria-expanded", String(open));
+      }
+      button.addEventListener("click", function () {
+        setOpen(!menu.hasAttribute("data-open"));
+      });
+      menu.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && menu.hasAttribute("data-open")) {
+          setOpen(false);
+          button.focus();
+        }
+      });
+      menu.addEventListener("focusout", function (e) {
+        if (!menu.contains(e.relatedTarget)) setOpen(false);
+      });
+      document.addEventListener("click", function (e) {
+        if (!menu.contains(e.target)) setOpen(false);
+      });
     });
   }
 
@@ -444,12 +489,25 @@
       panel.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
       document.body.classList.add("mobile-nav-open");
+      (closeBtn || panel.querySelector("a")).focus();
     }
     function close() {
+      if (!panel.classList.contains("is-open")) return;
       panel.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       document.body.classList.remove("mobile-nav-open");
+      toggle.focus();
     }
+    /* Keep Tab inside the open panel */
+    panel.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab") return;
+      var items = Array.prototype.filter.call(panel.querySelectorAll("a[href], button"), function (el) {
+        return el.offsetParent !== null;
+      });
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
 
     toggle.addEventListener("click", function () {
       if (panel.classList.contains("is-open")) close(); else open();
@@ -479,6 +537,7 @@
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'stat-dot';
+      dot.tabIndex = -1;
       dot.setAttribute('aria-label', 'Show statistic ' + (i + 1) + ' of ' + cards.length);
       dot.addEventListener('click', function () {
         track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
@@ -500,6 +559,7 @@
       });
     }
 
+    scrollRegion(track, 'Key numbers');
     track.addEventListener('scroll', paint, { passive: true });
     window.addEventListener('resize', paint);
     paint();
@@ -527,6 +587,64 @@
 
     var mq = window.matchMedia('(max-width: 760px)');
     var mobile = null;
+    var list = buttons[0].parentElement;
+
+    buttons.forEach(function (btn) {
+      var id = btn.getAttribute('data-session');
+      var panel = panelFor(id);
+      btn.id = 'session-tab-' + id;
+      if (panel) {
+        panel.id = 'session-panel-' + id;
+        btn.setAttribute('aria-controls', panel.id);
+      }
+    });
+
+    /* Tabs on desktop, disclosure buttons in the mobile accordion */
+    function setRoles(tabs) {
+      if (tabs) {
+        list.setAttribute('role', 'tablist');
+        list.setAttribute('aria-label', 'Sessions');
+      } else {
+        list.removeAttribute('role');
+        list.removeAttribute('aria-label');
+      }
+      buttons.forEach(function (btn) {
+        var active = btn.getAttribute('data-active') === 'true';
+        if (tabs) {
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-selected', String(active));
+          btn.tabIndex = active ? 0 : -1;
+        } else {
+          btn.removeAttribute('role');
+          btn.removeAttribute('aria-selected');
+          btn.removeAttribute('tabindex');
+        }
+      });
+      panels.forEach(function (panel) {
+        var id = panel.getAttribute('data-session-detail-panel');
+        if (tabs) {
+          panel.setAttribute('role', 'tabpanel');
+          panel.setAttribute('aria-labelledby', 'session-tab-' + id);
+          panel.tabIndex = 0;
+        } else {
+          panel.removeAttribute('role');
+          panel.removeAttribute('aria-labelledby');
+          panel.removeAttribute('tabindex');
+        }
+      });
+    }
+
+    list.addEventListener('keydown', function (e) {
+      if (mobile) return;
+      var i = buttons.indexOf(document.activeElement);
+      if (i < 0) return;
+      var next = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: buttons.length - 1 }[e.key];
+      if (next === undefined) return;
+      e.preventDefault();
+      var btn = buttons[(next + buttons.length) % buttons.length];
+      btn.focus();
+      btn.click();
+    });
 
     function panelFor(id) {
       for (var i = 0; i < panels.length; i++) {
@@ -562,7 +680,6 @@
         buttons.forEach(function (btn) {
           var on = btn.getAttribute('data-session') === panels[0].getAttribute('data-session-detail-panel');
           btn.setAttribute('data-active', String(on));
-          btn.setAttribute('aria-selected', String(on));
           var colour = on ? '#DE2C00' : '#020522';
           var title = btn.querySelector('[data-session-title]');
           var num = btn.querySelector('[data-session-num]');
@@ -576,6 +693,7 @@
       if (mq.matches === mobile) return;
       mobile = mq.matches;
       if (mobile) toMobile(); else toDesktop();
+      setRoles(!mobile);
     }
 
     /* On mobile a second tap on the open chapter closes it. The tab
@@ -589,7 +707,6 @@
         if (btn.getAttribute('data-expanded') === 'true') {
           panel.hidden = true;
           btn.setAttribute('data-active', 'false');
-          btn.setAttribute('aria-selected', 'false');
           var title = btn.querySelector('[data-session-title]');
           var num = btn.querySelector('[data-session-num]');
           if (title) title.style.color = '#020522';
@@ -611,6 +728,39 @@
     });
   }
 
+  /* Screen-reader hint on links that open a new tab; the arrow glyph is visual only */
+  function initNewTabLinks() {
+    document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+      if (a.getAttribute("aria-hidden") === "true") return;
+      var hint = " (opens in new tab)";
+      if (a.hasAttribute("aria-label")) {
+        a.setAttribute("aria-label", a.getAttribute("aria-label") + hint);
+        return;
+      }
+      var walker = document.createTreeWalker(a, NodeFilter.SHOW_TEXT);
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function (node) {
+        var parts = node.textContent.split(/([\u2197\u2192])/);
+        if (parts.length === 1) return;
+        var frag = document.createDocumentFragment();
+        parts.forEach(function (part) {
+          if (part === "\u2197" || part === "\u2192") {
+            var glyph = document.createElement("span");
+            glyph.setAttribute("aria-hidden", "true");
+            glyph.textContent = part;
+            frag.appendChild(glyph);
+          } else if (part) frag.appendChild(document.createTextNode(part));
+        });
+        node.parentNode.replaceChild(frag, node);
+      });
+      var sr = document.createElement("span");
+      sr.className = "sr-only";
+      sr.textContent = hint;
+      a.appendChild(sr);
+    });
+  }
+
   function boot() {
     initVoices();
     initStoryTimeline();
@@ -623,6 +773,8 @@
     initMobileNav();
     initStickyHeader();
     initNavCurrent();
+    initNavMenus();
+    initNewTabLinks();
   }
 
   if (document.readyState === "loading") {

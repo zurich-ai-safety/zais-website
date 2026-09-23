@@ -13,11 +13,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260923085430">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260923190000">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="main">
+<div>
 <div style="background:#F7F3E7;color:#020522;min-height:100vh;overflow-x:hidden">
 
 
@@ -29,9 +29,9 @@
         <a href="/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Home</a>
 
         <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="activities">
-          <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;cursor:default"><span style="display:inline-flex;align-items:center;gap:6px">Activities <span style="font-size:10px;opacity:0.8">▾</span></span></span>
+          <button type="button" aria-expanded="false" aria-controls="activities-menu" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;background:none;border:0;padding:0;cursor:pointer"><span style="display:inline-flex;align-items:center;gap:6px">Activities <span aria-hidden="true" style="font-size:10px;opacity:0.8">▾</span></span></button>
           
-            <div data-dropdown="activities" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
+            <div data-dropdown="activities" id="activities-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
               <a href="/programmes/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
               <a href="/programmes/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
               <a href="/programmes/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
@@ -78,6 +78,7 @@
     <div class="mobile-nav-bottom-row"><a href="/get-involved/" class="mobile-nav-cta">Get Involved</a><button type="button" class="set-toggle" aria-pressed="false" aria-label="Switch background theme"><span class="set-toggle-dot"></span></button></div>
   </div>
 
+<main id="main" tabindex="-1">
 <section id="top" data-screen-label="About Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
   <div class="gradient" data-set="C" id="hero-gradient">
     <div class="gradient-layer gl-base"></div>
@@ -240,7 +241,7 @@
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c1.8-1 4.2-1 6 0v13c-1.8-1-4.2-1-6 0v-13z"/><path d="M20 5.5c-1.8-1-4.2-1-6 0v13c1.8-1 4.2-1 6 0v-13z"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
             <div style="display:inline-block;background:#020522;color:#F7F3E7;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">2022</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">The reading group</h3>
@@ -251,7 +252,7 @@
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14" rx="1.5"/><path d="M4 9.5h16"/><path d="M8 3.5v4M16 3.5v4"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg></div>
             <div style="display:inline-block;background:#020522;color:#F7F3E7;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">2022–23</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">First programmes</h3>
@@ -262,7 +263,7 @@
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5l-2 7 5-2.5 5 2.5-2-7"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></svg></div>
             <div style="display:inline-block;background:#020522;color:#F7F3E7;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">16 Jul 2025</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">Association founded</h3>
@@ -273,19 +274,19 @@
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#DE2C00;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v16"/><path d="M6 4.5c3-1.5 5 1.5 8 0v8c-3 1.5-5-1.5-8 0v-8.5z"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#DE2C00;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"/><path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"/><path d="M18 9h1.5a1 1 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6 9H4.5a1 1 0 0 1 0-5H6"/></svg></div>
             <div style="display:inline-block;background:#DE2C00;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">27 Sep 2025</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">Zurich AI Safety Day</h3>
           <p style="font-size:15px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;text-wrap:pretty">The first full-day event, run with BlueDot Impact and still entirely volunteer-led. Over 350 applications, more than 200 participants, 21 organisations, and Best Event at Swiss AI Weeks 2025 (out of 240).</p>
-          <div style="display:flex;gap:20px"><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">350+</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Applications</div></div><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">200+</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Participants</div></div></div>
+          <div style="display:flex;gap:20px"><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">350+</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Applications</div></div><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">200+</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Participants</div></div></div>
         </div>
       </li>
       <li class="timeline-milestone">
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/><path d="M12 8v8M9.5 9.5c0-1 1-1.8 2.5-1.8s2.5.7 2.5 1.7c0 2.3-5 1-5 3.3 0 1 1 1.8 2.5 1.8s2.5-.8 2.5-1.8"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 16 6 6"/><circle cx="16" cy="9" r="2.9"/><circle cx="6" cy="5" r="3"/></svg></div>
             <div style="display:inline-block;background:#020522;color:#F7F3E7;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">Feb 2026</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">First institutional grant</h3>
@@ -296,19 +297,19 @@
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#DE2C00;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5.5 20V10L12 5l6.5 5v10"/><path d="M9.5 20v-6h5v6"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#DE2C00;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg></div>
             <div style="display:inline-block;background:#DE2C00;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">7–8 Nov 2026</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">Swiss AI Safety Days</h3>
           <p style="font-size:15px;line-height:1.7;color:rgba(2,5,34,0.78);margin:0;text-wrap:pretty">Two days at ETH Zurich, and one of the largest AI safety conferences in Europe. Around 300 researchers, engineers and policy people, 30 organisations exhibiting. The continuation of the first successful edition in 2025.</p>
-          <div style="display:flex;gap:20px"><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">300</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Attendees</div></div><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">30</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Organisations</div></div></div>
+          <div style="display:flex;gap:20px"><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">300</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Attendees</div></div><div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:20px;color:#DE2C00;line-height:1">30</div><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(2,5,34,0.55);margin-top:4px;white-space:nowrap">Organisations</div></div></div>
         </div>
       </li>
       <li class="timeline-milestone timeline-milestone-accent">
         <span class="timeline-node"></span>
         <div class="timeline-copy">
           <div class="timeline-meta">
-            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M6 18V9"/><path d="M11 18V5"/><path d="M16 18v-7"/><path d="M21 18V7"/></svg></div>
+            <div style="width:36px;height:36px;border-radius:100px;background:#020522;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div style="display:inline-block;background:#020522;color:#FFFFFF;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;padding:5px 10px">2026 and beyond</div>
           </div>
           <h3 data-reveal style="font-size:clamp(19px,2vw,24px);line-height:1.25;letter-spacing:-0.01em;font-weight:400;color:#020522;margin:0;text-wrap:pretty">Technical talent transition and strong collaboration</h3>
@@ -341,19 +342,19 @@
     <div style="margin-top:clamp(2.5rem,4vw,3.5rem);border-top:1.5px dashed rgba(255,255,255,0.28);border-bottom:1.5px dashed rgba(255,255,255,0.28);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#1</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">World's leading talent hub</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">World's leading talent hub</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#2</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">AI engineer density in Europe</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">AI engineer density in Europe</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">7/10</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Top global AI companies here</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Top global AI companies here</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#8</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Best university in the world: ETH Zurich</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Best university in the world: ETH Zurich</div>
       </div>
     </div>
   </div>
@@ -366,12 +367,12 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,64px);align-items:start">
       <div style="min-width:0">
         <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,0.82);margin:0 0 20px;max-width:640px;text-wrap:pretty">Much of ZAIS's community life happens at PEAKS, a coworking space in the heart of Zurich for people working in AI safety and effective altruism. The space offers meeting rooms and a library of AI safety and EA reading — plus a steady calendar of talks, lightning events, and casual coworking sessions run together with groups like EA Zurich and Apollo Research.</p>
-        <a href="https://peaks-office.ch" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;margin-top:8px;padding:15px 30px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-size:15px;font-weight:500" data-hv="hv11">Visit us at PEAKS →</a>
+        <a href="https://peaks-office.ch" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;margin-top:8px;padding:15px 30px;border:1.5px dashed rgba(255,255,255,0.85);border-radius:100px;color:#FFFFFF;font-size:15px;font-weight:400" data-hv="hv3">Visit us at PEAKS →</a>
       </div>
       <div style="min-width:0;border:1px solid rgba(255,255,255,0.22);display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.72)">
           <span style="line-height:1.6">Zeughausstrasse 31 / 3. Stock<br>8004 Zürich</span>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Zeughausstrasse+31,+8004+Z%C3%BCrich" target="_blank" rel="noopener noreferrer" style="color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.45)" data-hv="hv5">Google Maps →</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Zeughausstrasse+31,+8004+Z%C3%BCrich" target="_blank" rel="noopener noreferrer" style="color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.45)" data-hv="hv1">Google Maps →</a>
         </div>
       </div>
     </div>
@@ -411,6 +412,8 @@
   </div>
 </section>
 
+</main>
+
 <footer data-screen-label="Footer" style="background:#020522">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2.25rem,3.5vw,3rem)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(1.5rem,3vw,2.5rem)">
@@ -449,19 +452,19 @@
     </div>
     <div style="margin-top:clamp(2rem,4vw,3rem);padding-top:20px;border-top:1px dashed rgba(247,243,231,0.18);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
-        <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Luma</a>
-        <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">WhatsApp</a>
-        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">YouTube</a>
+        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">LinkedIn</a>
+        <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">Luma</a>
+        <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">WhatsApp</a>
+        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">YouTube</a>
       </div>
-      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.4)">© 2026 Zurich AI Safety</div>
+      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.55)">© 2026 Zurich AI Safety</div>
     </div>
   </div>
 </footer>
 
 </div>
 </div>
-<script src="/assets/js/site.js?v=20260923085430" defer></script>
+<script src="/assets/js/site.js?v=20260923190000" defer></script>
 
 </body>
 </html>

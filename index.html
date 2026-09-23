@@ -13,11 +13,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260923085430">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260923190000">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="main">
+<div>
 <div style="background:#F7F3E7;min-height:100vh;overflow-x:hidden">
 
   <header class="site-header" style="position:fixed;top:0;left:0;right:0;z-index:100">
@@ -27,9 +27,9 @@
         <a href="/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Home</a>
 
         <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="activities">
-          <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;cursor:default"><span style="display:inline-flex;align-items:center;gap:6px">Activities <span style="font-size:10px;opacity:0.8">▾</span></span></span>
+          <button type="button" aria-expanded="false" aria-controls="activities-menu" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;background:none;border:0;padding:0;cursor:pointer"><span style="display:inline-flex;align-items:center;gap:6px">Activities <span aria-hidden="true" style="font-size:10px;opacity:0.8">▾</span></span></button>
           
-            <div data-dropdown="activities" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
+            <div data-dropdown="activities" id="activities-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
               <a href="/programmes/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
               <a href="/programmes/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
               <a href="/programmes/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
@@ -76,6 +76,7 @@
     <div class="mobile-nav-bottom-row"><a href="/get-involved/" class="mobile-nav-cta">Get Involved</a><button type="button" class="set-toggle" aria-pressed="false" aria-label="Switch background theme"><span class="set-toggle-dot"></span></button></div>
   </div>
 
+<main id="main" tabindex="-1">
 <section data-screen-label="Hero (4322 blue)" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#0A1240;background-image:radial-gradient(62% 128% at -4% 10%, #1E2FB4 0%, rgba(27,43,180,0.97) 30%, rgba(22,36,148,0.80) 52%, rgba(14,22,86,0.26) 72%, rgba(10,18,64,0) 88%), radial-gradient(46% 72% at 20% 98%, rgba(46,107,245,0.52) 0%, rgba(30,47,180,0.16) 52%, rgba(10,18,64,0) 82%), radial-gradient(72% 112% at 114% 0%, #BBD2F4 0%, rgba(159,193,242,0.58) 45%, rgba(159,193,242,0) 86%), linear-gradient(120deg, #141A6E 0%, #1E2FB4 18%, #2E6BF5 46%, #7FA8E8 70%, #C3D9FA 100%)">
 
   <div class="gradient" data-set="C">
@@ -217,7 +218,7 @@
     #wts .wts-media > span { position:absolute; inset:0; background-size:cover; background-position:center; background-repeat:no-repeat; }
   </style>
   <div style="max-width:80rem;margin:0 auto;padding:clamp(40px,4vw,56px) 0 clamp(64px,8vw,104px)">
-    <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)"><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin-bottom:clamp(2.5rem,4.5vw,3.5rem)">Where To Start</div></div>
+    <div style="max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)"><h2 style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#DE2C00;padding-bottom:14px;border-bottom:1px solid rgba(2,5,34,0.16);margin:0 0 clamp(2.5rem,4.5vw,3.5rem)">Where To Start</h2></div>
 
     <div data-drag-scroll style="display:flex;gap:clamp(20px,3vw,32px);overflow-x:auto;padding:4px clamp(1.25rem,4vw,2.5rem) 12px">
       <div class="wts-card" style="flex:0 0 auto;width:clamp(260px,28vw,320px);display:flex;flex-direction:column;gap:16px">
@@ -347,23 +348,23 @@
     <div class="why-stats" data-stat-slider style="margin-top:clamp(2.5rem,4vw,3.5rem);border-top:1.5px dashed rgba(255,255,255,0.28);border-bottom:1.5px dashed rgba(255,255,255,0.28);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#1</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">World's leading talent hub</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">World's leading talent hub</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#2</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">AI engineer density in Europe</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">AI engineer density in Europe</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center;border-right:1.5px dashed rgba(255,255,255,0.28)">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">7/10</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Top global AI companies here</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Top global AI companies here</div>
       </div>
       <div style="padding:clamp(2rem,3.5vw,2.75rem) 24px;text-align:center">
         <div style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-0.02em;color:#FFFFFF;line-height:1">#7</div>
-        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Best university in the world: ETH Zurich</div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-top:clamp(8px,1vw,14px);line-height:1.6">Best university in the world: ETH Zurich</div>
       </div>
     </div>
     <div class="stat-dots" data-stat-dots aria-hidden="true"></div>
-    <p style="margin:clamp(14px,1.6vw,20px) 0 0;text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.06em;line-height:1.7;color:rgba(255,255,255,0.42)">Sources: Stanford AI Index 2026 (researchers and inventors per capita, Switzerland) · Sequoia Atlas (AI talent density, Zurich) · QS World University Rankings 2026</p>
+    <p style="margin:clamp(14px,1.6vw,20px) 0 0;text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.06em;line-height:1.7;color:rgba(255,255,255,0.6)">Sources: Stanford AI Index 2026 (researchers and inventors per capita, Switzerland) · Sequoia Atlas (AI talent density, Zurich) · QS World University Rankings 2026</p>
   </div>
 </section>
 
@@ -486,9 +487,9 @@
 
     </div></div>
     <div style="display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:clamp(2.5rem,4.5vw,3.5rem)">
-      <span style="margin-right:auto;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:rgba(2,5,34,0.55)"><span data-slide-label>1 / 2</span></span>
-      <a role="button" tabindex="0" data-action="prevSlide" aria-label="Previous" class="carousel-arrow">←</a>
-      <a role="button" tabindex="0" data-action="nextSlide" aria-label="Next" class="carousel-arrow">→</a>
+      <span aria-live="polite" aria-atomic="true" style="margin-right:auto;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:rgba(2,5,34,0.55)"><span class="sr-only">Page </span><span data-slide-label>1 / 2</span></span>
+      <button type="button" data-action="prevSlide" aria-label="Previous testimonials" class="carousel-arrow">←</button>
+      <button type="button" data-action="nextSlide" aria-label="Next testimonials" class="carousel-arrow">→</button>
     </div>
   </div>
 </section>
@@ -503,7 +504,7 @@
         <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:13px 26px;border:1.5px dashed #DE2C00;border-radius:100px;color:#DE2C00;font-size:14px;font-weight:500;transition:background 0.2s ease,color 0.2s ease" data-hv="hv9">View full calendar</a>
       </div>
       <div style="flex:1 1 52%;min-width:min(100%,320px)">
-        <iframe src="https://lu.ma/embed/calendar/cal-jsHCkgSvHjHTPe9/events?lt=light" width="100%" height="520" frameborder="0" style="border:1px solid rgba(2,5,34,0.18)" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <iframe src="https://lu.ma/embed/calendar/cal-jsHCkgSvHjHTPe9/events?lt=light" width="100%" height="520" frameborder="0" style="border:1px solid rgba(2,5,34,0.18)" allowfullscreen="" title="Upcoming ZAIS events"></iframe>
       </div>
     </div>
   </div>
@@ -535,6 +536,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer data-screen-label="Footer" style="background:#020522">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2.25rem,3.5vw,3rem)">
@@ -574,19 +577,19 @@
     </div>
     <div style="margin-top:clamp(2rem,4vw,3rem);padding-top:20px;border-top:1px dashed rgba(247,243,231,0.18);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
-        <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Luma</a>
-        <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">WhatsApp</a>
-        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">YouTube</a>
+        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">LinkedIn</a>
+        <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">Luma</a>
+        <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">WhatsApp</a>
+        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">YouTube</a>
       </div>
-      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.4)">© 2026 Zurich AI Safety</div>
+      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.55)">© 2026 Zurich AI Safety</div>
     </div>
   </div>
 </footer>
 
 </div>
 </div>
-<script src="/assets/js/site.js?v=20260923085430" defer></script>
-<script src="/assets/js/hero-binary.js?v=20260923085430" defer></script>
+<script src="/assets/js/site.js?v=20260923190000" defer></script>
+<script src="/assets/js/hero-binary.js?v=20260923190000" defer></script>
 </body>
 </html>

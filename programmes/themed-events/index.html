@@ -13,11 +13,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260923085430">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260923190000">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="main">
+<div>
 <div style="background:#F7F3E7;color:#020522;min-height:100vh;overflow-x:hidden">
 
 
@@ -29,9 +29,9 @@
         <a href="/" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF" data-hv="hv1">Home</a>
 
         <div style="position:relative;align-self:stretch;min-height:80px;display:flex;align-items:center" data-menu="activities">
-          <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;cursor:default"><span style="display:inline-flex;align-items:center;gap:6px;border-bottom:1.5px solid #FFFFFF;padding-bottom:2px">Activities <span style="font-size:10px;opacity:0.8">▾</span></span></span>
+          <button type="button" aria-expanded="false" aria-controls="activities-menu" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;display:inline-flex;align-items:center;background:none;border:0;padding:0;cursor:pointer"><span style="display:inline-flex;align-items:center;gap:6px" data-nav-current="true">Activities <span aria-hidden="true" style="font-size:10px;opacity:0.8">▾</span></span></button>
           
-            <div data-dropdown="activities" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
+            <div data-dropdown="activities" id="activities-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:1px;z-index:60"><div style="background:#FFFFFF;border:1px solid rgba(2,5,34,0.14);min-width:252px;padding:8px 0;box-shadow:0 14px 34px rgba(42,17,8,0.2)">
               <a href="/programmes/open-meetups/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Open Meetups</a>
               <a href="/programmes/ai-futures/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">AI Futures</a>
               <a href="/programmes/themed-events/" style="display:block;padding:11px 20px;font-family:'Inter',sans-serif;font-size:14px;color:#020522" data-hv="hv2">Themed Events</a>
@@ -77,6 +77,7 @@
     </nav>
     <div class="mobile-nav-bottom-row"><a href="/get-involved/" class="mobile-nav-cta">Get Involved</a><button type="button" class="set-toggle" aria-pressed="false" aria-label="Switch background theme"><span class="set-toggle-dot"></span></button></div>
   </div>
+<main id="main" tabindex="-1">
 <section data-screen-label="Themed Events Hero" style="position:relative;width:100%;overflow:hidden;isolation:isolate;background-color:#C7C0B6">
   <div class="gradient" data-set="C" id="hero-gradient">
     <div class="gradient-layer gl-base"></div>
@@ -95,7 +96,7 @@
 </section>
 
 <section data-screen-label="What and Who" style="background:#FFFFFF">
-  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:start"><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">What is it for?</h3><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">One evening on one subject, every Tuesday. Each session runs for 90 minutes and stands alone. What is on depends on the week:</p><div style="display:flex;flex-direction:column;gap:0;max-width:720px;margin:0 0 18px"><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">A recent paper, introduced briefly and then discussed</div></div><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">A topic too big for one paper, like Europe 2031</div></div><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">An invited speaker on their own work</div></div><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">A workshop, where people bring their own projects</div></div></div></div><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">Who is it for?</h3><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">It depends on the session. Paper weeks assume some background in machine learning and AI safety. Our <a href="/programmes/ai-safety-fundamentals/" style="color:#DE2C00">AI Safety Fundamentals</a> course is roughly the bar. Topic weeks and speaker events are usually open to anyone interested, whatever you have read.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0;max-width:720px;text-wrap:pretty">There's no sign-up beyond registering on our <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="color:#DE2C00">Luma calendar</a>, where you'll also find each week's topic.</p></div></div></div>
+  <div style="max-width:80rem;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(1.25rem,4vw,2.5rem)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:start"><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">What is it for?</h3><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">One evening on one subject, every Tuesday. Each session runs for 90 minutes and stands alone. What is on depends on the week:</p><div style="display:flex;flex-direction:column;gap:0;max-width:720px;margin:0 0 18px"><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">A recent paper, introduced briefly and then discussed</div></div><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">A topic too big for one paper, like Europe 2031</div></div><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">An invited speaker on their own work</div></div><div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(2,5,34,0.2)"><span style="width:7px;height:7px;background:#DE2C00;flex:none;margin-top:9px"></span><div style="font-size:16px;line-height:1.7;color:rgba(2,5,34,0.78)">A workshop, where people bring their own projects</div></div></div></div><div><h3 data-reveal style="font-size:13px;font-weight:500;letter-spacing:0.1em;font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;color:#DE2C00;margin:0 0 16px">Who is it for?</h3><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0 0 18px;max-width:720px;text-wrap:pretty">It depends on the session. Paper weeks assume some background in machine learning and AI safety. Our <a href="/programmes/ai-safety-fundamentals/" style="color:#DE2C00;text-decoration:underline;text-decoration-color:rgba(222,44,0,0.4);text-underline-offset:3px">AI Safety Fundamentals</a> course is roughly the bar. Topic weeks and speaker events are usually open to anyone interested, whatever you have read.</p><p style="font-size:16px;line-height:1.75;color:rgba(2,5,34,0.78);margin:0;max-width:720px;text-wrap:pretty">There's no sign-up beyond registering on our <a href="https://luma.com/zais" target="_blank" rel="noopener noreferrer" style="color:#DE2C00;text-decoration:underline;text-decoration-color:rgba(222,44,0,0.4);text-underline-offset:3px">Luma calendar</a>, where you'll also find each week's topic.</p></div></div></div>
 </section>
 
 <section data-screen-label="Past Events" style="display:none;background:#F1EBDA">
@@ -119,6 +120,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer data-screen-label="Footer" style="background:#020522">
   <div style="max-width:80rem;margin:0 auto;padding:clamp(3rem,5vw,4.5rem) clamp(1.25rem,4vw,2.5rem) clamp(2.25rem,3.5vw,3rem)">
@@ -158,19 +161,19 @@
     </div>
     <div style="margin-top:clamp(2rem,4vw,3rem);padding-top:20px;border-top:1px dashed rgba(247,243,231,0.18);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">LinkedIn</a>
-        <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">Luma</a>
-        <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">WhatsApp</a>
-        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv10">YouTube</a>
+        <a href="https://www.linkedin.com/company/zurich-ai-safety/posts/" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">LinkedIn</a>
+        <a href="https://luma.com/zais" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">Luma</a>
+        <a href="https://chat.whatsapp.com/HWwskmj1pO4B9sbEyP1Khk" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">WhatsApp</a>
+        <a href="https://www.youtube.com/@ZurichAISafetyYT" target="_blank" rel="noopener" style="border:1.5px dashed rgba(247,243,231,0.35);border-radius:100px;padding:7px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.8)" data-hv="hv3">YouTube</a>
       </div>
-      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.4)">© 2026 Zurich AI Safety</div>
+      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(247,243,231,0.55)">© 2026 Zurich AI Safety</div>
     </div>
   </div>
 </footer>
 
 </div>
 </div>
-<script src="/assets/js/site.js?v=20260923085430" defer></script>
+<script src="/assets/js/site.js?v=20260923190000" defer></script>
 
 </body>
 </html>
