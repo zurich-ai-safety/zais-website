@@ -611,11 +611,44 @@
     });
   }
 
+  /* ---- Programme hero facts: edge fade on phones --------------------- */
+  /* The fact row scrolls sideways under 600px with a fade on the right
+     edge. This just clears the fade once the row is scrolled to its end,
+     so the last item never stays half-hidden. */
+
+  function initHeroMeta() {
+    var rows = document.querySelectorAll('.hero-meta');
+    if (!rows.length) return;
+    Array.prototype.forEach.call(rows, function (row) {
+      function paint() {
+        var atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 2;
+        var fits = row.scrollWidth <= row.clientWidth + 2;
+        row.classList.toggle('is-at-end', atEnd || fits);
+      }
+      row.addEventListener('scroll', paint, { passive: true });
+      window.addEventListener('resize', paint);
+      paint();
+    });
+  }
+
+  /* ---- Nav flyout: open on the word, not the column ------------------ */
+  function initMenus() {
+    var menus = document.querySelectorAll('[data-menu]');
+    Array.prototype.forEach.call(menus, function (menu) {
+      var label = menu.querySelector(':scope > span > span');
+      if (!label) return;
+      label.addEventListener('mouseenter', function () { menu.classList.add('is-open'); });
+      menu.addEventListener('mouseleave', function () { menu.classList.remove('is-open'); });
+    });
+  }
+
   function boot() {
     initVoices();
     initStoryTimeline();
     initSessionTabs();
     initSessionFlyout();
+    initHeroMeta();
+    initMenus();
     initStatSlider();
     initHeroToggle();
     initScrollReveal();

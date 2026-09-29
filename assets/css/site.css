@@ -8,7 +8,7 @@
    motion and the mobile breakpoints.
    ========================================================================= */
 
-@import url("./hover.css?v=20260923085430");
+@import url("./hover.css?v=20260929091429");
 
 /* ---------- 1. Base ------------------------------------------------------ */
 
@@ -220,14 +220,14 @@ img, canvas { display: block; max-width: 100%; }
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
 }
 
-/* Open on the label itself (or the open menu), not on the whole stretched
-   column - the wrapper is the full height of the header, so hovering anywhere
-   in that strip used to trigger it. The label is stretched to full height so
-   there is no gap to cross on the way down to the menu. */
+/* The menu opens only when the pointer is on the word itself (site.js adds
+   .is-open on mouseenter of the inner label). The outer span still spans the
+   full header height, but only as a bridge: once open, the menu stays open
+   while the pointer travels down through that strip into the list, and
+   closes on mouseleave of the whole wrapper. Keyboard: focus-within. */
 [data-menu] > span { align-self: stretch; }
 
-[data-menu] > span:hover + [data-dropdown] > div,
-[data-menu] > [data-dropdown]:hover > div,
+[data-menu].is-open > [data-dropdown] > div,
 [data-menu]:focus-within > [data-dropdown] > div {
   opacity: 1;
   visibility: visible;
@@ -943,5 +943,40 @@ h3.reveal-pending + p.reveal-pending {
   [data-voice-card] a[data-hv="hv9"] {
     width: 28px !important;
     height: 28px !important;
+  }
+}
+
+/* Programme hero facts (Duration / Frequency / Cost / Location): on phones
+   the four items no longer wrap into a ragged 2x2 block. They sit in one
+   row that scrolls sideways, each item snapping into place, with the last
+   one fading at the edge as the cue that there is more. On wider screens
+   nothing changes: the row still wraps as before. */
+@media (max-width: 600px) {
+  .hero-meta {
+    flex-wrap: nowrap !important;
+    gap: 28px !important;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* bleed to the screen edge so the fade reads as "cut off", not as a box */
+    margin-left: calc(-1 * clamp(1.25rem, 4vw, 2.5rem)) !important;
+    margin-right: calc(-1 * clamp(1.25rem, 4vw, 2.5rem)) !important;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem) !important;
+    padding-right: clamp(1.25rem, 4vw, 2.5rem) !important;
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 44px), transparent 100%);
+            mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 44px), transparent 100%);
+  }
+  .hero-meta::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  .hero-meta > div {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+  /* once scrolled to the end, drop the fade so the last item is fully legible */
+  .hero-meta.is-at-end {
+    -webkit-mask-image: none;
+            mask-image: none;
   }
 }
