@@ -8,7 +8,7 @@
    motion and the mobile breakpoints.
    ========================================================================= */
 
-@import url("./hover.css?v=20260929091429");
+@import url("./hover.css?v=20260929093754");
 
 /* ---------- 1. Base ------------------------------------------------------ */
 
@@ -47,6 +47,19 @@ img, canvas { display: block; max-width: 100%; }
   font-weight: 500;
 }
 .skip-link:focus { left: 0; color: #FFFFFF; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+main:focus { outline: none; }
 
 /* ---------- 2. Hero gradient (sitewide) ------------------------------------ */
 
@@ -175,7 +188,8 @@ img, canvas { display: block; max-width: 100%; }
    the contents have to flip to ink. The link colours are inline styles, so
    these need !important to win. */
 .site-header.is-compact a,
-.site-header.is-compact nav span { color: #020522 !important; }
+.site-header.is-compact nav span,
+.site-header.is-compact nav button { color: #020522 !important; }
 .site-header.is-compact a[href="/get-involved/"] {
   border-color: rgba(2,5,34,0.45) !important;
 }
@@ -221,13 +235,22 @@ img, canvas { display: block; max-width: 100%; }
 }
 
 /* The menu opens only when the pointer is on the word itself (site.js adds
-   .is-open on mouseenter of the inner label). The outer span still spans the
-   full header height, but only as a bridge: once open, the menu stays open
-   while the pointer travels down through that strip into the list, and
-   closes on mouseleave of the whole wrapper. Keyboard: focus-within. */
-[data-menu] > span { align-self: stretch; }
+   .is-open on mouseenter of the label's inner span), on click/keyboard
+   (data-open, also site.js), or on keyboard focus. The button still spans
+   the full header height, but only as a bridge: once open, the menu stays
+   open while the pointer travels down through that strip into the list. */
+[data-menu] > button { align-self: stretch; }
+
+/* Hidden menu wrapper shouldn't catch hover */
+[data-dropdown] { pointer-events: none; }
+[data-menu].is-open > [data-dropdown],
+[data-menu] > [data-dropdown]:hover,
+[data-menu][data-open] > [data-dropdown],
+[data-menu]:focus-within > [data-dropdown] { pointer-events: auto; }
 
 [data-menu].is-open > [data-dropdown] > div,
+[data-menu] > [data-dropdown]:hover > div,
+[data-menu][data-open] > [data-dropdown] > div,
 [data-menu]:focus-within > [data-dropdown] > div {
   opacity: 1;
   visibility: visible;
@@ -239,10 +262,27 @@ img, canvas { display: block; max-width: 100%; }
 /* Current-page underline, applied dynamically by initNavCurrent() in
    site.js (compares location.pathname to each top-level link's href)
    instead of being hardcoded per page. */
-header nav > a[data-nav-current] {
-  border-bottom: 1.5px solid #FFFFFF;
-  padding-bottom: 2px;
+header nav > a,
+[data-menu] [data-nav-current] { position: relative; }
+header nav [data-nav-current]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1.5px;
+  background: currentColor;
+  pointer-events: none;
 }
+/* Bigger hit area, no layout change */
+header nav > a::before {
+  content: "";
+  position: absolute;
+  inset: -14px -8px;
+  transition: transform 0.2s ease;
+}
+/* Cancel the hv1 lift so the hit area stays put */
+header nav > a:hover::before { transform: translateY(1px); }
 .mobile-nav-links > a[data-nav-current] {
   align-self: flex-start;
   border-bottom: 1.5px solid #020522;
@@ -393,12 +433,19 @@ body.hide-editorial-notes .editorial-note { display: none; }
   align-items: center;
   justify-content: center;
   padding: 15px 30px;
-  border: 1.5px dashed #DE2C00;
+  border: 1.5px dashed rgba(2,5,34,0.45);
   border-radius: 100px;
-  color: #DE2C00;
+  color: #020522;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.mobile-nav-cta:hover,
+.mobile-nav-cta:active {
+  background: #020522;
+  border-color: #020522;
+  color: #FFFFFF;
 }
 body.mobile-nav-open { overflow: hidden; }
 
@@ -411,6 +458,7 @@ body.mobile-nav-open { overflow: hidden; }
     display: none !important;
   }
   .menu-toggle { display: flex; }
+  header > div > div[style*="justify-self:end"] { grid-column: 3; }
 }
 
 @media (max-width: 720px) {
@@ -653,6 +701,7 @@ h3.reveal-pending + p.reveal-pending {
   color: #DE2C00;
   font: 14px 'Inter', sans-serif;
   cursor: pointer;
+  padding: 0;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .carousel-arrow:hover,
