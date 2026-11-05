@@ -60,6 +60,8 @@ Browsers cache `site.css` aggressively and you will chase phantom bugs otherwise
 | `/events/` | ZAIS Luma Calendar |
 | `/ai-safety-fundamentals/` | ZAIS AI Safety Fundamentals |
 | `/ai-futures/` | ZAIS AI Futures Discussions |
+| `/professionals/` | Not from the export: landing page for mid-career professionals (hidden, see below) |
+| `/professionals/guide/` | Not from the export: the longer guide behind it (hidden, see below) |
 
 ```
 assets/css/site.css     Base, disclosure, breakpoints, hero gradient, reduced motion
@@ -160,6 +162,11 @@ Expected: no `OVERFLOW` warnings, and `all N links and assets OK`.
   the result rather than asserting the change is fine.
 - The site works with JavaScript disabled apart from the two carousels and the hero animation.
   Keep it that way.
+- **`/professionals/` and `/professionals/guide/` are hidden on purpose.** Both carry
+  `<meta name="robots" content="noindex">` and are not linked from the navbar, because they roll
+  out in batches through UTM-tagged links (`utm_campaign=professionals&utm_content=batch-1`) from
+  November 2026. **At full rollout, remove the robots tag from both pages** and add them to the
+  navbar (About ▾ / Resources ▾ mockups exist). They are plain HTML now; edit them directly.
 
 ---
 
